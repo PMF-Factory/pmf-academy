@@ -89,8 +89,7 @@ body::before { content:""; position:fixed; inset:0 0 auto; height:env(safe-area-
 .powered { display:flex; flex-wrap:wrap; align-items:center; gap:var(--s4) var(--s8); padding-top:var(--s6); border-top:1px solid var(--line); margin-top:var(--s2); }
 .powered .caption { text-transform:uppercase; letter-spacing:.12em; font-weight:600; font-size:11px; }
 .logo-pmff { height:40px; width:auto; display:block; color:var(--ink); }
-.pmff-cube { fill:var(--pmff); }
-.powered .pmff-cube { fill:currentColor; }
+.pmff-cube { fill:currentColor; }
 .logo-sictic { display:inline-flex; align-items:baseline; gap:var(--s2); text-decoration:none; }
 .logo-sictic b { font:700 24px/1 var(--font-display); letter-spacing:.06em; }
 .logo-sictic span { font-size:12px; line-height:1; color:var(--ink-muted); }
@@ -154,26 +153,41 @@ body::before { content:""; position:fixed; inset:0 0 auto; height:env(safe-area-
 .extra::before { content:"+"; font:700 26px/26px var(--font-display); color:var(--red); }
 
 /* PMF Check */
-.check { display:grid; gap:var(--s12); }
-@media (min-width:960px) { .check { grid-template-columns:8fr 4fr; gap:var(--s16); align-items:start; } }
-.q { border:0; margin:0; padding:var(--s4) 0; border-bottom:1px solid var(--line); min-width:0; }
-.q:first-child { border-top:1px solid var(--line); }
-.q legend { float:left; width:100%; padding:0; margin-bottom:var(--s3); font-size:16px; line-height:24px; font-weight:600; display:grid; grid-template-columns:32px 1fr; }
-.q legend .i { font:500 13px/24px var(--font-mono); color:var(--ink-muted); }
-.opts { clear:both; display:flex; flex-wrap:wrap; gap:var(--s2); padding-left:32px; }
-.opts label { position:relative; }
+.qgrid { display:grid; gap:var(--s4); }
+@media (min-width:700px) { .qgrid { grid-template-columns:repeat(2, 1fr); } }
+@media (min-width:1080px) { .qgrid { grid-template-columns:repeat(3, 1fr); gap:var(--s6); } }
+.q { border:0; margin:0; padding:var(--s6); min-width:0; background:var(--surface); border-top:3px solid var(--line); display:grid; gap:var(--s4); align-content:start; transition:border-color .15s linear, background-color .15s linear; }
+.q.is-done { border-top-color:var(--ink); background:var(--paper); box-shadow:inset 0 0 0 1px var(--line); }
+.q legend { float:left; width:100%; padding:0; display:grid; gap:var(--s2); }
+.q legend .i { font:700 40px/1 var(--font-display); letter-spacing:-.03em; color:var(--line-strong); transition:color .15s linear; }
+.q.is-done legend .i { color:var(--red); }
+.q legend .s { font:600 17px/24px var(--font-body); min-height:72px; }
+.opts { clear:both; display:grid; grid-template-columns:1fr 1fr; gap:var(--s2); }
+.opts label { position:relative; display:block; }
 .opts input { position:absolute; inset:0; opacity:0; margin:0; cursor:pointer; }
-.opts span { display:inline-block; font:600 13px/18px var(--font-body); padding:var(--s2) var(--s4); border-radius:999px; border:1px solid var(--line-strong); transition:background-color .12s linear; }
+.opts span { display:flex; align-items:center; gap:var(--s2); height:100%; font:600 13px/18px var(--font-body); padding:var(--s2) var(--s3); border-radius:2px; border:1px solid var(--line-strong); background:var(--paper); transition:background-color .12s linear, border-color .12s linear; }
+.opts span::before { content:""; flex:none; width:10px; height:10px; border:1.5px solid var(--line-strong); border-radius:50%; }
 .opts label:hover span { border-color:var(--ink); }
-.opts input:checked + span { background:var(--red); border-color:var(--red); color:var(--on-red); }
+.opts input:checked + span { background:var(--ink); border-color:var(--ink); color:var(--paper); }
+.opts input:checked + span::before { background:var(--red); border-color:var(--red); }
 .opts input:focus-visible + span { outline:2px solid var(--focus); outline-offset:2px; }
-.score { position:sticky; top:96px; border:1px solid var(--line); background:var(--paper); padding:var(--s6); display:grid; gap:var(--s4); }
-.score .big { font:700 72px/1 var(--font-display); letter-spacing:-.04em; font-variant-numeric:tabular-nums; }
-.score .big small { font-size:24px; color:var(--ink-muted); letter-spacing:0; }
-.meter { height:8px; background:var(--surface); position:relative; }
-.meter b { position:absolute; inset:0 auto 0 0; width:0; background:var(--red); transition:width .2s linear; }
+
+.score { margin-top:var(--s8); position:sticky; bottom:max(16px, env(safe-area-inset-bottom, 0px)); z-index:5; background:var(--ink); color:var(--paper); padding:var(--s6); display:grid; gap:var(--s4) var(--s8); align-items:center; }
+@media (min-width:900px) { .score { grid-template-columns:auto 1fr auto; padding:var(--s6) var(--s8); } }
+.score .big { font:700 64px/1 var(--font-display); letter-spacing:-.04em; font-variant-numeric:tabular-nums; white-space:nowrap; }
+.score .big small { font-size:20px; letter-spacing:0; color:color-mix(in srgb, var(--paper) 60%, var(--ink)); }
+.score .mid { display:grid; gap:var(--s3); min-width:0; }
 .score h3 { font-size:20px; line-height:26px; }
-.score .reset { justify-self:start; background:none; border:0; padding:0; font:600 14px var(--font-body); color:var(--ink-muted); text-decoration:underline; text-underline-offset:4px; cursor:pointer; }
+.score .txt { font-size:14px; line-height:20px; color:color-mix(in srgb, var(--paper) 75%, var(--ink)); }
+.cells { display:grid; grid-template-columns:repeat(9, 1fr); gap:4px; max-width:420px; }
+.cells i { height:12px; background:color-mix(in srgb, var(--paper) 18%, var(--ink)); transition:background-color .15s linear; }
+.cells i[data-v="0"] { background:color-mix(in srgb, var(--paper) 45%, var(--ink)); }
+.cells i[data-v="1"] { background:color-mix(in srgb, var(--red) 40%, var(--ink)); }
+.cells i[data-v="2"] { background:color-mix(in srgb, var(--red) 70%, var(--ink)); }
+.cells i[data-v="3"] { background:var(--red); }
+.score .reset { justify-self:start; background:none; border:1px solid color-mix(in srgb, var(--paper) 45%, var(--ink)); color:var(--paper); padding:var(--s2) var(--s4); border-radius:2px; font:600 14px/20px var(--font-body); cursor:pointer; }
+.score .reset:hover { border-color:var(--paper); }
+.cells-legend { display:flex; flex-wrap:wrap; gap:var(--s1) var(--s4); font-size:12px; line-height:16px; color:color-mix(in srgb, var(--paper) 65%, var(--ink)); }
 
 /* Savings + price */
 .money { display:grid; gap:var(--s12); }
@@ -241,7 +255,8 @@ footer .brand { font-size:15px; color:var(--ink); }
       <a href="#check">PMF Check</a>
       <a href="#investment">Price</a>
     </nav>
-    <a class="btn btn--primary" href="#apply">Apply now</a>
+    <!-- Replace href with the real booking link (e.g. a calendar page) -->
+    <a class="btn btn--primary" href="#apply">Book a call</a>
   </div>
 </header>
 
@@ -256,7 +271,7 @@ footer .brand { font-size:15px; color:var(--ink); }
         <h1>Nail your Product-Market Fit. <em>Accelerate your growth.</em></h1>
         <p class="lead">Swiss PMF Academy takes established startups from a growth plateau to repeatable, predictable growth in six months: two workshop days, seven guided sprints and a Demo Day in front of investors.</p>
         <div class="ctas">
-          <a class="btn btn--primary" href="#apply">Apply now <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn--primary" href="#apply">Book a call <span class="arr" aria-hidden="true">→</span></a>
           <a class="btn btn--secondary" href="#check">Take the 9-question PMF Check</a>
         </div>
         <div class="powered">
@@ -372,17 +387,16 @@ footer .brand { font-size:15px; color:var(--ink); }
         <h2 class="h-sec">Check your PMF with 9 questions</h2>
         <p class="lead">A quick self-assessment to gauge your Product-Market Fit and growth momentum. Answer honestly; nothing is sent anywhere.</p>
       </div>
-      <div class="check">
-        <form id="pmf-form" novalidate></form>
-        <aside class="score" aria-live="polite">
-          <p class="eyebrow">Your PMF signal</p>
-          <p class="big"><span id="score-val">–</span><small id="score-unit"></small></p>
-          <div class="meter" aria-hidden="true"><b id="meter"></b></div>
+      <form id="pmf-form" class="qgrid" novalidate></form>
+      <aside class="score" aria-live="polite">
+        <p class="big"><span id="score-val">0</span><small id="score-unit">/9</small></p>
+        <div class="mid">
           <h3 id="score-head">Answer all 9 questions</h3>
-          <p id="score-text" class="caption"><span id="answered">0</span> of 9 answered.</p>
-          <button type="button" class="reset" id="reset">Clear answers</button>
-        </aside>
-      </div>
+          <div class="cells" id="cells" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <p id="score-text" class="txt">Each square fills as you answer. Brighter red means a stronger signal.</p>
+        </div>
+        <button type="button" class="reset" id="reset">Clear answers</button>
+      </aside>
     </div>
   </section>
 
@@ -492,7 +506,7 @@ footer .brand { font-size:15px; color:var(--ink); }
   questions.forEach(function (q, i) {
     var fs = document.createElement("fieldset");
     fs.className = "q";
-    var html = '<legend><span class="i">' + String(i + 1).padStart(2, "0") + '</span><span>' + q + '</span></legend><div class="opts">';
+    var html = '<legend><span class="i">' + String(i + 1).padStart(2, "0") + '</span><span class="s">' + q + '</span></legend><div class="opts">';
     options.forEach(function (o, j) {
       html += '<label><input type="radio" name="q' + i + '" id="q' + i + '-' + j + '" value="' + o[1] + '"><span>' + o[0] + '</span></label>';
     });
@@ -500,20 +514,23 @@ footer .brand { font-size:15px; color:var(--ink); }
     form.appendChild(fs);
   });
   var $ = function (id) { return document.getElementById(id); };
+  var cells = $("cells").children, sets = form.querySelectorAll(".q");
   function update() {
-    var checked = form.querySelectorAll("input:checked");
-    var sum = 0;
-    checked.forEach(function (c) { sum += Number(c.value); });
-    var n = checked.length, pct = n ? Math.round(sum / (n * 3) * 100) : 0;
-    $("answered").textContent = n;
-    $("meter").style.width = (n === 9 ? pct : Math.round(n / 9 * 100)) + "%";
+    var n = 0, sum = 0;
+    sets.forEach(function (fs, i) {
+      var c = fs.querySelector("input:checked");
+      fs.classList.toggle("is-done", !!c);
+      if (c) { n++; sum += Number(c.value); cells[i].setAttribute("data-v", c.value); }
+      else cells[i].removeAttribute("data-v");
+    });
     if (n < 9) {
-      $("score-val").textContent = n ? n + "/9" : "–";
-      $("score-unit").textContent = "";
-      $("score-head").textContent = "Answer all 9 questions";
-      $("score-text").innerHTML = '<span id="answered">' + n + "</span> of 9 answered.";
+      $("score-val").textContent = n;
+      $("score-unit").textContent = "/9";
+      $("score-head").textContent = n ? (9 - n) + " to go" : "Answer all 9 questions";
+      $("score-text").textContent = "Each square fills as you answer. Brighter red means a stronger signal.";
       return;
     }
+    var pct = Math.round(sum / 27 * 100);
     $("score-val").textContent = pct;
     $("score-unit").textContent = "/100";
     var head, text;
