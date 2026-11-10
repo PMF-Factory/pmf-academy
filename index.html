@@ -64,11 +64,14 @@ body::before { content:""; position:fixed; inset:0 0 auto; height:env(safe-area-
 .brand { display:flex; align-items:center; gap:var(--s3); text-decoration:none; font:700 18px/1 var(--font-display); letter-spacing:-.01em; }
 .cross { width:26px; height:26px; flex:none; display:block; }
 .cross .f { fill:var(--swiss-red); } .cross .c { fill:var(--swiss-white); }
+.brand .logo { display:block; height:30px; width:auto; }
+footer .brand .logo { height:24px; }
+.lg-ink { fill:var(--ink); } .lg-mut { fill:var(--ink-muted); }
 .nav { display:none; gap:var(--s6); margin-left:auto; }
 .nav a { text-decoration:none; font-size:15px; color:var(--ink-muted); }
 .nav a:hover { color:var(--ink); text-decoration:underline; text-underline-offset:6px; }
 .site-head .btn { margin-left:auto; padding:var(--s2) var(--s4); }
-@media (min-width:900px) { .nav { display:flex; } .site-head .btn { margin-left:0; } }
+@media (min-width:1120px) { .nav { display:flex; gap:20px; } .site-head .btn { margin-left:0; } }
 
 /* Hero */
 .hero { position:relative; padding-block:var(--s12) var(--s16); overflow:hidden; }
@@ -238,27 +241,94 @@ footer .wrap { display:flex; flex-wrap:wrap; gap:var(--s4) var(--s8); align-item
 footer .brand { font-size:15px; color:var(--ink); }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } * { transition:none !important; } }
+
+/* Growth Academy additions */
+.wordmark { font:700 20px/1 var(--font-display); letter-spacing:-.01em; }
+.gain { margin-top:var(--s16); display:grid; gap:var(--s6); }
+.gain h3 { font-size:22px; line-height:28px; }
+.gain .extras { margin-top:0; }
+.extra b { display:block; font-weight:600; }
+.extra span { display:block; color:var(--ink-muted); font-size:16px; line-height:24px; }
+
+.modules { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); gap:2px; background:var(--line); border:2px solid var(--line); }
+.modules li { background:var(--paper); padding:var(--s6) var(--s4); display:grid; gap:var(--s4); align-content:space-between; min-height:180px; position:relative; }
+.modules li:nth-child(odd) { box-shadow:inset 0 4px 0 var(--ink); }
+.modules li:nth-child(even) { box-shadow:inset 0 4px 0 var(--line-strong); }
+.modules .mn { font:700 48px/1 var(--font-display); letter-spacing:-.04em; color:var(--red); }
+.modules .mt { font:600 17px/23px var(--font-body); text-wrap:balance; }
+.modules li.last { background:var(--ink); color:var(--paper); box-shadow:inset 0 4px 0 var(--red); }
+.formats { margin-top:var(--s6); display:flex; flex-wrap:wrap; gap:var(--s3) var(--s6); align-items:center; font-size:14px; }
+.fmt { display:inline-flex; align-items:center; gap:var(--s2); font-weight:600; }
+.sq { width:14px; height:4px; display:inline-block; }
+.sq.ink { background:var(--ink); } .sq.line { background:var(--line-strong); } .sq.red { background:var(--red); }
+
+.people { display:grid; gap:var(--s4); }
+@media (min-width:700px) { .people { grid-template-columns:repeat(2, 1fr); } }
+@media (min-width:1080px) { .people { grid-template-columns:repeat(3, 1fr); gap:var(--s6); } .people--2 { grid-template-columns:repeat(2, 1fr); } }
+.person { background:var(--paper); padding:var(--s6); display:grid; grid-template-columns:56px 1fr; gap:var(--s4); align-items:start; border-top:3px solid var(--ink); }
+.person .mono { width:56px; height:56px; display:grid; place-items:center; background:var(--red-soft); color:var(--red); font:700 18px/1 var(--font-display); letter-spacing:.02em; }
+.person h3 { font-size:19px; line-height:24px; }
+.person .role { font-size:14px; line-height:20px; color:var(--ink-muted); margin-top:var(--s1); }
+.person p:not(.role):not(.talk) { margin-top:var(--s3); font-size:15px; line-height:24px; }
+.person .talk { margin-top:var(--s3); display:inline-block; font:600 13px/18px var(--font-body); padding:var(--s1) var(--s3); border:1px solid var(--line-strong); border-radius:999px; }
+.person .talk::before { content:"Talk · "; color:var(--ink-muted); font-weight:400; }
+
+.voices { display:grid; gap:var(--s4); }
+@media (min-width:700px) { .voices { grid-template-columns:repeat(2, 1fr); } }
+@media (min-width:1080px) { .voices { grid-template-columns:repeat(3, 1fr); gap:var(--s6); } }
+.voice { margin:0; padding:var(--s6); border:1px solid var(--line); display:grid; gap:var(--s6); align-content:space-between; }
+.voice p { font:600 20px/28px var(--font-display); letter-spacing:-.01em; text-wrap:balance; }
+.voice figcaption { font-size:14px; line-height:20px; color:var(--ink-muted); padding-top:var(--s3); border-top:2px solid var(--ink); }
+.voice figcaption b { display:block; color:var(--ink); }
+.voice--cta { background:var(--red-soft); border-color:var(--red-soft); }
+.voice--cta .btn { justify-self:start; }
+.quote .say { font:600 24px/32px var(--font-display); letter-spacing:-.01em; text-wrap:balance; }
+
+.howto { list-style:none; margin:0 0 var(--s4); padding:0; counter-reset:h; border-top:1px solid var(--line); }
+.howto li { counter-increment:h; display:grid; grid-template-columns:40px 1fr; gap:var(--s3); padding-block:var(--s4); border-bottom:1px solid var(--line); }
+.howto li::before { content:counter(h); font:700 28px/1 var(--font-display); color:var(--red); grid-row:span 2; }
+.howto b { font-weight:600; } .howto span { color:var(--ink-muted); font-size:15px; line-height:22px; }
+
+.ebook { display:grid; gap:var(--s12); align-items:center; }
+@media (min-width:860px) { .ebook { grid-template-columns:320px 1fr; gap:var(--s16); } }
+.cover { aspect-ratio:3/4; max-width:320px; width:100%; background:var(--ink); color:var(--paper); padding:var(--s8) var(--s6); display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden; box-shadow:12px 12px 0 var(--red); }
+.cover span { font:700 96px/.85 var(--font-display); letter-spacing:-.05em; }
+.cover small { font:600 12px/16px var(--font-body); letter-spacing:.12em; text-transform:uppercase; color:color-mix(in srgb, var(--paper) 70%, var(--ink)); }
+.ebook-copy { display:grid; gap:var(--s6); min-width:0; }
+
+.faq { border-top:1px solid var(--line); max-width:860px; }
+.faq details { border-bottom:1px solid var(--line); }
+.faq summary { cursor:pointer; list-style:none; display:flex; justify-content:space-between; gap:var(--s4); padding-block:var(--s6); font:600 20px/28px var(--font-display); }
+.faq summary::-webkit-details-marker { display:none; }
+.faq summary::after { content:"+"; font:700 28px/28px var(--font-display); color:var(--red); transition:transform .15s linear; }
+.faq details[open] summary::after { transform:rotate(45deg); }
+.faq details p { padding-bottom:var(--s6); max-width:65ch; color:var(--ink-muted); font-size:17px; line-height:28px; }
+.mail { color:var(--paper); font-weight:600; user-select:all; white-space:nowrap; }
+
+.tm-top { display:grid; gap:var(--s8); margin-bottom:var(--s12); }
+@media (min-width:900px) { .tm-top { grid-template-columns:2fr 1fr; gap:var(--s16); align-items:start; } }
+.tm-hero blockquote { font-size:clamp(28px,4vw,44px); line-height:1.15; letter-spacing:-.02em; }
 </style>
 
 </head>
 <body>
 <header class="site-head">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Swiss PMF Academy, back to top">
-      <svg class="cross" viewBox="0 0 32 32" aria-hidden="true"><rect class="f" width="32" height="32"/><rect class="c" x="13" y="6" width="6" height="20"/><rect class="c" x="6" y="13" width="20" height="6"/></svg>
-      Swiss PMF Academy
-    </a>
+    <a class="brand" href="#top" aria-label="Swiss PMF Academy, back to top"><svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 505.3 64.0" aria-hidden="true" aria-label="Swiss PMF Academy"><title>Swiss PMF Academy</title><rect x="0" y="0" width="64" height="64" rx="15.36" fill="#e2231a"/><rect x="26.00" y="12.00" width="12.00" height="40.00" rx="2.40" fill="#fff"/><rect x="12.00" y="26.00" width="40.00" height="12.00" rx="2.40" fill="#fff"/><path d="M95.16363636363636 45.43030303030303C101.85454545454546 45.43030303030303 106.5090909090909 42.08484848484848 106.5090909090909 36.96969696969697C106.5090909090909 33.21212121212121 104.13333333333333 30.981818181818177 98.96969696969697 29.96363636363636L94.12121212121212 29.018181818181816C92.15757575757576 28.606060606060602 91.01818181818182 27.757575757575754 91.01818181818182 26.448484848484846C91.01818181818182 24.92121212121212 92.4969696969697 23.73333333333333 94.94545454545454 23.73333333333333C97.46666666666667 23.73333333333333 99.21212121212122 25.260606060606058 99.26060606060607 27.321212121212117H105.87878787878788C105.73333333333333 21.987878787878785 101.36969696969697 18.666666666666664 94.75151515151515 18.666666666666664C88.08484848484848 18.666666666666664 83.89090909090909 21.866666666666664 83.89090909090909 26.71515151515151C83.89090909090909 30.690909090909088 86.53333333333333 33.21212121212121 91.5030303030303 34.18181818181818L95.98787878787878 35.05454545454545C98.07272727272728 35.46666666666666 99.30909090909091 36.266666666666666 99.30909090909091 37.624242424242425C99.30909090909091 39.199999999999996 97.68484848484849 40.31515151515151 95.04242424242425 40.31515151515151C92.25454545454545 40.31515151515151 90.60606060606061 38.98181818181818 90.33939393939394 36.75151515151515H83.30909090909091C83.74545454545455 42.25454545454545 88.52121212121212 45.43030303030303 95.16363636363636 45.43030303030303ZM114.25018181818182 44.8H121.59563636363636L124.60169696969696 34.61818181818182C125.232 32.460606060606054 125.81381818181818 30.18181818181818 126.39563636363636 27.9030303030303C126.97745454545455 30.18181818181818 127.55927272727273 32.460606060606054 128.16533333333334 34.61818181818182L131.1471515151515 44.8H138.5410909090909L146.4198787878788 19.199999999999996H138.832L136.50472727272728 28.14545454545454C135.75321212121213 31.175757575757572 135.07442424242424 34.4 134.37139393939393 37.57575757575757C133.61987878787878 34.4 132.8441212121212 31.15151515151515 132.0441212121212 28.14545454545454L129.61987878787878 19.199999999999996H123.17139393939394L120.72290909090908 28.14545454545454C119.92290909090909 31.175757575757572 119.1471515151515 34.42424242424242 118.37139393939394 37.599999999999994C117.66836363636364 34.42424242424242 116.96533333333333 31.175757575757572 116.18957575757575 28.14545454545454L113.8380606060606 19.199999999999996H106.37139393939394ZM147.49430303030303 44.8H154.64581818181819V19.199999999999996H147.49430303030303ZM151.0579393939394 15.975757575757573C153.40945454545454 15.975757575757573 155.13066666666666 14.351515151515148 155.13066666666666 12.169696969696965C155.13066666666666 9.987878787878785 153.40945454545454 8.36363636363636 151.0579393939394 8.36363636363636C148.70642424242422 8.36363636363636 146.9852121212121 9.987878787878785 146.9852121212121 12.169696969696965C146.9852121212121 14.351515151515148 148.70642424242422 15.975757575757573 151.0579393939394 15.975757575757573ZM168.59296969696967 45.43030303030303C175.28387878787876 45.43030303030303 179.93842424242422 42.08484848484848 179.93842424242422 36.96969696969697C179.93842424242422 33.21212121212121 177.56266666666664 30.981818181818177 172.3990303030303 29.96363636363636L167.55054545454544 29.018181818181816C165.58690909090907 28.606060606060602 164.44751515151515 27.757575757575754 164.44751515151515 26.448484848484846C164.44751515151515 24.92121212121212 165.92630303030302 23.73333333333333 168.37478787878786 23.73333333333333C170.896 23.73333333333333 172.64145454545454 25.260606060606058 172.68993939393937 27.321212121212117H179.3081212121212C179.16266666666667 21.987878787878785 174.7990303030303 18.666666666666664 168.18084848484847 18.666666666666664C161.5141818181818 18.666666666666664 157.32024242424242 21.866666666666664 157.32024242424242 26.71515151515151C157.32024242424242 30.690909090909088 159.96266666666665 33.21212121212121 164.93236363636362 34.18181818181818L169.41721212121212 35.05454545454545C171.50206060606058 35.46666666666666 172.73842424242423 36.266666666666666 172.73842424242423 37.624242424242425C172.73842424242423 39.199999999999996 171.1141818181818 40.31515151515151 168.47175757575755 40.31515151515151C165.68387878787877 40.31515151515151 164.0353939393939 38.98181818181818 163.76872727272726 36.75151515151515H156.73842424242423C157.17478787878787 42.25454545454545 161.95054545454545 45.43030303030303 168.59296969696967 45.43030303030303ZM192.67345454545452 45.43030303030303C199.3643636363636 45.43030303030303 204.01890909090906 42.08484848484848 204.01890909090906 36.96969696969697C204.01890909090906 33.21212121212121 201.6431515151515 30.981818181818177 196.47951515151513 29.96363636363636L191.6310303030303 29.018181818181816C189.66739393939392 28.606060606060602 188.528 27.757575757575754 188.528 26.448484848484846C188.528 24.92121212121212 190.00678787878786 23.73333333333333 192.4552727272727 23.73333333333333C194.97648484848483 23.73333333333333 196.72193939393938 25.260606060606058 196.7704242424242 27.321212121212117H203.38860606060604C203.2431515151515 21.987878787878785 198.87951515151514 18.666666666666664 192.2613333333333 18.666666666666664C185.59466666666665 18.666666666666664 181.40072727272727 21.866666666666664 181.40072727272727 26.71515151515151C181.40072727272727 30.690909090909088 184.0431515151515 33.21212121212121 189.01284848484846 34.18181818181818L193.49769696969696 35.05454545454545C195.58254545454542 35.46666666666666 196.81890909090907 36.266666666666666 196.81890909090907 37.624242424242425C196.81890909090907 39.199999999999996 195.19466666666665 40.31515151515151 192.5522424242424 40.31515151515151C189.7643636363636 40.31515151515151 188.11587878787876 38.98181818181818 187.8492121212121 36.75151515151515H180.81890909090907C181.2552727272727 42.25454545454545 186.0310303030303 45.43030303030303 192.67345454545452 45.43030303030303ZM215.01624242424242 54.93333333333333H222.16775757575755V40.96969696969697H222.24048484848484C223.7192727272727 43.85454545454545 226.3132121212121 45.33333333333333 229.68290909090908 45.33333333333333C236.37381818181817 45.33333333333333 240.76169696969697 40.0 240.76169696969697 31.975757575757573C240.76169696969697 24.121212121212118 236.27684848484847 18.666666666666664 229.73139393939394 18.666666666666664C226.4101818181818 18.666666666666664 223.7192727272727 19.999999999999996 222.14351515151515 22.666666666666664H222.07078787878785V19.199999999999996H215.01624242424242ZM227.84048484848483 39.515151515151516C224.2283636363636 39.515151515151516 221.82836363636363 36.557575757575755 221.82836363636363 31.975757575757573C221.82836363636363 27.418181818181814 224.2283636363636 24.436363636363634 227.84048484848483 24.436363636363634C231.3071515151515 24.436363636363634 233.56169696969695 27.175757575757572 233.56169696969695 31.975757575757573C233.56169696969695 36.775757575757574 231.3071515151515 39.515151515151516 227.84048484848483 39.515151515151516ZM242.9512727272727 44.8H250.10278787878786V29.696969696969695C250.10278787878786 26.4 252.1391515151515 24.557575757575755 254.68460606060603 24.557575757575755C257.18157575757573 24.557575757575755 258.9270303030303 26.278787878787877 258.9270303030303 28.94545454545454V44.8H265.81187878787875V29.38181818181818C265.81187878787875 26.52121212121212 267.5330909090909 24.557575757575755 270.29672727272725 24.557575757575755C272.7452121212121 24.557575757575755 274.63612121212117 26.06060606060606 274.63612121212117 29.139393939393937V44.8H281.7633939393939V27.83030303030303C281.7633939393939 21.96363636363636 278.10278787878786 18.666666666666664 273.18157575757573 18.666666666666664C269.47248484848484 18.666666666666664 266.32096969696966 20.53333333333333 264.98763636363634 23.660606060606057C263.9209696969697 20.53333333333333 261.0361212121212 18.666666666666664 257.59369696969696 18.666666666666664C254.34521212121209 18.666666666666664 251.36339393939392 20.339393939393936 249.83612121212118 23.806060606060605V19.199999999999996H242.9512727272727ZM300.0014545454546 19.199999999999996H294.76509090909093V17.090909090909086C294.76509090909093 15.054545454545451 295.5166060606061 14.278787878787877 297.57721212121214 14.278787878787877H300.0014545454546V8.678787878787873H295.9529696969697C290.425696969697 8.678787878787873 287.6378181818182 11.103030303030302 287.6378181818182 15.878787878787875V19.199999999999996H283.0075151515152V24.799999999999997H287.6378181818182V44.8H294.76509090909093V24.799999999999997H300.0014545454546Z" class="lg-ink"/><path d="M322.5847272727272 45.21212121212121C326.99684848484844 45.21212121212121 329.0816969696969 43.22424242424242 330.14836363636357 41.163636363636364H330.2453333333333V44.8H335.2877575757575V27.248484848484846C335.2877575757575 22.036363636363635 331.4332121212121 18.690909090909088 325.13018181818177 18.690909090909088C318.73018181818173 18.690909090909088 314.5847272727272 22.13333333333333 314.34230303030296 27.006060606060604H319.36048484848476C319.5544242424242 24.654545454545453 321.7847272727272 22.884848484848483 325.0574545454545 22.884848484848483C328.30593939393935 22.884848484848483 330.22109090909083 24.678787878787876 330.22109090909083 27.15151515151515V27.369696969696967C330.22109090909083 29.236363636363635 328.62109090909087 29.187878787878788 323.82109090909086 29.769696969696966C318.6089696969696 30.375757575757575 313.71199999999993 31.636363636363633 313.71199999999993 37.47878787878788C313.71199999999993 42.593939393939394 317.49381818181814 45.21212121212121 322.5847272727272 45.21212121212121ZM323.62715151515147 41.090909090909086C320.64533333333327 41.090909090909086 318.80290909090905 39.78181818181818 318.80290909090905 37.57575757575757C318.80290909090905 34.98181818181818 321.32412121212116 33.987878787878785 324.11199999999997 33.57575757575757C326.82715151515146 33.18787878787879 329.54230303030295 32.775757575757574 330.2453333333333 32.21818181818182V35.22424242424242C330.2453333333333 38.375757575757575 328.13624242424237 41.090909090909086 323.62715151515147 41.090909090909086ZM350.52557575757567 45.381818181818176C356.6346666666666 45.381818181818176 361.1437575757575 41.35757575757575 361.7255757575757 36.02424242424242H356.5619393939393C355.88315151515144 39.0060606060606 354.0649696969696 40.96969696969697 350.5498181818181 40.96969696969697C346.1134545454545 40.96969696969697 343.49527272727266 37.47878787878788 343.49527272727266 32.04848484848485C343.49527272727266 26.569696969696967 346.1376969696969 23.030303030303028 350.5498181818181 23.030303030303028C354.01648484848477 23.030303030303028 356.1013333333333 25.066666666666663 356.6346666666666 27.95151515151515H361.7255757575757C361.0952727272727 22.52121212121212 356.6346666666666 18.618181818181814 350.52557575757567 18.618181818181814C343.228606060606 18.618181818181814 338.3073939393939 24.169696969696968 338.3073939393939 32.04848484848485C338.3073939393939 39.878787878787875 343.20436363636355 45.381818181818176 350.52557575757567 45.381818181818176ZM372.67248484848477 45.21212121212121C377.084606060606 45.21212121212121 379.16945454545447 43.22424242424242 380.23612121212113 41.163636363636364H380.33309090909086V44.8H385.37551515151506V27.248484848484846C385.37551515151506 22.036363636363635 381.52096969696964 18.690909090909088 375.21793939393933 18.690909090909088C368.8179393939393 18.690909090909088 364.67248484848477 22.13333333333333 364.4300606060605 27.006060606060604H369.4482424242423C369.64218181818177 24.654545454545453 371.87248484848476 22.884848484848483 375.14521212121207 22.884848484848483C378.3936969696969 22.884848484848483 380.3088484848484 24.678787878787876 380.3088484848484 27.15151515151515V27.369696969696967C380.3088484848484 29.236363636363635 378.70884848484843 29.187878787878788 373.9088484848484 29.769696969696966C368.6967272727272 30.375757575757575 363.7997575757575 31.636363636363633 363.7997575757575 37.47878787878788C363.7997575757575 42.593939393939394 367.5815757575757 45.21212121212121 372.67248484848477 45.21212121212121ZM373.71490909090903 41.090909090909086C370.73309090909083 41.090909090909086 368.8906666666666 39.78181818181818 368.8906666666666 37.57575757575757C368.8906666666666 34.98181818181818 371.4118787878787 33.987878787878785 374.19975757575753 33.57575757575757C376.914909090909 33.18787878787879 379.6300606060605 32.775757575757574 380.33309090909086 32.21818181818182V35.22424242424242C380.33309090909086 38.375757575757575 378.22399999999993 41.090909090909086 373.71490909090903 41.090909090909086ZM399.49818181818176 45.309090909090905C402.8436363636363 45.309090909090905 405.70424242424235 43.878787878787875 407.4254545454545 40.89696969696969H407.4739393939393V44.8H412.49212121212116V8.678787878787873H407.37696969696964V22.909090909090907H407.3284848484848C405.67999999999995 20.07272727272727 402.7951515151514 18.690909090909088 399.4739393939393 18.690909090909088C392.8557575757575 18.690909090909088 388.39515151515144 24.096969696969694 388.39515151515144 31.999999999999996C388.39515151515144 39.92727272727272 392.8315151515151 45.309090909090905 399.49818181818176 45.309090909090905ZM400.54060606060597 40.89696969696969C396.41939393939384 40.89696969696969 393.5830303030302 37.769696969696966 393.5830303030302 31.999999999999996C393.5830303030302 26.206060606060603 396.41939393939384 23.078787878787875 400.54060606060597 23.078787878787875C404.90424242424234 23.078787878787875 407.71636363636355 26.618181818181814 407.71636363636355 31.999999999999996C407.71636363636355 37.381818181818176 404.90424242424234 40.89696969696969 400.54060606060597 40.89696969696969ZM427.70569696969693 45.381818181818176C433.49963636363634 45.381818181818176 438.0572121212121 41.96363636363636 439.00266666666664 37.018181818181816H434.0814545454545C433.35418181818176 39.44242424242424 431.12387878787877 41.11515151515151 427.7784242424242 41.11515151515151C423.2935757575757 41.11515151515151 420.72387878787873 37.987878787878785 420.5541818181818 33.381818181818176H439.3905454545454V31.999999999999996C439.3905454545454 24.096969696969694 434.68751515151513 18.618181818181814 427.4390303030303 18.618181818181814C420.4572121212121 18.618181818181814 415.51175757575754 24.24242424242424 415.51175757575754 32.04848484848485C415.51175757575754 39.78181818181818 420.11781818181817 45.381818181818176 427.70569696969693 45.381818181818176ZM420.6026666666666 29.5030303030303C421.03903030303024 25.430303030303026 423.63296969696967 22.884848484848483 427.48751515151514 22.884848484848483C431.366303030303 22.884848484848483 433.98448484848484 25.430303030303026 434.396606060606 29.5030303030303ZM442.313212121212 44.8H447.42836363636354V29.357575757575752C447.42836363636354 25.309090909090905 450.0950303030302 23.175757575757572 453.07684848484837 23.175757575757572C455.9859393939393 23.175757575757572 458.0950303030302 25.115151515151513 458.0950303030302 28.048484848484847V44.8H463.13745454545443V28.799999999999997C463.13745454545443 25.527272727272724 465.24654545454536 23.175757575757572 468.6647272727272 23.175757575757572C471.42836363636354 23.175757575757572 473.8041212121211 24.727272727272723 473.8041212121211 28.387878787878787V44.8H478.94351515151504V27.95151515151515C478.94351515151504 21.79393939393939 475.1616969696969 18.690909090909088 470.41018181818174 18.690909090909088C466.62836363636353 18.690909090909088 463.6707878787878 20.654545454545453 462.2889696969696 23.418181818181814C461.22230303030295 20.678787878787876 458.41018181818174 18.690909090909088 454.91927272727264 18.690909090909088C451.74351515151506 18.690909090909088 448.8586666666666 20.339393939393936 447.282909090909 23.49090909090909V19.199999999999996H442.313212121212ZM482.39951515151506 54.93333333333333H485.6479999999999C489.11466666666655 54.93333333333333 491.63587878787865 52.99393939393939 493.0661818181817 49.28484848484848L504.7025454545453 19.199999999999996H499.29648484848474L494.2540606060605 33.236363636363635C493.5752727272726 35.15151515151515 492.92072727272716 37.06666666666666 492.29042424242414 38.98181818181818C491.6601212121211 37.06666666666666 491.0298181818181 35.15151515151515 490.3510303030302 33.236363636363635L485.2358787878787 19.199999999999996H479.7570909090908L489.6479999999999 44.630303030303025L488.4843636363635 47.66060606060606C487.708606060606 49.74545454545454 486.7631515151514 50.61818181818182 485.1631515151514 50.61818181818182H482.39951515151506Z" class="lg-mut"/></svg></a>
     <nav class="nav" aria-label="Sections">
-      <a href="#why">Why PMF</a>
-      <a href="#fit">Who it's for</a>
+      <a href="#about">About</a>
       <a href="#program">Program</a>
-      <a href="#check">PMF Check</a>
-      <a href="#investment">Price</a>
+      <a href="#speakers">Speakers</a>
+      <a href="#who">Who should apply</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#faq">FAQ</a>
     </nav>
     <!-- Replace href with the real booking link (e.g. a calendar page) -->
     <a class="btn btn--primary" href="#apply">Book a call</a>
   </div>
 </header>
+
 
 <main id="top">
   <section class="hero">
@@ -272,7 +342,7 @@ footer .brand { font-size:15px; color:var(--ink); }
         <p class="lead">Swiss PMF Academy takes established startups from a growth plateau to repeatable, predictable growth in six months: two workshop days, seven guided sprints and a Demo Day in front of investors.</p>
         <div class="ctas">
           <a class="btn btn--primary" href="#apply">Book a call <span class="arr" aria-hidden="true">→</span></a>
-          <a class="btn btn--secondary" href="#check">Take the 9-question PMF Check</a>
+          <a class="btn btn--secondary" href="#program">See the program</a>
         </div>
         <div class="powered">
           <span class="caption">Powered by</span>
@@ -287,11 +357,12 @@ footer .brand { font-size:15px; color:var(--ink); }
     </div>
   </section>
 
-  <section class="section band" id="why">
+  <section class="section band" id="about">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">Why Product-Market Fit</p>
+        <p class="eyebrow">About</p>
         <h2 class="h-sec">Scale what works. Not what you hope works.</h2>
+        <p class="lead">Swiss PMF Academy is a six-month sprint program powered by SICTIC and PMF Factory. It helps established startups nail their Product-Market Fit and turn it into repeatable, predictable growth.</p>
       </div>
       <div class="why">
         <div class="stat">
@@ -300,14 +371,15 @@ footer .brand { font-size:15px; color:var(--ink); }
           <p class="caption">Startup Genome Report (Version 2), Premature Scaling. UC Berkeley, Stanford, Startup Genome Project, 2011–2012</p>
         </div>
         <div class="stat">
-          <span class="fig ink">80%</span>
-          <p>Net Promoter Score from founders who completed the program.</p>
-          <p class="caption">Participant survey</p>
+          <span class="fig ink">6</span>
+          <p>Months of focused work on your own company, your customers and your numbers.</p>
+          <p class="caption">2 workshop days, 7 sprints, 1 Investor Demo Day</p>
         </div>
-        <figure class="quote">
-          <blockquote>The program was a true game changer for our established start-up!</blockquote>
-          <figcaption><b>Joel Singh</b>CEO, Crossiety</figcaption>
-        </figure>
+        <div class="stat">
+          <span class="fig ink">2</span>
+          <p>Partners in one program: the investor view of SICTIC and the PMF methods of PMF Factory.</p>
+          <p class="caption">Swiss ICT Investor Club and PMF Factory</p>
+        </div>
       </div>
       <div class="dont">
         <strong>Don’t die!</strong>
@@ -316,35 +388,7 @@ footer .brand { font-size:15px; color:var(--ink); }
     </div>
   </section>
 
-  <section class="section" id="fit">
-    <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow">Who it’s for</p>
-        <h2 class="h-sec">Designed for startups like yours</h2>
-        <p class="lead">You have first customers and real usage data, but growth has stalled at a first plateau or become hard to repeat.</p>
-      </div>
-      <div class="fit">
-        <div class="facts">
-          <div class="fact"><span class="k">Model</span><span class="v">B2B, occasionally B2C</span></div>
-          <div class="fact"><span class="k">On the market</span><span class="v">2–7 years</span></div>
-          <div class="fact"><span class="k">Revenue</span><span class="v">CHF 200k–2.1M <span class="caption">(min. CHF 50k)</span></span></div>
-          <div class="fact"><span class="k">Team</span><span class="v">2–27 FTE</span></div>
-          <div class="fact"><span class="k">Traction</span><span class="v">First customers and real usage data</span></div>
-          <div class="fact"><span class="k">Situation</span><span class="v">Growth challenge or first plateau</span></div>
-        </div>
-        <div class="crit">
-          <h3>Additional selection criteria</h3>
-          <ul class="ticks">
-            <li>Ambitious and coachable leadership team</li>
-            <li>Committed participation of two key people</li>
-            <li>Sufficient funding to see the six months through</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section band" id="program">
+  <section class="section" id="program">
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow">The program</p>
@@ -380,30 +424,56 @@ footer .brand { font-size:15px; color:var(--ink); }
     </div>
   </section>
 
-  <section class="section" id="check">
+  <section class="section band" id="speakers">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">Self-assessment</p>
-        <h2 class="h-sec">Check your PMF with 9 questions</h2>
-        <p class="lead">A quick self-assessment to gauge your Product-Market Fit and growth momentum. Answer honestly; nothing is sent anywhere.</p>
+        <p class="eyebrow">Guest speakers</p>
+        <h2 class="h-sec">Learn from founders and investors who have done it</h2>
       </div>
-      <form id="pmf-form" class="qgrid" novalidate></form>
-      <aside class="score" aria-live="polite">
-        <p class="big"><span id="score-val">0</span><small id="score-unit">/9</small></p>
-        <div class="mid">
-          <h3 id="score-head">Answer all 9 questions</h3>
-          <div class="cells" id="cells" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-          <p id="score-text" class="txt">Each square fills as you answer. Brighter red means a stronger signal.</p>
-        </div>
-        <button type="button" class="reset" id="reset">Clear answers</button>
-      </aside>
+      <div class="people">
+        <article class="person"><span class="mono" aria-hidden="true">TD</span><div><h3>Dr. Thomas Dübendorfer</h3><p class="role">Internet entrepreneur and angel investor, President of SICTIC</p><p class="talk">Investors &amp; PMF</p></div></article>
+        <article class="person"><span class="mono" aria-hidden="true">MG</span><div><h3>Melanie Gabriel</h3><p class="role">Co-Founder of Yokoy and Follow the Gradient, angel investor</p><p class="talk">Message-Market Fit</p></div></article>
+        <article class="person"><span class="mono" aria-hidden="true">RS</span><div><h3>Raphael Schaad</h3><p class="role">Founder of Cron (acquired by Notion)</p><p class="talk">Talking to 1’000 Customers</p></div></article>
+        <article class="person"><span class="mono" aria-hidden="true">HB</span><div><h3>Dr. Herbert Bay</h3><p class="role">Co-Founder and CEO at Earkick</p><p class="talk">Experiment efficiently and effectively</p></div></article>
+        <article class="person"><span class="mono" aria-hidden="true">LD</span><div><h3>Laurent Decrue</h3><p class="role">CEO &amp; CFO at Holycode, Co-Founder of Movu and DeinDeal</p><p class="talk">Measure, learn, adapt</p></div></article>
+        <article class="person"><span class="mono" aria-hidden="true">MH</span><div><h3>Manuel Hartmann</h3><p class="role">Co-Founder and CEO at SalesPlaybook</p><p class="talk">Making sales repeatable</p></div></article>
+      </div>
     </div>
   </section>
 
-  <section class="section band" id="investment">
+  <section class="section" id="who">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">Price</p>
+        <p class="eyebrow">Who should apply</p>
+        <h2 class="h-sec">Designed for startups like yours</h2>
+        <p class="lead">You have first customers and real usage data, but growth has stalled at a first plateau or become hard to repeat.</p>
+      </div>
+      <div class="fit">
+        <div class="facts">
+          <div class="fact"><span class="k">Model</span><span class="v">B2B, occasionally B2C</span></div>
+          <div class="fact"><span class="k">On the market</span><span class="v">2–7 years</span></div>
+          <div class="fact"><span class="k">Revenue</span><span class="v">CHF 200k–2.1M <span class="caption">(min. CHF 50k)</span></span></div>
+          <div class="fact"><span class="k">Team</span><span class="v">2–27 FTE</span></div>
+          <div class="fact"><span class="k">Traction</span><span class="v">First customers and real usage data</span></div>
+          <div class="fact"><span class="k">Situation</span><span class="v">Growth challenge or first plateau</span></div>
+        </div>
+        <div class="crit">
+          <h3>Additional selection criteria</h3>
+          <ul class="ticks">
+            <li>Ambitious and coachable leadership team</li>
+            <li>Committed participation of two key people</li>
+            <li>Sufficient funding to see the six months through</li>
+          </ul>
+          <a class="btn btn--primary" href="#apply" style="justify-self:start">Book a call <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band" id="pricing">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Pricing</p>
         <h2 class="h-sec">Every month faster to PMF saves you one month of burn</h2>
       </div>
       <div class="money">
@@ -439,29 +509,45 @@ footer .brand { font-size:15px; color:var(--ink); }
     </div>
   </section>
 
-  <section class="section" id="partners">
+  <section class="section" id="testimonials">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">Powered by</p>
-        <h2 class="h-sec">Investors and operators, in one program</h2>
+        <p class="eyebrow">Testimonials</p>
+        <h2 class="h-sec">What founders say</h2>
       </div>
-      <div class="partners">
-        <div class="partner">
-          <div class="logo-box">
-            <a class="logo-sictic" href="https://www.sictic.ch" target="_blank" rel="noopener" aria-label="SICTIC website">
-              <!-- SICTIC: replace this text wordmark with the official logo file -->
-              <b>SICTIC</b>
-            </a>
-          </div>
-          <h3 style="font-size:22px;line-height:28px">Swiss ICT Investor Club</h3>
-          <p>The leading angel investor network connecting smart money to seed and early-stage technology startups in Switzerland. SICTIC brings the investor perspective, and the Demo Day audience.</p>
-          <a class="more" href="https://www.sictic.ch" target="_blank" rel="noopener">sictic.ch</a>
+      <div class="tm-top">
+        <figure class="quote tm-hero">
+          <blockquote>The program was a true game changer for our established start-up!</blockquote>
+          <figcaption><b>Joel Singh</b>CEO, Crossiety</figcaption>
+        </figure>
+        <div class="stat">
+          <span class="fig">80%</span>
+          <p>Net Promoter Score from founders who completed the program.</p>
+          <p class="caption">Participant survey</p>
         </div>
-        <div class="partner">
-          <div class="logo-box"><svg class="logo-pmff" role="img" aria-label="PMF Factory" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 702.20588 264.70588"><path d="M297.98225,123.61942V78.81961h24.67481a15.99365,15.99365,0,0,1,7.66943,1.856,14.76426,14.76426,0,0,1,5.53516,5.05567,12.93592,12.93592,0,0,1,2.06738,7.168,13.27034,13.27034,0,0,1-2.20068,7.48829,15.86381,15.86381,0,0,1-5.83545,5.27978,16.84259,16.84259,0,0,1-8.10254,1.95215H306.65169v16Zm8.66944-23.68018h14.20507a8.42782,8.42782,0,0,0,3.96778-.96,7.80549,7.80549,0,0,0,2.90088-2.52783,6.06472,6.06472,0,0,0,1.06738-3.48779,5.39552,5.39552,0,0,0-1.06738-3.29639,7.5031,7.5031,0,0,0-2.90088-2.30371,9.19192,9.19192,0,0,0-3.96778-.86426H306.65169Z"/><path d="M355.0013,123.61942V78.81961h8.20361l19.73828,25.728h-4.26758l19.80664-25.728h8.07031v44.79981h-8.60351V106.4036q0-5.50342.26758-10.144a85.38991,85.38991,0,0,1,1.0664-9.376l.9336,2.87988-17.33985,21.6958h-4.40039L361.33577,89.82743l.93554-2.94385q.73243,4.60767,1.03321,9.24805.29883,4.64063.29883,10.272v17.21582Z"/><path d="M426.75764,123.61942V78.81961h8.66992v44.79981Zm3.46778-17.98389V98.08329h29.74316v7.55224ZM430.826,86.4993V78.81961h32.01074V86.4993Z"/><path d="M297.98225,183.20389v-44.7998h8.66944v44.7998ZM301.45,165.21952v-7.55176h29.74365v7.55176Zm.60009-19.13575v-7.67968h32.01075v7.67968Z"/><path d="M341.93,183.20389l21.207-44.7998h8.87011l21.07325,44.7998h-9.20313l-13.2041-27.9043q-.46728-1.15135-1.06738-2.52734-.59913-1.37549-1.2002-2.78418-.60059-1.40772-1.13379-2.84863-.53466-1.43994-.93359-2.5918l2.06738-.06347q-.46728,1.34325-1,2.78417-.53466,1.44-1.13379,2.84766-.60058,1.40772-1.20019,2.71973-.60059,1.3125-1.13379,2.65625l-13.20459,27.71191Zm9.47021-9.85644,3.13428-7.23145h25.4082l2.001,7.23145Z"/><path d="M428.9593,183.84354a31.31478,31.31478,0,0,1-10.26953-1.63184,24.07625,24.07625,0,0,1-8.23633-4.73535,22.557,22.557,0,0,1-5.502-7.36035,21.75585,21.75585,0,0,1-2.001-9.376,20.32842,20.32842,0,0,1,2.06739-9.12011,23.17962,23.17962,0,0,1,5.63574-7.2959,25.714,25.714,0,0,1,8.30273-4.79981,31.073,31.073,0,0,1,18.03907-.67187,33.29055,33.29055,0,0,1,6.90234,2.6875,23.17614,23.17614,0,0,1,5.20215,3.64844l-5.20215,6.52734a27.45171,27.45171,0,0,0-4.36816-3.10352,21.42778,21.42778,0,0,0-5.002-2.04785,22.14352,22.14352,0,0,0-5.835-.73632,19.4857,19.4857,0,0,0-6.33594,1.02441,16.65758,16.65758,0,0,0-5.36816,3.00781,14.98619,14.98619,0,0,0-3.76758,4.73535,13.49438,13.49438,0,0,0-1.40039,6.208,13.84265,13.84265,0,0,0,1.43359,6.43262,14.17564,14.17564,0,0,0,3.93458,4.73535,18.07043,18.07043,0,0,0,5.73535,2.97656,22.5151,22.5151,0,0,0,6.83593,1.02344,19.74756,19.74756,0,0,0,6.03516-.86328,23.75322,23.75322,0,0,0,4.86816-2.14453,31.95945,31.95945,0,0,0,3.90137-2.6875l4.20117,6.65527a24.1847,24.1847,0,0,1-4.86816,3.2002,34.74545,34.74545,0,0,1-6.93555,2.65625A30.2518,30.2518,0,0,1,428.9593,183.84354Z"/><path d="M477.10969,183.20389V146.08377H460.83723v-7.67968H502.5179v7.67968H485.77864v37.12012Z"/><path d="M539.597,183.84354a31.1852,31.1852,0,0,1-10.66992-1.75977,26.817,26.817,0,0,1-8.50293-4.8955,21.85855,21.85855,0,0,1-5.60157-7.32813,22.1186,22.1186,0,0,1,0-18.24023,21.86813,21.86813,0,0,1,5.60157-7.32813,26.8541,26.8541,0,0,1,8.50293-4.89551,31.16212,31.16212,0,0,1,10.66992-1.76074,31.90378,31.90378,0,0,1,10.7373,1.72852,25.67829,25.67829,0,0,1,8.46973,4.89551,22.84231,22.84231,0,0,1,5.60156,7.36035,21.78443,21.78443,0,0,1,0,18.24023,22.81788,22.81788,0,0,1-5.60156,7.35938,25.68039,25.68039,0,0,1-8.46973,4.89648A31.90417,31.90417,0,0,1,539.597,183.84354Zm0-7.93555a21.44908,21.44908,0,0,0,7.23633-1.15234,17.8383,17.8383,0,0,0,5.668-3.23145,14.81524,14.81524,0,0,0,3.76855-4.832,13.94606,13.94606,0,0,0,0-11.90429,14.82548,14.82548,0,0,0-3.76855-4.832,17.87771,17.87771,0,0,0-5.668-3.23242,23.10423,23.10423,0,0,0-14.40528,0,17.67175,17.67175,0,0,0-5.70215,3.2002,14.29478,14.29478,0,0,0-3.70117,4.7998,14.49809,14.49809,0,0,0,0,12,14.17351,14.17351,0,0,0,3.70117,4.832,17.61731,17.61731,0,0,0,5.70215,3.2002A21.60259,21.60259,0,0,0,539.597,175.908Z"/><path d="M583.61165,183.20389v-44.7998h24.74121a17.18733,17.18733,0,0,1,8.00293,1.82422,14.63183,14.63183,0,0,1,5.63574,5.02343,13.39833,13.39833,0,0,1-.10059,14.56055,15.574,15.574,0,0,1-5.90136,5.21582,17.62809,17.62809,0,0,1-8.23633,1.91992H592.08137v16.25586Zm8.46972-23.48828h15.13868a8.59672,8.59672,0,0,0,4.001-.92773,7.24549,7.24549,0,0,0,2.834-2.52832,6.45672,6.45672,0,0,0,1.03418-3.584,5.753,5.753,0,0,0-1.10059-3.4873,7.65342,7.65342,0,0,0-3.03418-2.40039,10.2039,10.2039,0,0,0-4.335-.89551H592.08137Zm23.94141,23.48828-14.40527-20.22363,9.13671-1.60059,15.73829,21.88867Z"/><path d="M656.23567,183.20389V162.33963l1,4.28809-22.80762-28.22363H645.432l16.80566,21.63183-3.06738-.12793,16.07227-21.5039h10.13671L664.305,165.79569l.60058-3.96777v21.376Z"/><path d="M270.66115,130.0708l-29.18994-51.25H181.54115l-1.42,2.5-27.71,48.75-1.45,2.55,1.52,2.45,28.44,46.06,1.52,2.47h60.24l27.98-48.53,1.43-2.49Zm-113.81,2.36h0q13.075-23.025,26.15-46.05l26.32,46.05h0l-25.55,43.81Q170.31118,154.33578,156.85115,132.43078Zm82.94,46.17005h-51.6l25.38-43.53h51.32Zm-26.21-48.53-26.28-46.25h51.26l26.35,46.25Z" class="pmff-cube"/><path d="M137.94665,132.528l26.56-47.67,1.41-2.52-1.44-2.48-28.32-48.64h-59.61l-1.46,2.49005-58.26,98.84,58.27,98.48,1.44995,2.46h59.59l28.36-49.91,1.42-2.51-1.43005-2.49Zm20.77,46.05h-51.55l-24.88-43.53h51.34Zm-25.12-48.53h-51.36l25.29-45.19h51.26Zm-.31-93.83,25.41,43.64h-51.19l-25.2-43.64Zm-55.38,189.75-55.27-93.42,55.31-93.87,25.24,43.7-26.68,47.67-1.41,2.51,1.43,2.49,26.32,46.05Zm55.32,2.52h-51l24.96-44.91h51.56Z"/></svg></div>
-          <h3 style="font-size:22px;line-height:28px">Build a business that scales</h3>
-          <p>PMF Factory brings the methods, tools and sprint coaching that take a startup from early traction to repeatable, predictable growth.</p>
-        </div>
+      </div>
+      <!-- Takeaways are summaries from PMF Factory programs. Replace with exact approved quotes before publishing. -->
+      <div class="voices">
+        <figure class="voice"><p>Early lessons on the PMF concept, and a team now aligned on one PMF process.</p><figcaption><b>André Bernard</b>Co-Founder, matriq</figcaption></figure>
+        <figure class="voice"><p>A structured method that helps ask, and answer, the right questions.</p><figcaption><b>Dominik Witz</b>Co-Founder, Konsento</figcaption></figure>
+        <figure class="voice"><p>A clear plan and the skills to measure, evaluate and implement PMF.</p><figcaption><b>Florence von Gunten</b>CEO &amp; Co-Founder, YLAH</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">FAQ</p>
+        <h2 class="h-sec">Questions, answered</h2>
+      </div>
+      <div class="faq">
+        <details open><summary>Who runs Swiss PMF Academy?</summary><p>The academy is powered by SICTIC, the Swiss ICT Investor Club, and PMF Factory.</p></details>
+        <details><summary>How is the program structured?</summary><p>Six months: two days of intensive, hands-on workshops, seven guided sprints with expert input and actionable feedback, a founders dinner and an Investor Demo Day.</p></details>
+        <details><summary>Who should take part from my company?</summary><p>Two key people from your leadership team, both committed to taking part throughout the program.</p></details>
+        <details><summary>What does it cost?</summary><p>CHF 4,250 per participant, so CHF 8,500 per company. A partner discount and an early-bird discount (until January 15) of CHF 1,000 each bring the total to CHF 6,500.</p></details>
+        <details><summary>Is my startup a fit?</summary><p>Typically B2B, 2–7 years on the market, CHF 200k–2.1M in revenue (at least CHF 50k), first customers and real usage data, and a growth challenge or plateau.</p></details>
+        <details><summary>How do I apply?</summary><p>Book a call. We look at where you stand and whether the academy is the right next step for you.</p></details>
       </div>
     </div>
   </section>
@@ -470,79 +556,27 @@ footer .brand { font-size:15px; color:var(--ink); }
 <section class="apply" id="apply">
   <div class="wrap">
     <div>
-      <p class="eyebrow">Applications open</p>
+      <p class="eyebrow">Book a call</p>
       <h2>Ready to nail your Product-Market Fit?</h2>
       <p>Two people per company, six months, one goal: repeatable, predictable growth. Apply before January 15 to save CHF 1,000.</p>
     </div>
     <!-- Replace href with the real application form or contact link -->
-    <a class="btn btn--primary" href="#apply">Apply now <span class="arr" aria-hidden="true">→</span></a>
+    <a class="btn btn--primary" href="#apply">Book a call <span class="arr" aria-hidden="true">→</span></a>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <span class="brand"><svg class="cross" viewBox="0 0 32 32" aria-hidden="true"><rect class="f" width="32" height="32"/><rect class="c" x="13" y="6" width="6" height="20"/><rect class="c" x="6" y="13" width="20" height="6"/></svg>Swiss PMF Academy</span>
+    <span class="brand"><svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 505.3 64.0" role="img" aria-label="Swiss PMF Academy"><title>Swiss PMF Academy</title><rect x="0" y="0" width="64" height="64" rx="15.36" fill="#e2231a"/><rect x="26.00" y="12.00" width="12.00" height="40.00" rx="2.40" fill="#fff"/><rect x="12.00" y="26.00" width="40.00" height="12.00" rx="2.40" fill="#fff"/><path d="M95.16363636363636 45.43030303030303C101.85454545454546 45.43030303030303 106.5090909090909 42.08484848484848 106.5090909090909 36.96969696969697C106.5090909090909 33.21212121212121 104.13333333333333 30.981818181818177 98.96969696969697 29.96363636363636L94.12121212121212 29.018181818181816C92.15757575757576 28.606060606060602 91.01818181818182 27.757575757575754 91.01818181818182 26.448484848484846C91.01818181818182 24.92121212121212 92.4969696969697 23.73333333333333 94.94545454545454 23.73333333333333C97.46666666666667 23.73333333333333 99.21212121212122 25.260606060606058 99.26060606060607 27.321212121212117H105.87878787878788C105.73333333333333 21.987878787878785 101.36969696969697 18.666666666666664 94.75151515151515 18.666666666666664C88.08484848484848 18.666666666666664 83.89090909090909 21.866666666666664 83.89090909090909 26.71515151515151C83.89090909090909 30.690909090909088 86.53333333333333 33.21212121212121 91.5030303030303 34.18181818181818L95.98787878787878 35.05454545454545C98.07272727272728 35.46666666666666 99.30909090909091 36.266666666666666 99.30909090909091 37.624242424242425C99.30909090909091 39.199999999999996 97.68484848484849 40.31515151515151 95.04242424242425 40.31515151515151C92.25454545454545 40.31515151515151 90.60606060606061 38.98181818181818 90.33939393939394 36.75151515151515H83.30909090909091C83.74545454545455 42.25454545454545 88.52121212121212 45.43030303030303 95.16363636363636 45.43030303030303ZM114.25018181818182 44.8H121.59563636363636L124.60169696969696 34.61818181818182C125.232 32.460606060606054 125.81381818181818 30.18181818181818 126.39563636363636 27.9030303030303C126.97745454545455 30.18181818181818 127.55927272727273 32.460606060606054 128.16533333333334 34.61818181818182L131.1471515151515 44.8H138.5410909090909L146.4198787878788 19.199999999999996H138.832L136.50472727272728 28.14545454545454C135.75321212121213 31.175757575757572 135.07442424242424 34.4 134.37139393939393 37.57575757575757C133.61987878787878 34.4 132.8441212121212 31.15151515151515 132.0441212121212 28.14545454545454L129.61987878787878 19.199999999999996H123.17139393939394L120.72290909090908 28.14545454545454C119.92290909090909 31.175757575757572 119.1471515151515 34.42424242424242 118.37139393939394 37.599999999999994C117.66836363636364 34.42424242424242 116.96533333333333 31.175757575757572 116.18957575757575 28.14545454545454L113.8380606060606 19.199999999999996H106.37139393939394ZM147.49430303030303 44.8H154.64581818181819V19.199999999999996H147.49430303030303ZM151.0579393939394 15.975757575757573C153.40945454545454 15.975757575757573 155.13066666666666 14.351515151515148 155.13066666666666 12.169696969696965C155.13066666666666 9.987878787878785 153.40945454545454 8.36363636363636 151.0579393939394 8.36363636363636C148.70642424242422 8.36363636363636 146.9852121212121 9.987878787878785 146.9852121212121 12.169696969696965C146.9852121212121 14.351515151515148 148.70642424242422 15.975757575757573 151.0579393939394 15.975757575757573ZM168.59296969696967 45.43030303030303C175.28387878787876 45.43030303030303 179.93842424242422 42.08484848484848 179.93842424242422 36.96969696969697C179.93842424242422 33.21212121212121 177.56266666666664 30.981818181818177 172.3990303030303 29.96363636363636L167.55054545454544 29.018181818181816C165.58690909090907 28.606060606060602 164.44751515151515 27.757575757575754 164.44751515151515 26.448484848484846C164.44751515151515 24.92121212121212 165.92630303030302 23.73333333333333 168.37478787878786 23.73333333333333C170.896 23.73333333333333 172.64145454545454 25.260606060606058 172.68993939393937 27.321212121212117H179.3081212121212C179.16266666666667 21.987878787878785 174.7990303030303 18.666666666666664 168.18084848484847 18.666666666666664C161.5141818181818 18.666666666666664 157.32024242424242 21.866666666666664 157.32024242424242 26.71515151515151C157.32024242424242 30.690909090909088 159.96266666666665 33.21212121212121 164.93236363636362 34.18181818181818L169.41721212121212 35.05454545454545C171.50206060606058 35.46666666666666 172.73842424242423 36.266666666666666 172.73842424242423 37.624242424242425C172.73842424242423 39.199999999999996 171.1141818181818 40.31515151515151 168.47175757575755 40.31515151515151C165.68387878787877 40.31515151515151 164.0353939393939 38.98181818181818 163.76872727272726 36.75151515151515H156.73842424242423C157.17478787878787 42.25454545454545 161.95054545454545 45.43030303030303 168.59296969696967 45.43030303030303ZM192.67345454545452 45.43030303030303C199.3643636363636 45.43030303030303 204.01890909090906 42.08484848484848 204.01890909090906 36.96969696969697C204.01890909090906 33.21212121212121 201.6431515151515 30.981818181818177 196.47951515151513 29.96363636363636L191.6310303030303 29.018181818181816C189.66739393939392 28.606060606060602 188.528 27.757575757575754 188.528 26.448484848484846C188.528 24.92121212121212 190.00678787878786 23.73333333333333 192.4552727272727 23.73333333333333C194.97648484848483 23.73333333333333 196.72193939393938 25.260606060606058 196.7704242424242 27.321212121212117H203.38860606060604C203.2431515151515 21.987878787878785 198.87951515151514 18.666666666666664 192.2613333333333 18.666666666666664C185.59466666666665 18.666666666666664 181.40072727272727 21.866666666666664 181.40072727272727 26.71515151515151C181.40072727272727 30.690909090909088 184.0431515151515 33.21212121212121 189.01284848484846 34.18181818181818L193.49769696969696 35.05454545454545C195.58254545454542 35.46666666666666 196.81890909090907 36.266666666666666 196.81890909090907 37.624242424242425C196.81890909090907 39.199999999999996 195.19466666666665 40.31515151515151 192.5522424242424 40.31515151515151C189.7643636363636 40.31515151515151 188.11587878787876 38.98181818181818 187.8492121212121 36.75151515151515H180.81890909090907C181.2552727272727 42.25454545454545 186.0310303030303 45.43030303030303 192.67345454545452 45.43030303030303ZM215.01624242424242 54.93333333333333H222.16775757575755V40.96969696969697H222.24048484848484C223.7192727272727 43.85454545454545 226.3132121212121 45.33333333333333 229.68290909090908 45.33333333333333C236.37381818181817 45.33333333333333 240.76169696969697 40.0 240.76169696969697 31.975757575757573C240.76169696969697 24.121212121212118 236.27684848484847 18.666666666666664 229.73139393939394 18.666666666666664C226.4101818181818 18.666666666666664 223.7192727272727 19.999999999999996 222.14351515151515 22.666666666666664H222.07078787878785V19.199999999999996H215.01624242424242ZM227.84048484848483 39.515151515151516C224.2283636363636 39.515151515151516 221.82836363636363 36.557575757575755 221.82836363636363 31.975757575757573C221.82836363636363 27.418181818181814 224.2283636363636 24.436363636363634 227.84048484848483 24.436363636363634C231.3071515151515 24.436363636363634 233.56169696969695 27.175757575757572 233.56169696969695 31.975757575757573C233.56169696969695 36.775757575757574 231.3071515151515 39.515151515151516 227.84048484848483 39.515151515151516ZM242.9512727272727 44.8H250.10278787878786V29.696969696969695C250.10278787878786 26.4 252.1391515151515 24.557575757575755 254.68460606060603 24.557575757575755C257.18157575757573 24.557575757575755 258.9270303030303 26.278787878787877 258.9270303030303 28.94545454545454V44.8H265.81187878787875V29.38181818181818C265.81187878787875 26.52121212121212 267.5330909090909 24.557575757575755 270.29672727272725 24.557575757575755C272.7452121212121 24.557575757575755 274.63612121212117 26.06060606060606 274.63612121212117 29.139393939393937V44.8H281.7633939393939V27.83030303030303C281.7633939393939 21.96363636363636 278.10278787878786 18.666666666666664 273.18157575757573 18.666666666666664C269.47248484848484 18.666666666666664 266.32096969696966 20.53333333333333 264.98763636363634 23.660606060606057C263.9209696969697 20.53333333333333 261.0361212121212 18.666666666666664 257.59369696969696 18.666666666666664C254.34521212121209 18.666666666666664 251.36339393939392 20.339393939393936 249.83612121212118 23.806060606060605V19.199999999999996H242.9512727272727ZM300.0014545454546 19.199999999999996H294.76509090909093V17.090909090909086C294.76509090909093 15.054545454545451 295.5166060606061 14.278787878787877 297.57721212121214 14.278787878787877H300.0014545454546V8.678787878787873H295.9529696969697C290.425696969697 8.678787878787873 287.6378181818182 11.103030303030302 287.6378181818182 15.878787878787875V19.199999999999996H283.0075151515152V24.799999999999997H287.6378181818182V44.8H294.76509090909093V24.799999999999997H300.0014545454546Z" class="lg-ink"/><path d="M322.5847272727272 45.21212121212121C326.99684848484844 45.21212121212121 329.0816969696969 43.22424242424242 330.14836363636357 41.163636363636364H330.2453333333333V44.8H335.2877575757575V27.248484848484846C335.2877575757575 22.036363636363635 331.4332121212121 18.690909090909088 325.13018181818177 18.690909090909088C318.73018181818173 18.690909090909088 314.5847272727272 22.13333333333333 314.34230303030296 27.006060606060604H319.36048484848476C319.5544242424242 24.654545454545453 321.7847272727272 22.884848484848483 325.0574545454545 22.884848484848483C328.30593939393935 22.884848484848483 330.22109090909083 24.678787878787876 330.22109090909083 27.15151515151515V27.369696969696967C330.22109090909083 29.236363636363635 328.62109090909087 29.187878787878788 323.82109090909086 29.769696969696966C318.6089696969696 30.375757575757575 313.71199999999993 31.636363636363633 313.71199999999993 37.47878787878788C313.71199999999993 42.593939393939394 317.49381818181814 45.21212121212121 322.5847272727272 45.21212121212121ZM323.62715151515147 41.090909090909086C320.64533333333327 41.090909090909086 318.80290909090905 39.78181818181818 318.80290909090905 37.57575757575757C318.80290909090905 34.98181818181818 321.32412121212116 33.987878787878785 324.11199999999997 33.57575757575757C326.82715151515146 33.18787878787879 329.54230303030295 32.775757575757574 330.2453333333333 32.21818181818182V35.22424242424242C330.2453333333333 38.375757575757575 328.13624242424237 41.090909090909086 323.62715151515147 41.090909090909086ZM350.52557575757567 45.381818181818176C356.6346666666666 45.381818181818176 361.1437575757575 41.35757575757575 361.7255757575757 36.02424242424242H356.5619393939393C355.88315151515144 39.0060606060606 354.0649696969696 40.96969696969697 350.5498181818181 40.96969696969697C346.1134545454545 40.96969696969697 343.49527272727266 37.47878787878788 343.49527272727266 32.04848484848485C343.49527272727266 26.569696969696967 346.1376969696969 23.030303030303028 350.5498181818181 23.030303030303028C354.01648484848477 23.030303030303028 356.1013333333333 25.066666666666663 356.6346666666666 27.95151515151515H361.7255757575757C361.0952727272727 22.52121212121212 356.6346666666666 18.618181818181814 350.52557575757567 18.618181818181814C343.228606060606 18.618181818181814 338.3073939393939 24.169696969696968 338.3073939393939 32.04848484848485C338.3073939393939 39.878787878787875 343.20436363636355 45.381818181818176 350.52557575757567 45.381818181818176ZM372.67248484848477 45.21212121212121C377.084606060606 45.21212121212121 379.16945454545447 43.22424242424242 380.23612121212113 41.163636363636364H380.33309090909086V44.8H385.37551515151506V27.248484848484846C385.37551515151506 22.036363636363635 381.52096969696964 18.690909090909088 375.21793939393933 18.690909090909088C368.8179393939393 18.690909090909088 364.67248484848477 22.13333333333333 364.4300606060605 27.006060606060604H369.4482424242423C369.64218181818177 24.654545454545453 371.87248484848476 22.884848484848483 375.14521212121207 22.884848484848483C378.3936969696969 22.884848484848483 380.3088484848484 24.678787878787876 380.3088484848484 27.15151515151515V27.369696969696967C380.3088484848484 29.236363636363635 378.70884848484843 29.187878787878788 373.9088484848484 29.769696969696966C368.6967272727272 30.375757575757575 363.7997575757575 31.636363636363633 363.7997575757575 37.47878787878788C363.7997575757575 42.593939393939394 367.5815757575757 45.21212121212121 372.67248484848477 45.21212121212121ZM373.71490909090903 41.090909090909086C370.73309090909083 41.090909090909086 368.8906666666666 39.78181818181818 368.8906666666666 37.57575757575757C368.8906666666666 34.98181818181818 371.4118787878787 33.987878787878785 374.19975757575753 33.57575757575757C376.914909090909 33.18787878787879 379.6300606060605 32.775757575757574 380.33309090909086 32.21818181818182V35.22424242424242C380.33309090909086 38.375757575757575 378.22399999999993 41.090909090909086 373.71490909090903 41.090909090909086ZM399.49818181818176 45.309090909090905C402.8436363636363 45.309090909090905 405.70424242424235 43.878787878787875 407.4254545454545 40.89696969696969H407.4739393939393V44.8H412.49212121212116V8.678787878787873H407.37696969696964V22.909090909090907H407.3284848484848C405.67999999999995 20.07272727272727 402.7951515151514 18.690909090909088 399.4739393939393 18.690909090909088C392.8557575757575 18.690909090909088 388.39515151515144 24.096969696969694 388.39515151515144 31.999999999999996C388.39515151515144 39.92727272727272 392.8315151515151 45.309090909090905 399.49818181818176 45.309090909090905ZM400.54060606060597 40.89696969696969C396.41939393939384 40.89696969696969 393.5830303030302 37.769696969696966 393.5830303030302 31.999999999999996C393.5830303030302 26.206060606060603 396.41939393939384 23.078787878787875 400.54060606060597 23.078787878787875C404.90424242424234 23.078787878787875 407.71636363636355 26.618181818181814 407.71636363636355 31.999999999999996C407.71636363636355 37.381818181818176 404.90424242424234 40.89696969696969 400.54060606060597 40.89696969696969ZM427.70569696969693 45.381818181818176C433.49963636363634 45.381818181818176 438.0572121212121 41.96363636363636 439.00266666666664 37.018181818181816H434.0814545454545C433.35418181818176 39.44242424242424 431.12387878787877 41.11515151515151 427.7784242424242 41.11515151515151C423.2935757575757 41.11515151515151 420.72387878787873 37.987878787878785 420.5541818181818 33.381818181818176H439.3905454545454V31.999999999999996C439.3905454545454 24.096969696969694 434.68751515151513 18.618181818181814 427.4390303030303 18.618181818181814C420.4572121212121 18.618181818181814 415.51175757575754 24.24242424242424 415.51175757575754 32.04848484848485C415.51175757575754 39.78181818181818 420.11781818181817 45.381818181818176 427.70569696969693 45.381818181818176ZM420.6026666666666 29.5030303030303C421.03903030303024 25.430303030303026 423.63296969696967 22.884848484848483 427.48751515151514 22.884848484848483C431.366303030303 22.884848484848483 433.98448484848484 25.430303030303026 434.396606060606 29.5030303030303ZM442.313212121212 44.8H447.42836363636354V29.357575757575752C447.42836363636354 25.309090909090905 450.0950303030302 23.175757575757572 453.07684848484837 23.175757575757572C455.9859393939393 23.175757575757572 458.0950303030302 25.115151515151513 458.0950303030302 28.048484848484847V44.8H463.13745454545443V28.799999999999997C463.13745454545443 25.527272727272724 465.24654545454536 23.175757575757572 468.6647272727272 23.175757575757572C471.42836363636354 23.175757575757572 473.8041212121211 24.727272727272723 473.8041212121211 28.387878787878787V44.8H478.94351515151504V27.95151515151515C478.94351515151504 21.79393939393939 475.1616969696969 18.690909090909088 470.41018181818174 18.690909090909088C466.62836363636353 18.690909090909088 463.6707878787878 20.654545454545453 462.2889696969696 23.418181818181814C461.22230303030295 20.678787878787876 458.41018181818174 18.690909090909088 454.91927272727264 18.690909090909088C451.74351515151506 18.690909090909088 448.8586666666666 20.339393939393936 447.282909090909 23.49090909090909V19.199999999999996H442.313212121212ZM482.39951515151506 54.93333333333333H485.6479999999999C489.11466666666655 54.93333333333333 491.63587878787865 52.99393939393939 493.0661818181817 49.28484848484848L504.7025454545453 19.199999999999996H499.29648484848474L494.2540606060605 33.236363636363635C493.5752727272726 35.15151515151515 492.92072727272716 37.06666666666666 492.29042424242414 38.98181818181818C491.6601212121211 37.06666666666666 491.0298181818181 35.15151515151515 490.3510303030302 33.236363636363635L485.2358787878787 19.199999999999996H479.7570909090908L489.6479999999999 44.630303030303025L488.4843636363635 47.66060606060606C487.708606060606 49.74545454545454 486.7631515151514 50.61818181818182 485.1631515151514 50.61818181818182H482.39951515151506Z" class="lg-mut"/></svg></span>
     <span>Powered by SICTIC and PMF Factory</span>
     <span>© 2026 Swiss PMF Academy</span>
   </div>
 </footer>
 
+
 <script>
 (function () {
-  // PMF Check
-  var questions = [
-    "Growth becomes repeatable and predictable.",
-    "You clearly understand who your customer is and how to make them successful.",
-    "Customers act fast and show high urgency.",
-    "Customer acquisition costs are significantly dropping.",
-    "Sales process is repeatable and scalable.",
-    "Customers would have a significant problem without your product.",
-    "Existing customers buy more or again.",
-    "Existing customers start recommending you.",
-    "Organic growth becomes a major driver."
-  ];
-  var options = [["True", 3], ["Somewhat true", 2], ["Somewhat not true", 1], ["Not true at all", 0]];
-  var form = document.getElementById("pmf-form");
-  questions.forEach(function (q, i) {
-    var fs = document.createElement("fieldset");
-    fs.className = "q";
-    var html = '<legend><span class="i">' + String(i + 1).padStart(2, "0") + '</span><span class="s">' + q + '</span></legend><div class="opts">';
-    options.forEach(function (o, j) {
-      html += '<label><input type="radio" name="q' + i + '" id="q' + i + '-' + j + '" value="' + o[1] + '"><span>' + o[0] + '</span></label>';
-    });
-    fs.innerHTML = html + "</div>";
-    form.appendChild(fs);
-  });
   var $ = function (id) { return document.getElementById(id); };
-  var cells = $("cells").children, sets = form.querySelectorAll(".q");
-  function update() {
-    var n = 0, sum = 0;
-    sets.forEach(function (fs, i) {
-      var c = fs.querySelector("input:checked");
-      fs.classList.toggle("is-done", !!c);
-      if (c) { n++; sum += Number(c.value); cells[i].setAttribute("data-v", c.value); }
-      else cells[i].removeAttribute("data-v");
-    });
-    if (n < 9) {
-      $("score-val").textContent = n;
-      $("score-unit").textContent = "/9";
-      $("score-head").textContent = n ? (9 - n) + " to go" : "Answer all 9 questions";
-      $("score-text").textContent = "Each square fills as you answer. Brighter red means a stronger signal.";
-      return;
-    }
-    var pct = Math.round(sum / 27 * 100);
-    $("score-val").textContent = pct;
-    $("score-unit").textContent = "/100";
-    var head, text;
-    if (pct >= 75) { head = "Strong PMF signals"; text = "Your growth engine is taking shape. The academy helps you make it repeatable and ready to scale."; }
-    else if (pct >= 40) { head = "Partial fit"; text = "Some signals are there, others are missing. This is exactly the gap the seven sprints are built to close."; }
-    else { head = "Fit not yet proven"; text = "Focus on who your customer is and the problem you solve before you scale. The academy starts right there."; }
-    $("score-head").textContent = head;
-    $("score-text").textContent = text + " This score is an indication, not a diagnosis.";
-  }
-  form.addEventListener("change", update);
-  $("reset").addEventListener("click", function () { form.reset(); update(); });
-
   // Savings calculator
   var fmt = function (v) { return "CHF " + Math.round(v).toLocaleString("en-US"); };
   function calc() {
@@ -561,7 +595,7 @@ footer .brand { font-size:15px; color:var(--ink); }
     var v = Number(String(this.value).replace(/[^0-9]/g, "")) || 0;
     this.value = v ? v.toLocaleString("en-US") : "";
   });
-  calc(); update();
+  calc();
 })();
 </script>
 
