@@ -77,7 +77,8 @@ body::before { content:""; position:fixed; inset:0 0 auto; height:env(safe-area-
                linear-gradient(90deg, transparent 35%, #000 85%);
   -webkit-mask-composite:source-in; mask-composite:intersect; pointer-events:none; }
 .hero .wrap { position:relative; display:grid; gap:var(--s12); }
-@media (min-width:960px) { .hero { padding-block:var(--s24); } .hero .wrap { grid-template-columns:7fr 5fr; align-items:center; gap:var(--s16); } }
+@media (min-width:960px) { .hero { padding-block:var(--s24); } }
+.hero-copy { max-width:860px; }
 .hero-copy { display:grid; gap:var(--s6); min-width:0; }
 .badges { display:flex; flex-wrap:wrap; gap:var(--s2); }
 .badge { font:600 12px/16px var(--font-body); letter-spacing:.04em; padding:var(--s1) var(--s3); border-radius:999px; border:1px solid var(--line-strong); }
@@ -93,23 +94,6 @@ body::before { content:""; position:fixed; inset:0 0 auto; height:env(safe-area-
 .logo-sictic { display:inline-flex; align-items:baseline; gap:var(--s2); text-decoration:none; }
 .logo-sictic b { font:700 24px/1 var(--font-display); letter-spacing:.06em; }
 .logo-sictic span { font-size:12px; line-height:1; color:var(--ink-muted); }
-
-/* Curve chart */
-.chart { background:var(--paper); border:1px solid var(--line); padding:var(--s6); display:grid; gap:var(--s4); min-width:0; }
-.chart svg { width:100%; height:auto; display:block; overflow:visible; }
-.chart .axis { stroke:var(--ink); stroke-width:1.5; fill:none; }
-.chart .be { stroke:var(--line-strong); stroke-width:1; stroke-dasharray:4 4; }
-.chart .slow { stroke:var(--ink-muted); stroke-width:2; fill:none; stroke-dasharray:2 5; stroke-linecap:round; }
-.chart .fast { stroke:var(--positive); stroke-width:3; fill:none; stroke-linecap:round; }
-.chart .saved { fill:none; stroke:var(--ink); stroke-width:1.5; }
-.chart .pmf { fill:var(--red); }
-.chart .pmf-ring { fill:none; stroke:var(--red); stroke-width:1.5; }
-.chart text { fill:var(--ink-muted); font:500 11px var(--font-mono); }
-.chart text.strong { fill:var(--ink); font:600 13px var(--font-body); }
-.chart text.red { fill:var(--red); font:700 13px var(--font-body); }
-.legend { display:flex; flex-wrap:wrap; gap:var(--s2) var(--s6); font-size:13px; line-height:18px; color:var(--ink-muted); }
-.legend i { display:inline-block; width:20px; height:0; border-top:3px solid var(--positive); vertical-align:middle; margin-right:var(--s2); }
-.legend i.d { border-top:2px dotted var(--ink-muted); }
 
 /* Stats & quote */
 .why { display:grid; gap:var(--s12); }
@@ -140,23 +124,34 @@ body::before { content:""; position:fixed; inset:0 0 auto; height:env(safe-area-
 .ticks li::before { content:"+"; font:700 20px/26px var(--font-display); color:var(--red); }
 
 /* Program */
-.prog { display:grid; gap:var(--s12); }
-@media (min-width:900px) { .prog { grid-template-columns:1fr 1fr; gap:var(--s16); } }
-.plist { list-style:none; margin:0; padding:0; border-top:1px solid var(--line); }
-.plist li { display:grid; grid-template-columns:64px 1fr; gap:var(--s4); align-items:baseline; padding-block:var(--s4); border-bottom:1px solid var(--line); font-size:17px; }
-.plist .n { font:700 36px/1 var(--font-display); color:var(--red); letter-spacing:-.02em; }
-.plist .n.plus { color:var(--ink-muted); }
-.track { display:grid; gap:var(--s3); }
-.months { display:grid; grid-template-columns:repeat(6, 1fr); border:1px solid var(--line); }
-.months div { padding:var(--s3) var(--s2); border-right:1px solid var(--line); font:500 11px/16px var(--font-mono); color:var(--ink-muted); text-align:center; }
-.months div:last-child { border-right:0; }
-.lanes { display:grid; gap:var(--s2); }
-.lane { position:relative; height:36px; background:var(--surface); }
-.lane span { position:absolute; top:0; bottom:0; display:flex; align-items:center; padding-inline:var(--s3); font:600 13px/1 var(--font-body); white-space:nowrap; }
-.lane .ws { left:0; width:calc(100%/6); background:var(--ink); color:var(--paper); }
-.lane .sp { left:calc(100%/6); right:0; background:repeating-linear-gradient(90deg, var(--red) 0 calc(100%/7 - 3px), transparent calc(100%/7 - 3px) calc(100%/7)); color:var(--on-red); }
-.lane .dd { right:0; width:calc(100%/6); background:var(--red-soft); color:var(--ink); justify-content:center; }
-.track .caption { margin-top:var(--s2); }
+.kpis { display:grid; grid-template-columns:repeat(2, 1fr); gap:var(--s4); }
+@media (min-width:900px) { .kpis { grid-template-columns:repeat(4, 1fr); gap:var(--s6); } }
+.kpi { background:var(--paper); border-top:3px solid var(--ink); padding:var(--s6); display:grid; gap:var(--s3); align-content:start; min-width:0; }
+.kpi .n { font:700 clamp(64px, 9vw, 112px)/.85 var(--font-display); letter-spacing:-.05em; color:var(--red); font-variant-numeric:tabular-nums; }
+.kpi .u { font:600 12px/16px var(--font-body); letter-spacing:.12em; text-transform:uppercase; color:var(--ink-muted); }
+.kpi p { font-size:16px; line-height:24px; }
+.kpi--accent { background:var(--ink); border-top-color:var(--red); color:var(--paper); }
+.kpi--accent .u { color:color-mix(in srgb, var(--paper) 70%, var(--ink)); }
+
+.journey { margin-top:var(--s16); display:grid; gap:var(--s6); }
+.journey h3 { font-size:22px; line-height:28px; }
+.steps { list-style:none; margin:0; padding:0; position:relative; display:grid; gap:var(--s4); }
+.steps::before { content:""; position:absolute; left:15px; top:16px; bottom:16px; width:2px; background:var(--line-strong); }
+.step { position:relative; display:grid; grid-template-columns:32px 1fr; gap:var(--s4); align-items:center; }
+.step .dot { width:32px; height:32px; display:grid; place-items:center; background:var(--paper); border:2px solid var(--ink); font:500 11px/1 var(--font-mono); position:relative; z-index:1; }
+.step .t { font-weight:600; font-size:15px; line-height:20px; }
+.step .t small { display:block; font-weight:400; font-size:13px; line-height:18px; color:var(--ink-muted); }
+.step--edge .dot { background:var(--ink); color:var(--paper); border-color:var(--ink); }
+.step--end .dot { background:var(--red); border-color:var(--red); color:var(--on-red); }
+@media (min-width:900px) {
+  .steps { grid-template-columns:repeat(9, 1fr); gap:0; }
+  .steps::before { left:16px; right:calc(100% / 9 - 16px); top:15px; bottom:auto; width:auto; height:2px; }
+  .step { grid-template-columns:1fr; justify-items:start; align-items:start; gap:var(--s3); padding-right:var(--s2); }
+}
+.extras { margin-top:var(--s12); display:grid; gap:var(--s4); border-top:1px solid var(--line); padding-top:var(--s8); }
+@media (min-width:900px) { .extras { grid-template-columns:repeat(3, 1fr); gap:var(--s8); } }
+.extra { display:grid; grid-template-columns:28px 1fr; gap:var(--s3); font-size:17px; line-height:26px; }
+.extra::before { content:"+"; font:700 26px/26px var(--font-display); color:var(--red); }
 
 /* PMF Check */
 .check { display:grid; gap:var(--s12); }
@@ -244,7 +239,7 @@ footer .brand { font-size:15px; color:var(--ink); }
       <a href="#fit">Who it's for</a>
       <a href="#program">Program</a>
       <a href="#check">PMF Check</a>
-      <a href="#investment">Investment</a>
+      <a href="#investment">Price</a>
     </nav>
     <a class="btn btn--primary" href="#apply">Apply now</a>
   </div>
@@ -274,26 +269,6 @@ footer .brand { font-size:15px; color:var(--ink); }
         </div>
       </div>
 
-      <figure class="chart" style="margin:0" aria-labelledby="chart-cap">
-        <svg viewBox="0 0 420 300" role="img" aria-label="Revenue over time. With the academy, a startup reaches PMF and break-even months earlier than without.">
-                    <line class="be" x1="40" y1="158" x2="404" y2="158"/>
-          <text x="404" y="150" text-anchor="end">Break even</text>
-          <path class="slow" d="M40 200 C 110 255, 190 250, 262 158 S 340 70, 360 40"/>
-          <path class="fast" d="M40 200 C 80 245, 120 220, 150 158 S 250 70, 300 40"/>
-          <circle class="pmf-ring" cx="82" cy="223" r="11"/>
-          <circle class="pmf" cx="82" cy="223" r="5"/>
-          <text class="red" x="82" y="255" text-anchor="middle">PMF</text>
-          <path class="saved" d="M150 172 V 180 H 262 V 172"/>
-          <text class="strong" x="206" y="198" text-anchor="middle">Months saved</text>
-          <path class="axis" d="M40 20 V 270 H 410"/>
-          <text x="46" y="20">Revenues</text>
-          <text x="410" y="290" text-anchor="end">Time</text>
-        </svg>
-        <figcaption id="chart-cap" class="legend">
-          <span><i></i>With the academy</span>
-          <span><i class="d"></i>Scaling without PMF</span>
-        </figcaption>
-      </figure>
     </div>
   </section>
 
@@ -361,25 +336,31 @@ footer .brand { font-size:15px; color:var(--ink); }
         <h2 class="h-sec">6-Month PMF Impact Program</h2>
         <p class="lead">Short, focused sprints with expert feedback between them, so the work happens in your company, on your customers, with your numbers.</p>
       </div>
-      <div class="prog">
-        <ul class="plist">
-          <li><span class="n">2</span><span>days of intensive, hands-on workshops</span></li>
-          <li><span class="n">7</span><span>guided sprints with expert input and actionable feedback</span></li>
-          <li><span class="n">1</span><span>founders dinner (drinks excluded)</span></li>
-          <li><span class="n">1</span><span>Investor Demo Day</span></li>
-          <li><span class="n plus">+</span><span>Proven methods and tools to reach PMF faster</span></li>
-          <li><span class="n plus">+</span><span>Peer learning and exchange with fellow entrepreneurs</span></li>
-          <li><span class="n plus">+</span><span>Insights from successful entrepreneurs</span></li>
-        </ul>
-        <div class="track" aria-label="Program outline over six months">
-          <div class="months" aria-hidden="true"><div>M1</div><div>M2</div><div>M3</div><div>M4</div><div>M5</div><div>M6</div></div>
-          <div class="lanes">
-            <div class="lane"><span class="ws">Workshops</span></div>
-            <div class="lane"><span class="sp" style="padding-left:12px">7 sprints</span></div>
-            <div class="lane"><span class="dd">Demo Day</span></div>
-          </div>
-          <p class="caption">Indicative outline, plus one founders dinner along the way. Exact dates are shared with admitted teams.</p>
-        </div>
+      <div class="kpis">
+        <div class="kpi"><span class="n">2</span><span class="u">Days</span><p>of intensive, hands-on workshops</p></div>
+        <div class="kpi"><span class="n">7</span><span class="u">Sprints</span><p>guided, with expert input and actionable feedback</p></div>
+        <div class="kpi"><span class="n">1</span><span class="u">Dinner</span><p>with fellow founders (drinks excluded)</p></div>
+        <div class="kpi kpi--accent"><span class="n">1</span><span class="u">Demo Day</span><p>to pitch your progress to investors</p></div>
+      </div>
+      <div class="journey">
+        <h3>Your six months</h3>
+        <ol class="steps">
+              <li class="step step--edge"><span class="dot">0</span><span class="t">Kick-off<small>2 workshop days</small></span></li>
+              <li class="step"><span class="dot">S1</span><span class="t">Sprint 1</span></li>
+              <li class="step"><span class="dot">S2</span><span class="t">Sprint 2</span></li>
+              <li class="step"><span class="dot">S3</span><span class="t">Sprint 3</span></li>
+              <li class="step"><span class="dot">S4</span><span class="t">Sprint 4</span></li>
+              <li class="step"><span class="dot">S5</span><span class="t">Sprint 5</span></li>
+              <li class="step"><span class="dot">S6</span><span class="t">Sprint 6</span></li>
+              <li class="step"><span class="dot">S7</span><span class="t">Sprint 7</span></li>
+              <li class="step step--end"><span class="dot">★</span><span class="t">Demo Day<small>Pitch to investors</small></span></li>
+        </ol>
+        <p class="caption">Indicative sequence. Exact dates are shared with admitted teams.</p>
+      </div>
+      <div class="extras">
+        <p class="extra">Proven methods and tools to reach PMF faster</p>
+        <p class="extra">Peer learning and exchange with fellow entrepreneurs</p>
+        <p class="extra">Insights from successful entrepreneurs</p>
       </div>
     </div>
   </section>
@@ -408,7 +389,7 @@ footer .brand { font-size:15px; color:var(--ink); }
   <section class="section band" id="investment">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">Investment</p>
+        <p class="eyebrow">Price</p>
         <h2 class="h-sec">Every month faster to PMF saves you one month of burn</h2>
       </div>
       <div class="money">
