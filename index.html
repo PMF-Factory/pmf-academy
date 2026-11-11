@@ -99,6 +99,8 @@ footer .brand .logo { height:24px; }
 .hero-copy { max-width:860px; }
 .hero::before { display:none; }
 .hl { color:var(--red); font-weight:700; }
+.hero .lead .hl, #program .lead .hl { color:var(--ink); }
+#about .kpi:not(.kpi--accent) .n { color:var(--ink); }
 @media (max-width:420px) { #pricing .price .total td:last-child, #pricing .price .yours td:last-child { font-size:26px; } #pricing .price td:last-child { padding-left:var(--s2); } }
 .price .yours td { border-bottom:0; padding-top:var(--s3); }
 .price .yours td:last-child { font:700 36px/1 var(--font-display); letter-spacing:-.02em; color:var(--red); }
@@ -658,14 +660,14 @@ footer .brand { font-size:15px; color:var(--ink); }
 
   <section class="section" id="testimonials">
     <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow">Testimonials</p>
-        <h2 class="h-sec">What founders say</h2>
-      </div>
       <div class="nps-wrap"><h3>Outstanding Net Promoter Score</h3></div>
       <div class="nps-band">
         <span class="fig">80%</span>
         <div><p class="nps-t">Net Promoter Score from founders who completed the program.</p><p class="caption">Participant survey of the second Growth Academy</p></div>
+      </div>
+      <div class="sec-head">
+        <p class="eyebrow">Testimonials</p>
+        <h2 class="h-sec">What founders say</h2>
       </div>
       <div class="interview">
         <div class="iv-side">
@@ -731,7 +733,7 @@ footer .brand { font-size:15px; color:var(--ink); }
               <tr class="disc"><td>Partner discount<span class="sub">SICTIC, Standortförderung Kanton Zürich, PMF Factory</span></td><td>– CHF 1,000</td></tr>
               <tr class="disc"><td>Early-bird discount<span class="sub">until January 15</span></td><td>– CHF 1,000</td></tr>
               <tr class="total"><td>Total investment per company</td><td>CHF 6,500</td></tr>
-              <tr class="yours"><td>Your saving<span class="sub">From the calculator, based on your burn rate</span></td><td id="saving2">CHF 150,000</td></tr>
+              <tr class="yours"><td>Your saving<span class="sub">From the calculator, based on your burn rate</span></td><td id="saving2">– CHF 150,000</td></tr>
             </tbody>
           </table>
           <a class="btn btn--primary" href="https://bookings.cloud.microsoft/bookwithme/user/ae9c27a1549e40eb98f52953e831be8f@pmf-factory.com/meetingtype/boJtNuPkREu4UWmMuFRjFA2?anonymous&amp;ismsaljsauthenabled&amp;ep=mCardFromTile" target="_blank" rel="noopener" style="justify-self:start">Secure the early-bird price <span class="arr" aria-hidden="true">→</span></a>
@@ -795,7 +797,6 @@ footer .brand { font-size:15px; color:var(--ink); }
           </div>
         </div>
         <div class="faq-group">
-          <h3>Participation and costs</h3>
           <div class="faq">
             <details><summary>Is my startup a fit?</summary><div class="fa"><p>Typical participants are B2B (occasionally B2C), 2–7 years on the market, with CHF 200k–2.1M in revenue. You should not apply if your revenue is below CHF 50,000, you have less than six months of runway, or you are a one-(wo)man show.</p></div></details>
             <details><summary>How many startups are selected?</summary><div class="fa"><p>Only 10 carefully selected startups take part, so every team gets real attention from experts and peers.</p></div></details>
@@ -908,7 +909,7 @@ footer .brand { font-size:15px; color:var(--ink); }
     $("months-out").textContent = m;
     var s = m * burn;
     $("saving").textContent = fmt(s);
-    $("saving2").textContent = fmt(s);
+    $("saving2").textContent = "– " + fmt(s);
     $("roi").textContent = s > 0
       ? "That is " + (Math.round(s / 6500 * 10) / 10).toLocaleString("en-US") + "× the program investment of CHF 6,500."
       : "Enter your monthly burn rate to see your saving.";
