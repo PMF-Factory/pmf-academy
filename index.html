@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>try{if(!sessionStorage.getItem("pmf_intro")&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("intro");}catch(e){}</script>
 <title>Swiss PMF Academy – 6-Month Product-Market Fit Program for Startups | Zurich</title>
 <meta name="description" content="Nail your Product-Market Fit and accelerate growth: a 6-month sprint program in Zurich for 10 selected B2B startups. Powered by SICTIC and PMF Factory.">
 <meta name="robots" content="index, follow, max-image-preview:large">
@@ -314,6 +315,15 @@ a { color:inherit; }
 .section { padding-block:var(--s16); border-top:1px solid var(--line); }
 @media (min-width:760px) { .section { padding-block:var(--s24); } }
 .band { background:var(--surface); }
+/* Intro animation (first visit per session) */
+html.intro::after { content:""; position:fixed; inset:0; z-index:100; background:var(--paper); }
+.intro-ov { position:fixed; inset:0; z-index:101; display:grid; place-items:center; background:var(--paper); pointer-events:none; }
+.intro-mark { position:relative; width:clamp(128px, 20vw, 200px); aspect-ratio:1; height:auto; border-radius:24%; background:#e2231a; transform-origin:center; will-change:transform; }
+.intro-mark i { position:absolute; background:#fff; border-radius:4%; }
+.intro-mark .v { left:39%; top:19%; width:22%; height:62%; transform:scaleY(0); }
+.intro-mark .h { top:39%; left:19%; height:22%; width:62%; transform:scaleX(0); }
+.hero h1 .l1, .hero h1 em { display:inline-block; }
+
 .proc { list-style:none; margin:0; padding:0; display:grid; gap:var(--s4); counter-reset:none; }
 @media (min-width:640px) { .proc { grid-template-columns:repeat(2, 1fr); } }
 @media (min-width:1000px) { .proc { grid-template-columns:repeat(4, 1fr); gap:var(--s6); } }
@@ -1260,6 +1270,49 @@ footer .brand { font-size:15px; color:var(--ink); }
 
 <script>
 (function () {
+  // Intro animation: Swiss cross reveal -> flies to header logo -> headline slides in
+  (function () {
+    var root = document.documentElement;
+    if (!root.classList.contains("intro")) return;
+    var done = function () { root.classList.remove("intro"); try { sessionStorage.setItem("pmf_intro", "1"); } catch (e) {} };
+    try {
+      var ov = document.createElement("div"); ov.className = "intro-ov"; ov.setAttribute("aria-hidden", "true");
+      ov.innerHTML = '<div class="intro-mark"><i class="v"></i><i class="h"></i></div>';
+      document.body.appendChild(ov);
+      root.classList.remove("intro");
+      var mark = ov.firstChild, v = mark.children[0], h = mark.children[1];
+      var ease = "cubic-bezier(.2,.7,.2,1)";
+      mark.animate([{ transform:"scale(.6)", opacity:0 }, { transform:"scale(1)", opacity:1 }], { duration:260, easing:ease, fill:"both" });
+      v.animate([{ transform:"scaleY(0)" }, { transform:"scaleY(1)" }], { duration:240, delay:200, easing:ease, fill:"both" });
+      h.animate([{ transform:"scaleX(0)" }, { transform:"scaleX(1)" }], { duration:240, delay:400, easing:ease, fill:"both" });
+      // headline lines
+      var h1 = document.querySelector(".hero h1"), parts = [];
+      var bdg = document.querySelector(".hero .badges"); if (bdg) parts.push(bdg);
+      if (h1 && h1.firstChild && h1.firstChild.nodeType === 3) {
+        var sp = document.createElement("span"); sp.className = "l1"; sp.textContent = h1.firstChild.textContent;
+        h1.replaceChild(sp, h1.firstChild); parts.push(sp);
+        var em = h1.querySelector("em"); if (em) parts.push(em);
+      }
+      document.querySelectorAll(".hero .hook, .hero .lead, .hero .hero-src").forEach(function (e) { parts.push(e); });
+      parts.forEach(function (p) { p.style.opacity = 0; });
+      setTimeout(function () {
+        var target = document.querySelector(".site-head .brand svg rect");
+        var a = mark.getBoundingClientRect();
+        var b = target ? target.getBoundingClientRect() : null;
+        if (b && b.width) {
+          var sc = b.width / a.width, dx = (b.left + b.width / 2) - (a.left + a.width / 2), dy = (b.top + b.height / 2) - (a.top + a.height / 2);
+          mark.animate([{ transform:"translate(0,0) scale(1)" }, { transform:"translate(" + dx + "px," + dy + "px) scale(" + sc + ")" }], { duration:480, easing:"cubic-bezier(.65,0,.25,1)", fill:"forwards" });
+        }
+        ov.animate([{ backgroundColor:getComputedStyle(ov).backgroundColor }, { backgroundColor:"rgba(0,0,0,0)" }], { duration:420, delay:80, easing:"ease-out", fill:"forwards" });
+        parts.forEach(function (p, i) {
+          var an = p.animate([{ opacity:0, transform:"translateY(28px)" }, { opacity:1, transform:"none" }], { duration:520, delay:220 + i * 110, easing:ease, fill:"backwards" });
+          p.style.opacity = "";
+        });
+        setTimeout(function () { ov.remove(); done(); }, 520);
+      }, 720);
+    } catch (e) { root.classList.remove("intro"); var o = document.querySelector(".intro-ov"); if (o) o.remove(); done(); }
+  })();
+
   // Google Analytics (GA4) – loads only after consent
   var GA_ID = "G-7MQ2QHK6SH", gaLoaded = false;
   window.dataLayer = window.dataLayer || [];
