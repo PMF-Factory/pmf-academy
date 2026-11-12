@@ -326,15 +326,16 @@ html.intro::after { content:""; position:fixed; inset:0; z-index:100; background
 
 .proc { list-style:none; margin:0; padding:0; display:grid; gap:var(--s4); counter-reset:none; }
 @media (min-width:640px) { .proc { grid-template-columns:repeat(2, 1fr); } }
-@media (min-width:1000px) { .proc { grid-template-columns:repeat(4, 1fr); gap:var(--s6); } }
+@media (min-width:1100px) { .proc { grid-template-columns:repeat(5, 1fr); gap:var(--s6); } }
 .proc li { position:relative; background:var(--paper); border-top:3px solid var(--ink); padding:var(--s6); display:grid; gap:var(--s3); align-content:start; min-width:0; }
 .proc li:last-child { border-top-color:var(--red); }
 .proc .pn { font:700 48px/1 var(--font-display); letter-spacing:-.03em; color:var(--red); }
 .proc h3 { font-size:20px; line-height:26px; }
 .proc p { color:var(--ink-muted); font-size:15px; line-height:22px; }
-.proc .btn { justify-self:start; margin-top:var(--s2); }
+.proc .btn { justify-self:start; margin-top:var(--s2); max-width:100%; }
+@media (min-width:1100px) { .proc li { padding:var(--s6) var(--s4); } .proc .btn { padding:10px 12px; font-size:14px; } }
 .proc-note { margin-top:var(--s8); font:600 22px/28px var(--font-display); color:var(--red); }
-@media (min-width:1000px) { .proc li:not(:last-child)::after { content:"→"; position:absolute; right:calc(-1 * var(--s6) / 2 - 8px); top:var(--s6); font:700 20px/1 var(--font-display); color:var(--line-strong); z-index:1; } }
+@media (min-width:1100px) { .proc li:not(:last-child)::after { content:"→"; position:absolute; right:calc(-1 * var(--s6) / 2 - 8px); top:var(--s6); font:700 20px/1 var(--font-display); color:var(--line-strong); z-index:1; } }
 
 .site-head .btn { gap:0; }
 @media (max-width:360px) { html body .site-head .wrap { gap:var(--s2); } html body .brand .logo { height:17px; } html body .site-head .btn { padding:6px 9px; font-size:12.5px; } html body .menu-btn { width:38px; height:38px; } html body .site-head .bk { display:none; } }
@@ -429,6 +430,11 @@ footer .brand .logo { height:24px; }
 .hero::before { display:none; }
 .hl { color:var(--red); font-weight:700; }
 .heart { display:block; fill:var(--red); }
+.heart { transform-origin:center; transform-box:fill-box; }
+@keyframes heartbeat { 0%,100% { transform:scale(1); } 14% { transform:scale(1.25); } 28% { transform:scale(1); } 42% { transform:scale(1.18); } 70% { transform:scale(1); } }
+@media (prefers-reduced-motion: no-preference) {
+  .kpi--sig:hover .heart, .kpi--sig:focus-within .heart { animation:heartbeat 1.1s ease-in-out infinite; }
+}
 .kpi--sig { align-content:start; }
 @media (max-width:600px) { .sig-mark { height:30px; gap:2px; } .sig-mark .heart { width:26px; height:26px; } .kpi .sig { font-size:19px; } .kpis:has(.kpi--sig) { grid-template-columns:1fr; } }
 .sig-mark { font:700 48px/1 var(--font-display); color:var(--red); height:44px; display:flex; align-items:center; gap:4px; }
@@ -1151,13 +1157,14 @@ footer .brand { font-size:15px; color:var(--ink); }
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow">Application process</p>
-        <h2 class="h-sec">Four steps to the program</h2>
+        <h2 class="h-sec">Five steps to the program</h2>
       </div>
       <ol class="proc">
-        <li><span class="pn">1</span><h3>Book a 20-min call</h3><p>Pick a slot that suits you, online and free of charge.</p><a class="btn btn--primary" href="https://bookings.cloud.microsoft/bookwithme/user/ae9c27a1549e40eb98f52953e831be8f@pmf-factory.com/meetingtype/boJtNuPkREu4UWmMuFRjFA2?anonymous&amp;ismsaljsauthenabled&amp;ep=mCardFromTile" target="_blank" rel="noopener">Book a 20-min call <span class="arr" aria-hidden="true">→</span></a></li>
-        <li><span class="pn">2</span><h3>20-min call</h3><p>Let’s check out the fit with the program.</p></li>
-        <li><span class="pn">3</span><h3>Official application</h3><p>If it fits, you submit your official application.</p></li>
-        <li><span class="pn">4</span><h3>Selection of 10 startups</h3><p>Only 10 startups are selected for the program.</p></li>
+        <li><span class="pn">1</span><h3>Check your fit</h3><p>Check if you fit with the criteria for participating startups.</p><a class="btn btn--secondary" href="#who">See the criteria <span class="arr" aria-hidden="true">→</span></a></li>
+        <li><span class="pn">2</span><h3>Book a 20-min call</h3><p>Pick a slot that suits you, online and free of charge.</p><a class="btn btn--primary" href="https://bookings.cloud.microsoft/bookwithme/user/ae9c27a1549e40eb98f52953e831be8f@pmf-factory.com/meetingtype/boJtNuPkREu4UWmMuFRjFA2?anonymous&amp;ismsaljsauthenabled&amp;ep=mCardFromTile" target="_blank" rel="noopener">Book a 20-min call <span class="arr" aria-hidden="true">→</span></a></li>
+        <li><span class="pn">3</span><h3>20-min call</h3><p>Let’s check out the fit with the program.</p></li>
+        <li><span class="pn">4</span><h3>Official application</h3><p>If it fits, you submit your official application.</p></li>
+        <li><span class="pn">5</span><h3>Selection of 10 startups</h3><p>Only 10 startups are selected for the program.</p></li>
       </ol>
       <p class="proc-note">Don’t miss this opportunity!</p>
     </div>
