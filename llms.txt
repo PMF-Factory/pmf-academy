@@ -1,0 +1,38 @@
+# Swiss PMF Academy
+
+> Swiss PMF Academy is a six-month Product-Market Fit (PMF) sprint program in Zurich, Switzerland, for established B2B startups that have customers and revenue but find growth harder than it should be. It is powered by SICTIC (Swiss ICT Investor Club) and PMF Factory, and supported by Innovation Zurich. Only 10 startups are selected per cohort.
+
+## Key facts
+
+- Website: https://www.pmf-academy.ch/
+- Format: 2 kick-off workshop days, 7 guided growth sprints (about every 3 weeks), 1 Investor Demo Day
+- Duration: March to August 2027 (kick-off 4–5 March 2027, Demo Day 20 August 2027)
+- Location: in-person days in Zurich (kick-off, Sprint 2, Sprint 5, Demo Day); other sprints online
+- Participants: 10 carefully selected startups, two key people from each leadership team
+- Typical participant: B2B (occasionally B2C), 2–7 years on the market, CHF 200k–2.1M revenue
+- Not a fit: revenue below CHF 50,000, less than six months of runway, or a one-person company
+- Price: CHF 4,250 per participant (CHF 8,500 per company); partner discount (SICTIC, Standortförderung Kanton Zürich, PMF Factory) and early-bird discount (until 15 January 2027) of CHF 1,000 each bring the total to CHF 6,500 per company
+- Results of the previous program (Growth Academy): Net Promoter Score of 80%, average rating 9.45 out of 10
+- How to apply: book a 20-minute call with Michael Sauter (founder of PMF Factory)
+
+## What Product-Market Fit means here
+
+Signals of Product-Market Fit: sales become predictable, customer acquisition costs are dropping, customers stay and want more, and customers actively recommend you. Not PMF: prospects keep delaying buying decisions, sales feel hard, every customer project is different, existing customers don't ask for more. Startups that achieve PMF grow up to 20× faster than those that scale prematurely (Startup Genome Report, Premature Scaling).
+
+## Guest speakers
+
+- Dr. Thomas Dübendorfer – internet entrepreneur and angel investor, President of SICTIC (talk: Investors & PMF)
+- Tobias Rein – co-founder & Principal Engineer at GetYourGuide (talk: PMF Journey)
+- Raphael Schaad – founder of Cron (acquired by Notion), General Partner at Y Combinator (talk: Talking to 1,000 Customers)
+- Thomas "Gaba" Gabathuler – CEO and co-founder of Get More Brain (talk: Never stop learning)
+- Stefan Zanetti – CGO / VRP at Allthings, CEO at Pivotal (talk: How to pivot)
+- Michael Sauter – founder of PMF Factory, author of "Product-Market Fit – How to Build a Business That Scales"
+
+## Pages
+
+- [Home: program, PMF Check, speakers, pricing, testimonials, FAQ](https://www.pmf-academy.ch/)
+- [Privacy policy](https://www.pmf-academy.ch/privacy.html)
+
+## Contact
+
+PMF Factory (HannaZ GmbH), Oberdorfstrasse 27A, 9548 Matzingen, Switzerland – michael@pmf-factory.com
