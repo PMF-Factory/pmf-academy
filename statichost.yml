@@ -1,0 +1,3 @@
+# statichost.eu – plain static site, no build step
+# Public directory is the repository root
+public: .
