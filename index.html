@@ -820,6 +820,11 @@ footer .brand { font-size:15px; color:var(--ink); }
 .tm-top { display:grid; gap:var(--s8); margin-bottom:var(--s12); }
 @media (min-width:900px) { .tm-top { grid-template-columns:2fr 1fr; gap:var(--s16); align-items:start; } }
 .tm-hero blockquote { font-size:clamp(28px,4vw,44px); line-height:1.15; letter-spacing:-.02em; }
+
+/* Mobile overflow fix: header fits on 390px phones, calculator fits on 320px */
+@media (min-width:381px) and (max-width:420px) { .site-head .wrap { gap:var(--s2); } .brand .logo { height:19px; } }
+.money > *, .calc, .field { min-width:0; }
+.money-in input { width:100%; }
 </style>
 
 </head>
