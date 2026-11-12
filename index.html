@@ -314,6 +314,19 @@ a { color:inherit; }
 .section { padding-block:var(--s16); border-top:1px solid var(--line); }
 @media (min-width:760px) { .section { padding-block:var(--s24); } }
 .band { background:var(--surface); }
+.proc { list-style:none; margin:0; padding:0; display:grid; gap:var(--s4); counter-reset:none; }
+@media (min-width:640px) { .proc { grid-template-columns:repeat(2, 1fr); } }
+@media (min-width:1000px) { .proc { grid-template-columns:repeat(4, 1fr); gap:var(--s6); } }
+.proc li { position:relative; background:var(--paper); border-top:3px solid var(--ink); padding:var(--s6); display:grid; gap:var(--s3); align-content:start; min-width:0; }
+.proc li:last-child { border-top-color:var(--red); }
+.proc .pn { font:700 48px/1 var(--font-display); letter-spacing:-.03em; color:var(--red); }
+.proc h3 { font-size:20px; line-height:26px; }
+.proc p { color:var(--ink-muted); font-size:15px; line-height:22px; }
+.proc .btn { justify-self:start; margin-top:var(--s2); }
+@media (min-width:1000px) { .proc li:not(:last-child)::after { content:"→"; position:absolute; right:calc(-1 * var(--s6) / 2 - 8px); top:var(--s6); font:700 20px/1 var(--font-display); color:var(--line-strong); z-index:1; } }
+
+.site-head .btn { gap:0; }
+@media (max-width:360px) { html body .site-head .wrap { gap:var(--s2); } html body .brand .logo { height:17px; } html body .site-head .btn { padding:6px 9px; font-size:12.5px; } html body .menu-btn { width:38px; height:38px; } html body .site-head .bk { display:none; } }
 /* Subtle plus-grid background (echo of the Swiss cross) */
 :root { --cross-bg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M20 16.5v7M16.5 20h7' stroke='%2314171a' stroke-opacity='0.12' stroke-width='1.2' stroke-linecap='square'/%3E%3C/svg%3E"); }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --cross-bg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M20 16.5v7M16.5 20h7' stroke='%23ffffff' stroke-opacity='0.12' stroke-width='1.2' stroke-linecap='square'/%3E%3C/svg%3E"); } }
@@ -823,7 +836,7 @@ footer .brand { font-size:15px; color:var(--ink); }
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="btn btn--primary" href="https://bookings.cloud.microsoft/bookwithme/user/ae9c27a1549e40eb98f52953e831be8f@pmf-factory.com/meetingtype/boJtNuPkREu4UWmMuFRjFA2?anonymous&amp;ismsaljsauthenabled&amp;ep=mCardFromTile" target="_blank" rel="noopener">Book a call</a>
+    <a class="btn btn--primary" href="https://bookings.cloud.microsoft/bookwithme/user/ae9c27a1549e40eb98f52953e831be8f@pmf-factory.com/meetingtype/boJtNuPkREu4UWmMuFRjFA2?anonymous&amp;ismsaljsauthenabled&amp;ep=mCardFromTile" target="_blank" rel="noopener"><span class="bk">Book a&nbsp;</span>20-min call</a>
     <button type="button" class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -845,8 +858,8 @@ footer .brand { font-size:15px; color:var(--ink); }
           <img fetchpriority="high" decoding="async" src="images/pmf-mountain-product-market-fit.webp" width="958" height="461" alt="A founder pushes a boulder up a mountain towards a red flag labelled Product-Market Fit. Before the summit: Don't die! After it: repeatable, predictable growth.">
         </figure>
         <div class="ctas">
-          <a class="btn btn--primary" href="https://bookings.cloud.microsoft/bookwithme/user/ae9c27a1549e40eb98f52953e831be8f@pmf-factory.com/meetingtype/boJtNuPkREu4UWmMuFRjFA2?anonymous&amp;ismsaljsauthenabled&amp;ep=mCardFromTile" target="_blank" rel="noopener">Book a call <span class="arr" aria-hidden="true">→</span></a>
-          <a class="btn btn--secondary" href="#check">Take the 8-question PMF Check</a>
+          <a class="btn btn--primary" href="https://bookings.cloud.microsoft/bookwithme/user/ae9c27a1549e40eb98f52953e831be8f@pmf-factory.com/meetingtype/boJtNuPkREu4UWmMuFRjFA2?anonymous&amp;ismsaljsauthenabled&amp;ep=mCardFromTile" target="_blank" rel="noopener">Book a 20-min call <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn--secondary" href="#check">Take the free PMF Check</a>
           <a class="btn btn--secondary" href="#testimonials">Check the Testimonials</a>
         </div>
         <div class="powered">
@@ -953,7 +966,7 @@ footer .brand { font-size:15px; color:var(--ink); }
     <div class="wrap">
       <div class="nps-wrap"><p class="eyebrow" style="margin-bottom:var(--s3)">Proven methodology</p><h3>Outstanding Net Promoter Score</h3></div>
       <div class="nps-band nps-two">
-        <div class="nps-item"><span class="fig">80%</span><p class="nps-t">Net Promoter Score from founders who completed the program.</p></div>
+        <div class="nps-item"><span class="fig">+80</span><p class="nps-t">Net Promoter Score from founders who completed the program.</p></div>
         <div class="nps-item"><span class="fig">9.45<small>/10</small></span><p class="nps-t">Average rating from founders who completed the program.</p></div>
         <p class="caption nps-src">Participant survey of the second Growth Academy</p>
       </div>
@@ -999,7 +1012,7 @@ footer .brand { font-size:15px; color:var(--ink); }
             <li>Committed participation of two key people</li>
             <li>Sufficient funding to see the six months through</li>
           </ul>
-          <a class="btn btn--primary" href="https://bookings.cloud.microsoft/bookwithme/user/ae9c27a1549e40eb98f52953e831be8f@pmf-factory.com/meetingtype/boJtNuPkREu4UWmMuFRjFA2?anonymous&amp;ismsaljsauthenabled&amp;ep=mCardFromTile" target="_blank" rel="noopener">Book a call <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn--primary" href="https://bookings.cloud.microsoft/bookwithme/user/ae9c27a1549e40eb98f52953e831be8f@pmf-factory.com/meetingtype/boJtNuPkREu4UWmMuFRjFA2?anonymous&amp;ismsaljsauthenabled&amp;ep=mCardFromTile" target="_blank" rel="noopener">Book a 20-min call <span class="arr" aria-hidden="true">→</span></a>
         </div>
         <div class="vcard vcard--no">
           <h3><span class="vmark" aria-hidden="true">×</span>You should definitely NOT apply if…</h3>
@@ -1098,14 +1111,29 @@ footer .brand { font-size:15px; color:var(--ink); }
   <section class="apply" id="apply">
   <div class="wrap">
     <div>
-      <p class="eyebrow">Book a call</p>
+      <p class="eyebrow">Book a 20-min call</p>
       <h2>Ready to nail your Product-Market Fit?</h2>
       <p>Two people per company, six months, one goal: repeatable, predictable growth. Apply before January 15 to save CHF 1,000.</p>
       <p>Let’s check the fit with the program within a 20-minute call.</p>
     </div>
-    <a class="btn btn--primary" href="https://bookings.cloud.microsoft/bookwithme/user/ae9c27a1549e40eb98f52953e831be8f@pmf-factory.com/meetingtype/boJtNuPkREu4UWmMuFRjFA2?anonymous&amp;ismsaljsauthenabled&amp;ep=mCardFromTile" target="_blank" rel="noopener">Book a call <span class="arr" aria-hidden="true">→</span></a>
+    <a class="btn btn--primary" href="https://bookings.cloud.microsoft/bookwithme/user/ae9c27a1549e40eb98f52953e831be8f@pmf-factory.com/meetingtype/boJtNuPkREu4UWmMuFRjFA2?anonymous&amp;ismsaljsauthenabled&amp;ep=mCardFromTile" target="_blank" rel="noopener">Book a 20-min call <span class="arr" aria-hidden="true">→</span></a>
   </div>
 </section>
+
+  <section class="section band" id="process">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Application process</p>
+        <h2 class="h-sec">Four steps to the program</h2>
+      </div>
+      <ol class="proc">
+        <li><span class="pn">1</span><h3>Book a 20-min call</h3><p>Pick a slot that suits you, online and free of charge.</p><a class="btn btn--primary" href="https://bookings.cloud.microsoft/bookwithme/user/ae9c27a1549e40eb98f52953e831be8f@pmf-factory.com/meetingtype/boJtNuPkREu4UWmMuFRjFA2?anonymous&amp;ismsaljsauthenabled&amp;ep=mCardFromTile" target="_blank" rel="noopener">Book a 20-min call <span class="arr" aria-hidden="true">→</span></a></li>
+        <li><span class="pn">2</span><h3>20-min call</h3><p>Let’s check out the fit with the program.</p></li>
+        <li><span class="pn">3</span><h3>Official application</h3><p>If it fits, you submit your official application.</p></li>
+        <li><span class="pn">4</span><h3>Selection of 10 startups</h3><p>Only 10 startups are selected for the program.</p></li>
+      </ol>
+    </div>
+  </section>
 
   <section class="section" id="investors">
     <div class="wrap">
@@ -1186,7 +1214,7 @@ footer .brand { font-size:15px; color:var(--ink); }
             <details><summary>How many startups are selected?</summary><div class="fa"><p>Only 10 carefully selected startups take part, so every team gets real attention from experts and peers.</p></div></details>
             <details><summary>Who should take part from my company?</summary><div class="fa"><p>Two key people from your leadership team, both committed to taking part throughout the six months.</p></div></details>
             <details><summary>What does it cost?</summary><div class="fa"><p>CHF 4,250 per participant, so CHF 8,500 per company. A partner discount (SICTIC, Standortförderung Kanton Zürich, PMF Factory) and an early-bird discount until January 15 of CHF 1,000 each bring the total to <b>CHF 6,500</b>.</p></div></details>
-            <details><summary>How do I apply?</summary><div class="fa"><p>Book a 20-minute call with Michael Sauter. Together we look at where you stand and whether the academy is the right next step.</p><a class="btn btn--primary" href="https://bookings.cloud.microsoft/bookwithme/user/ae9c27a1549e40eb98f52953e831be8f@pmf-factory.com/meetingtype/boJtNuPkREu4UWmMuFRjFA2?anonymous&amp;ismsaljsauthenabled&amp;ep=mCardFromTile" target="_blank" rel="noopener">Book a call <span class="arr" aria-hidden="true">→</span></a></div></details>
+            <details><summary>How do I apply?</summary><div class="fa"><p>Book a 20-minute call with Michael Sauter. Together we look at where you stand and whether the academy is the right next step.</p><a class="btn btn--primary" href="https://bookings.cloud.microsoft/bookwithme/user/ae9c27a1549e40eb98f52953e831be8f@pmf-factory.com/meetingtype/boJtNuPkREu4UWmMuFRjFA2?anonymous&amp;ismsaljsauthenabled&amp;ep=mCardFromTile" target="_blank" rel="noopener">Book a 20-min call <span class="arr" aria-hidden="true">→</span></a></div></details>
             <details><summary>Can I learn more before applying?</summary><div class="fa"><p>Yes. Take the PMF Check above, or <a href="https://share-eu1.hsforms.com/1mr8lliBuQYeUVpN2lhS3Tw2du7hm" target="_blank" rel="noopener">download the free e-book</a> with the success stories of Bexio, Xovis and Cron.</p></div></details>
           </div>
         </div>
