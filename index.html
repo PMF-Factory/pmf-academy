@@ -445,6 +445,8 @@ footer .brand .logo { height:24px; }
 .hook { font:600 clamp(18px, 2vw, 22px)/1.35 var(--font-display); letter-spacing:-.01em; color:var(--ink); max-width:none; text-wrap:pretty; }
 
 .hero .lead .hl, #program .lead .hl { color:var(--ink); }
+.hero .lead:has(+ .lead2) { margin-bottom:0; }
+.hero .lead2 { margin-top:var(--s4); }
 #about .kpi:not(.kpi--accent) .n { color:var(--ink); }
 @media (max-width:420px) { #pricing .price .total td:last-child, #pricing .price .yours td:last-child { font-size:26px; } #pricing .price td:last-child { padding-left:var(--s2); } }
 .price .yours td { border-bottom:0; padding-top:var(--s3); }
@@ -899,6 +901,7 @@ footer .brand { font-size:15px; color:var(--ink); }
         <h1>Nail your PMF. <em>Accelerate your growth.</em></h1>
         <p class="hook">You have customers and revenue, but growth is harder than it should be?</p>
         <p class="lead">Startups with a clear Product-Market Fit grow <strong class="hl">20× faster</strong>* than those that scale prematurely. The Academy equips you with the tools, methods, and frameworks to iterate faster and in a structured way towards Product-Market Fit.</p>
+        <p class="lead lead2">It is designed for B2B startups that are 2–7 years on the market, have first customers and revenue (CHF 200k–2.1M, minimum CHF 50k), and want to accelerate their growth.</p>
         <p class="caption hero-src">* Startup Genome Report (Version 2) – Premature Scaling (UC Berkeley, Stanford, Startup Genome Project, 2011–2012)</p>
     <figure class="hero-art">
           <img fetchpriority="high" decoding="async" src="images/pmf-mountain-product-market-fit.webp" width="958" height="461" alt="A founder pushes a boulder up a mountain towards a red flag labelled Product-Market Fit. Before the summit: Don't die! After it: repeatable, predictable growth.">
@@ -1049,7 +1052,7 @@ footer .brand { font-size:15px; color:var(--ink); }
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow">Guest speakers</p>
-        <h2 class="h-sec">Learn from failures and successes</h2>
+        <h2 class="h-sec">Sharing failures and successes</h2>
         <p class="lead">In this high-trust setting, we mutually share real learnings and insights from failures and successes.</p>
       </div>
       <div class="people">
