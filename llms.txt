@@ -23,7 +23,6 @@ Signals of Product-Market Fit: sales become predictable, customer acquisition co
 
 - Dr. Thomas Dübendorfer – internet entrepreneur and angel investor, President of SICTIC (talk: Investors & PMF)
 - Tobias Rein – co-founder & Principal Engineer at GetYourGuide (talk: PMF Journey)
-- Raphael Schaad – founder of Cron (acquired by Notion), General Partner at Y Combinator (talk: Talking to 1,000 Customers)
 - Thomas "Gaba" Gabathuler – CEO and co-founder of Get More Brain (talk: Never stop learning)
 - Stefan Zanetti – CGO & Chairman at Allthings, CEO at Pivotal (talk: How to pivot)
 - Michael Sauter – founder of PMF Factory, author of "Product-Market Fit – How to Build a Business That Scales"
