@@ -441,12 +441,12 @@ footer .brand .logo { height:24px; }
 .kpi .sig { font:700 clamp(22px, 2.4vw, 28px)/1.2 var(--font-display); letter-spacing:-.01em; color:var(--ink); }
 
 .sub-h { font-size:22px; line-height:28px; margin-bottom:var(--s6); }
-.hero-src { margin-top:calc(-1 * var(--s3)); }
+.hero-src { margin-top:calc(-1 * var(--s2)); }
 .hook { font:600 clamp(18px, 2vw, 22px)/1.35 var(--font-display); letter-spacing:-.01em; color:var(--ink); max-width:none; text-wrap:pretty; }
 
 .hero .lead .hl, #program .lead .hl { color:var(--ink); }
 .hero .lead:has(+ .lead2) { margin-bottom:0; }
-.hero .lead2 { margin-top:var(--s4); }
+.hero .lead2 { margin-top:-8px; }
 #about .kpi:not(.kpi--accent) .n { color:var(--ink); }
 @media (max-width:420px) { #pricing .price .total td:last-child, #pricing .price .yours td:last-child { font-size:26px; } #pricing .price td:last-child { padding-left:var(--s2); } }
 .price .yours td { border-bottom:0; padding-top:var(--s3); }
@@ -584,7 +584,13 @@ input[type="range"] { min-width:0; max-width:100%; margin-inline:0; }
 @media (min-width:900px) { .teaser { grid-template-columns:repeat(3, 1fr); align-items:stretch; } }
 .teaser .tcard { margin:0; align-content:space-between; }
 #voices .sec-head { margin-bottom:var(--s6); }
+#voices .teaser { margin-bottom:var(--s4); }
+#voices .voices-src { margin:0 0 var(--s6); }
 #voices .tcard { border-top-color:var(--red); color:var(--ink); }
+#voices .tcard { align-content:start; }
+#voices .tcard figcaption { order:-1; gap:var(--s4); }
+#voices .tcard figcaption img { width:88px; height:88px; }
+#voices .tcard figcaption b { font-size:17px; }
 #voices .btn--secondary { background:var(--paper); color:var(--ink); border-color:var(--line-strong); }
 #voices .btn--secondary:hover { border-color:var(--ink); }
 
@@ -739,6 +745,16 @@ input[type="range"] { min-width:0; max-width:100%; margin-inline:0; }
 .cells i[data-v="3"] { background:var(--red); }
 .score .reset { justify-self:start; background:none; border:1px solid color-mix(in srgb, var(--paper) 45%, var(--ink)); color:var(--paper); padding:var(--s2) var(--s4); border-radius:2px; font:600 14px/20px var(--font-body); cursor:pointer; }
 .score .reset:hover { border-color:var(--paper); }
+/* compact score bar */
+html body .score { padding:var(--s3) var(--s5); gap:var(--s2) var(--s5); grid-template-columns:auto 1fr; align-items:center; }
+html body .score .big { font-size:40px; }
+html body .score .big small { font-size:16px; }
+html body .score .mid { gap:var(--s2); }
+html body .score h3 { font-size:17px; line-height:22px; }
+html body .score .txt { font-size:13px; line-height:18px; }
+html body .score .cells i { height:8px; }
+html body .score .reset { grid-column:1 / -1; padding:4px var(--s3); font-size:13px; }
+@media (min-width:900px) { html body .score { grid-template-columns:auto 1fr auto; padding:var(--s3) var(--s6); } html body .score .reset { grid-column:auto; } }
 .cells-legend { display:flex; flex-wrap:wrap; gap:var(--s1) var(--s4); font-size:12px; line-height:16px; color:color-mix(in srgb, var(--paper) 65%, var(--ink)); }
 
 /* Savings + price */
@@ -900,12 +916,11 @@ footer .brand { font-size:15px; color:var(--ink); }
         </div>
         <h1>Nail your PMF. <em>Accelerate your growth.</em></h1>
         <p class="hook">You have customers and revenue, but growth is harder than it should be?</p>
-        <p class="lead">Startups with a clear Product-Market Fit grow <strong class="hl">20× faster</strong>* than those that scale prematurely. The Academy equips you with the tools, methods, and frameworks to iterate faster and in a structured way towards Product-Market Fit.</p>
-        <p class="lead lead2">It is designed for B2B startups that are 2–7 years on the market, have first customers and revenue (CHF 200k–2.1M, minimum CHF 50k), and want to accelerate their growth.</p>
-        <p class="caption hero-src">* Startup Genome Report (Version 2) – Premature Scaling (UC Berkeley, Stanford, Startup Genome Project, 2011–2012)</p>
+        <p class="lead">Startups with a clear Product-Market Fit grow <strong class="hl">20× faster</strong>* than those that scale prematurely. The Academy equips <strong>entrepreneurs with paying customers and revenue</strong> (typically CHF 200k–2.1M, minimum CHF 50k) with the tools, methods, and frameworks to achieve Product-Market Fit faster and in structured iterations.</p>
     <figure class="hero-art">
           <img fetchpriority="high" decoding="async" src="images/pmf-mountain-product-market-fit.webp" width="958" height="461" alt="A founder pushes a boulder up a mountain towards a red flag labelled Product-Market Fit. Before the summit: Don't die! After it: repeatable, predictable growth.">
         </figure>
+        <p class="caption hero-src">* Startup Genome Report (Version 2) – Premature Scaling (UC Berkeley, Stanford, Startup Genome Project, 2011–2012)</p>
         <div class="ctas">
           <a class="btn btn--primary" href="https://bookings.cloud.microsoft/bookwithme/user/ae9c27a1549e40eb98f52953e831be8f@pmf-factory.com/meetingtype/boJtNuPkREu4UWmMuFRjFA2?anonymous&amp;ismsaljsauthenabled&amp;ep=mCardFromTile" target="_blank" rel="noopener">Book a 20-min call <span class="arr" aria-hidden="true">→</span></a>
           <a class="btn btn--secondary" href="#check">Take the free PMF Check</a>
@@ -930,12 +945,14 @@ footer .brand { font-size:15px; color:var(--ink); }
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow">What participants say</p>
+        <h2 class="h-sec">Proven Methodology</h2>
       </div>
       <div class="teaser">
         <figure class="tcard" data-cat="relevance"><blockquote>Every startup should address the topic of Product-Market Fit at an early stage and implement a process before they have already done everything wrong. The program has definitely <strong class="tk">demystified the topic of Product-Market Fit</strong> for us and given us the necessary guidance on how to focus and make it measurable.</blockquote><figcaption><img src="images/testimonial-pascal-weber.jpg" alt="Portrait of Pascal Weber" width="48" height="48" loading="lazy"><span><b>Pascal Weber</b>Co-Founder, Manukai</span></figcaption></figure>
         <figure class="tcard" data-cat="impact"><blockquote>This program has <strong class="tk">given me so much energy</strong>. It has shaped my thinking about developing a business, and we as a company have taken a big step forward.</blockquote><figcaption><img src="images/testimonial-chris-zurbrugg.jpg" alt="Portrait of Chris Zurbrügg" width="48" height="48" loading="lazy"><span><b>Chris Zurbrügg</b>Co-Founder &amp; CEO, aumico</span></figcaption></figure>
         <figure class="tcard" data-cat="quality"><blockquote>I was a little skeptical at first. But then the value of the program exceeded my expectations. As a company, we have taken a big step forward. In hindsight, the value of the program is <strong class="tk">many times more than we paid for it</strong>.</blockquote><figcaption><img src="images/testimonial-mario-von-bergen.jpg" alt="Portrait of Mario von Bergen" width="48" height="48" loading="lazy"><span><b>Mario von Bergen</b>Co-Founder, Splint Invest</span></figcaption></figure>
       </div>
+      <p class="caption voices-src">Participant survey of the second Growth Academy</p>
       <a class="btn btn--secondary" href="#testimonials">See more Testimonials <span class="arr" aria-hidden="true">→</span></a>
     </div>
   </section>
@@ -964,8 +981,9 @@ footer .brand { font-size:15px; color:var(--ink); }
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow">About PMF</p>
-        <h2 class="h-sec">PMF is the foundation for startup success and sustainable growth</h2>
-        <p class="lead">Startups with PMF win customers more easily, grow faster and attract more investors. They have the momentum on their side to grow fast.</p>
+        <h2 class="h-sec">The foundation for startup success and sustainable growth</h2>
+        <p class="lead">Product-Market Fit is like a secret recipe for an extraordinary meal. Just like a great chef, you need to understand the ingredients, find the perfect combination, and fine-tune every detail to create something exceptional – something that truly resonates with your target audience and leaves them wanting more.</p>
+        <p class="lead">Startups with strong PMF win customers more easily, grow faster and attract more investors. They have the momentum on their side to grow fast.</p>
       </div>
       <h3 class="sub-h">Signals of Product-Market Fit</h3>
       <div class="kpis">
@@ -1038,7 +1056,7 @@ footer .brand { font-size:15px; color:var(--ink); }
 
   <section class="section" id="nps">
     <div class="wrap">
-      <div class="nps-wrap"><p class="eyebrow" style="margin-bottom:var(--s3)">Proven methodology</p><h3>Outstanding Net Promoter Score</h3></div>
+      <div class="nps-wrap"><p class="eyebrow" style="margin-bottom:var(--s3)">Validated Program</p><h3>Outstanding Net Promoter Score</h3></div>
       <div class="nps-band nps-two">
         <div class="nps-item"><span class="fig">+80</span><p class="nps-t">Net Promoter Score from founders who completed the program.</p></div>
         <div class="nps-item"><span class="fig">9.45<small>/10</small></span><p class="nps-t">Average rating from founders who completed the program.</p></div>
