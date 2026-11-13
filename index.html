@@ -669,6 +669,7 @@ input[type="range"] { min-width:0; max-width:100%; margin-inline:0; }
 .kpi p { font-size:16px; line-height:24px; }
 .kpi--accent { background:var(--ink); border-top-color:var(--red); color:var(--paper); }
 .kpi--accent .u { color:color-mix(in srgb, var(--paper) 70%, var(--ink)); }
+#program .kpi .n { color:var(--ink); }
 
 .journey { margin-top:var(--s16); display:grid; gap:var(--s6); }
 .journey h3 { font-size:22px; line-height:28px; }
@@ -743,6 +744,8 @@ input[type="range"] { width:100%; accent-color:var(--red); }
 .money-in:focus-within { outline:2px solid var(--focus); outline-offset:2px; }
 .money-in input:focus { outline:none; }
 .result { padding:var(--s6); background:var(--paper); border-top:2px solid var(--ink); display:grid; gap:var(--s2); }
+.calc-note { font:600 18px/26px var(--font-display); color:var(--ink); max-width:52ch; border-left:3px solid var(--red); padding:var(--s2) 0 var(--s2) var(--s4); }
+.calc-note strong { color:var(--red); }
 .result .fig { font:700 clamp(40px, 6vw, 56px)/1 var(--font-display); letter-spacing:-.03em; color:var(--red); font-variant-numeric:tabular-nums; }
 .price { width:100%; border-collapse:collapse; font-size:16px; }
 .price caption { text-align:left; font:600 22px/28px var(--font-display); padding-bottom:var(--s4); }
@@ -914,7 +917,7 @@ footer .brand { font-size:15px; color:var(--ink); }
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow">About PMF</p>
-        <h2 class="h-sec">PMF is the foundation for startup success and sustainable growth</h2>
+        <h2 class="h-sec">It is the foundation for startup success and sustainable growth</h2>
         <p class="lead">Startups with PMF win customers more easily, grow faster and attract more investors. They have the momentum on their side to grow fast.</p>
       </div>
       <h3 class="sub-h">Signals of Product-Market Fit</h3>
@@ -969,7 +972,7 @@ footer .brand { font-size:15px; color:var(--ink); }
         <div class="kpi"><span class="n">2</span><span class="u">Days</span><p>of intensive, hands-on workshops</p></div>
         <div class="kpi"><span class="n">7</span><span class="u">Sprints</span><p>guided, with expert input and actionable feedback</p></div>
         <div class="kpi"><span class="n">10</span><span class="u">Startups</span><p>carefully selected</p></div>
-        <div class="kpi kpi--accent"><span class="n">1</span><span class="u">Demo Day</span><p>to pitch your progress to investors</p></div>
+        <div class="kpi"><span class="n">1</span><span class="u">Demo Day</span><p>to pitch your progress to investors</p></div>
       </div>
       <div class="journey">
         <h3>Your six months</h3>
@@ -986,12 +989,23 @@ footer .brand { font-size:15px; color:var(--ink); }
         </ol>
         <p class="caption tl-legend"><span><i class="lg lg--red"></i>In person in Zurich</span><span><i class="lg"></i>Online</span><span>About 3 weeks between sprints</span></p>
       </div>
-      <h3 class="sub-h gain-h">That is what you’re gaining</h3>
+      <h3 class="sub-h gain-h">What you’re gaining</h3>
       <div class="extras">
         <p class="extra">Structured methodology and tools to reach PMF faster</p>
         <p class="extra">Insights from top entrepreneurs</p>
         <p class="extra">Peer learning and exchange with fellow entrepreneurs</p>
       </div>
+    </div>
+  </section>
+
+  <section class="section" id="impressions">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Impressions</p>
+        <h2 class="h-sec">Learning, sprinting and celebrating together</h2>
+        <p class="lead">Workshops, guest talks, peer groups and a founders dinner from previous editions in Zurich.</p>
+      </div>
+      <div class="gallery"><figure class="ph big"><img src="images/academy-participants-cheering.webp" width="1100" height="825" alt="Participants cheering together after a session" loading="lazy"></figure><figure class="ph tall"><img src="images/academy-workshop-session.webp" width="1100" height="825" alt="Founders following a workshop session" loading="lazy"></figure><figure class="ph"><img src="images/academy-startup-pitch.webp" width="1100" height="825" alt="A participant presenting his startup" loading="lazy"></figure><figure class="ph "><img src="images/academy-peer-group.webp" width="1100" height="825" alt="Founders discussing in a small peer group" loading="lazy"></figure><figure class="ph "><img src="images/academy-guest-talk-sales.webp" width="1100" height="825" alt="Guest talk on making sales repeatable" loading="lazy"></figure><figure class="ph "><img src="images/academy-guest-speaker-session.webp" width="1100" height="825" alt="Guest speaker session: Don’t run out of money" loading="lazy"></figure><figure class="ph wide"><img src="images/academy-founders-dinner.webp" width="1100" height="825" alt="Founders dinner with the whole cohort" loading="lazy"></figure></div>
     </div>
   </section>
 
@@ -1088,17 +1102,6 @@ footer .brand { font-size:15px; color:var(--ink); }
     </div>
   </section>
 
-  <section class="section" id="impressions">
-    <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow">Impressions</p>
-        <h2 class="h-sec">Learning, sprinting and celebrating together</h2>
-        <p class="lead">Workshops, guest talks, peer groups and a founders dinner from previous editions in Zurich.</p>
-      </div>
-      <div class="gallery"><figure class="ph big"><img src="images/academy-participants-cheering.webp" width="1100" height="825" alt="Participants cheering together after a session" loading="lazy"></figure><figure class="ph tall"><img src="images/academy-workshop-session.webp" width="1100" height="825" alt="Founders following a workshop session" loading="lazy"></figure><figure class="ph"><img src="images/academy-startup-pitch.webp" width="1100" height="825" alt="A participant presenting his startup" loading="lazy"></figure><figure class="ph "><img src="images/academy-peer-group.webp" width="1100" height="825" alt="Founders discussing in a small peer group" loading="lazy"></figure><figure class="ph "><img src="images/academy-guest-talk-sales.webp" width="1100" height="825" alt="Guest talk on making sales repeatable" loading="lazy"></figure><figure class="ph "><img src="images/academy-guest-speaker-session.webp" width="1100" height="825" alt="Guest speaker session: Don’t run out of money" loading="lazy"></figure><figure class="ph wide"><img src="images/academy-founders-dinner.webp" width="1100" height="825" alt="Founders dinner with the whole cohort" loading="lazy"></figure></div>
-    </div>
-  </section>
-
   <section class="section band" id="pricing">
     <div class="wrap">
       <div class="sec-head">
@@ -1121,6 +1124,7 @@ footer .brand { font-size:15px; color:var(--ink); }
             <span class="fig" id="saving">CHF 150,000</span>
             <p id="roi" class="caption">That is 23× the program investment of CHF 6,500.</p>
           </div>
+          <p class="calc-note">We cannot guarantee that you will achieve PMF. What we can guarantee, however, is that if you do, you will do so <strong>faster and with a greater likelihood</strong>.</p>
         </div>
         <div class="price-wrap">
           <table class="price">
@@ -1162,9 +1166,9 @@ footer .brand { font-size:15px; color:var(--ink); }
       <ol class="proc">
         <li><span class="pn">1</span><h3>Check your fit</h3><p>Check if you fit with the criteria for participating startups.</p><a class="btn btn--secondary" href="#who">See the criteria <span class="arr" aria-hidden="true">→</span></a></li>
         <li><span class="pn">2</span><h3>Book a 20-min call</h3><p>Pick a slot that suits you, online and free of charge.</p><a class="btn btn--primary" href="https://bookings.cloud.microsoft/bookwithme/user/ae9c27a1549e40eb98f52953e831be8f@pmf-factory.com/meetingtype/boJtNuPkREu4UWmMuFRjFA2?anonymous&amp;ismsaljsauthenabled&amp;ep=mCardFromTile" target="_blank" rel="noopener">Book a 20-min call <span class="arr" aria-hidden="true">→</span></a></li>
-        <li><span class="pn">3</span><h3>20-min call</h3><p>Let’s check out the fit with the program.</p></li>
-        <li><span class="pn">4</span><h3>Official application</h3><p>If it fits, you submit your official application.</p></li>
-        <li><span class="pn">5</span><h3>Selection of 10 startups</h3><p>Only 10 startups are selected for the program.</p></li>
+        <li><span class="pn">3</span><h3>Let’s discuss the fit</h3><p>Let’s check out the fit with the program during the call.</p></li>
+        <li><span class="pn">4</span><h3>Apply</h3><p>If it fits, you submit your official application.</p></li>
+        <li><span class="pn">5</span><h3>Be exclusively selected</h3><p>Only 10 startups are selected for the program.</p></li>
       </ol>
       <p class="proc-note">Don’t miss this opportunity!</p>
     </div>
