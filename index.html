@@ -533,6 +533,7 @@ input[type="range"] { min-width:0; max-width:100%; margin-inline:0; }
 .book-cover { width:100%; max-width:360px; height:auto; display:block; box-shadow:14px 14px 0 var(--red); }
 .book-copy { display:grid; gap:var(--s4); min-width:0; }
 .book-copy .btn { justify-self:start; margin-top:var(--s2); }
+.book-side { display:grid; gap:var(--s8); justify-items:start; min-width:0; }
 .book-by { color:var(--ink-muted); font-size:17px; } .book-by b { color:var(--ink); }
 .book-quote { margin:var(--s4) 0 0; padding:var(--s6); background:var(--paper); border-top:3px solid var(--ink); display:grid; gap:var(--s4); }
 .book-quote blockquote { margin:0; font-size:16px; line-height:26px; }
@@ -558,6 +559,7 @@ input[type="range"] { min-width:0; max-width:100%; margin-inline:0; }
 .iv-side { display:grid; gap:var(--s4); align-content:start; }
 .iv-photo { width:100%; max-width:360px; aspect-ratio:1; object-fit:cover; display:block; box-shadow:10px 10px 0 var(--red); }
 .iv-name { margin-top:var(--s3); font-size:15px; color:var(--ink-muted); } .iv-name b { color:var(--ink); }
+.iv-side .iv-quote { margin-top:var(--s6); max-width:360px; }
 .iv-quote { font:700 clamp(26px,3.2vw,36px)/1.15 var(--font-display); letter-spacing:-.02em; text-wrap:balance; }
 .iv-quote::before { content:"“"; color:var(--red); } .iv-quote::after { content:"”"; color:var(--red); }
 .iv-note { justify-self:start; font-size:14px; line-height:20px; font-weight:600; padding:var(--s2) var(--s3); background:var(--red-soft); }
@@ -878,6 +880,7 @@ footer .brand { font-size:15px; color:var(--ink); }
 #methodology .meth-after { margin-top:var(--s8); max-width:65ch; }
 #methodology .meth-cta { margin-top:var(--s6); }
 .tl-cta { margin-top:var(--s6); }
+.tl-cta--before { margin-top:var(--s8); margin-bottom:0; }
 .modules li.last { background:var(--ink); color:var(--paper); box-shadow:inset 0 4px 0 var(--red); }
 .formats { margin-top:var(--s6); display:flex; flex-wrap:wrap; gap:var(--s3) var(--s6); align-items:center; font-size:14px; }
 .fmt { display:inline-flex; align-items:center; gap:var(--s2); font-weight:600; }
@@ -926,6 +929,7 @@ footer .brand { font-size:15px; color:var(--ink); }
 
 .faq { border-top:1px solid var(--line); max-width:860px; }
 .faq details { border-bottom:1px solid var(--line); }
+@media (min-width:900px) { .faq details:last-child { border-bottom:0; } }
 .faq summary { cursor:pointer; list-style:none; display:flex; justify-content:space-between; gap:var(--s4); padding-block:var(--s6); font:600 20px/28px var(--font-display); }
 .faq summary::-webkit-details-marker { display:none; }
 .faq summary::after { content:"+"; font:700 28px/28px var(--font-display); color:var(--red); transition:transform .15s linear; }
@@ -1000,7 +1004,7 @@ footer .brand { font-size:15px; color:var(--ink); }
       <div class="sec-head">
         <p class="eyebrow">For whom</p>
         <h2 class="h-sec">Startups that seek acceleration</h2>
-        <p class="lead">You have customers and revenue (typically CHF 200k–2.5M), but growth has plateaued or become hard to repeat, and now you want to accelerate.</p>
+        <p class="lead">You have customers and revenue (typically CHF 200k–2.5M), but growth has plateaued or become hard to repeat, and now you want to accelerate. 10 startups are selected per cohort.</p>
       </div>
       <p class="who-label">Typical participants</p>
       <div class="profile">
@@ -1028,7 +1032,6 @@ footer .brand { font-size:15px; color:var(--ink); }
           </ul>
         </div>
       </div>
-      <p class="proc-note proc-note--ink">Only 10 startups are carefully selected.</p>
     </div>
   </section>
 
@@ -1098,7 +1101,6 @@ footer .brand { font-size:15px; color:var(--ink); }
               <li class="step step--end"><span class="dot">★</span><span class="t">Demo Day<small>20 August 2027</small><small class="loc">Zurich</small></span></li>
         </ol>
         <p class="caption tl-legend"><span><i class="lg lg--red"></i>In person in Zurich (13:30–17:00)</span><span><i class="lg"></i>Online (14:30–16:30)</span><span>About 3 weeks between sprints</span></p>
-        <p class="tl-cta"><a class="btn btn--secondary" href="#methodology">About the methodology <span class="arr" aria-hidden="true">→</span></a></p>
       </div>
       <h3 class="sub-h gain-h">What you’ll work towards</h3>
       <div class="extras">
@@ -1106,6 +1108,7 @@ footer .brand { font-size:15px; color:var(--ink); }
         <p class="extra">Repeatable growth patterns</p>
         <p class="extra">Clarity in your growth roadmap</p>
       </div>
+      <p class="tl-cta tl-cta--before"><a class="btn btn--secondary" href="#methodology">About the methodology <span class="arr" aria-hidden="true">→</span></a></p>
     </div>
   </section>
 
@@ -1141,12 +1144,12 @@ footer .brand { font-size:15px; color:var(--ink); }
       <div class="interview">
         <div class="iv-side">
           <img loading="lazy" decoding="async" class="iv-photo" src="images/joel-singh-crossiety.jpg" alt="Joel Singh" width="360" height="360">
+          <p class="iv-quote">The program was an absolute game changer for us!</p>
           <p class="iv-name"><b>Joel Singh</b> · CEO, Crossiety</p>
           <p class="iv-note">Side note: Crossiety is growing again and is profitable.</p>
         </div>
         <div class="iv-main">
           <p class="eyebrow">Interview</p>
-          <h3>The program was an absolute game changer for us</h3>
           <dl class="qas"><div class="qa"><dt>What impact did the systematic work on Product-Market Fit have?</dt><dd><b>Joel:</b> It <strong class="tk">fundamentally changed how we set our priorities</strong>. Today we make decisions based on what really matters to our users – not simply on what feels most urgent at the moment.</dd></div><div class="qa"><dt>What changed in sales?</dt><dd><b>Joel:</b> We now have a <strong class="tk">clearly defined Ideal Customer Profile</strong>. That means we talk to the right customers in a targeted way instead of approaching as many different prospects as possible. It makes our sales more focused and more efficient.</dd></div><div class="qa"><dt>What impact did this have on your product development?</dt><dd><b>Joel:</b> We used to get a lot of technical feedback, but often it was individual opinions or very specific requests. Today we understand much better <strong class="tk">what the majority of our users really need</strong>. That helps us prioritize our backlog and align our sprints consistently with customer value.</dd></div><div class="qa"><dt>Has collaboration within the team changed as well?</dt><dd><b>Joel:</b> Yes, significantly. The whole team has much more clarity today. Everyone understands better what matters to our users, so we work in a more focused way and pursue the same priorities. Our meetings have a different quality, too: we no longer just discuss ideas and opinions, <strong class="tk">we show data and customer signals</strong>. That builds trust and leads to better decisions.</dd></div><div class="qa"><dt>What did the process do for you personally as a founder?</dt><dd><b>Joel:</b> It gave me much more confidence. <strong class="tk">I feel I finally have a compass.</strong> I know better where we are going – and above all, why we are taking this path.</dd></div></dl>
         </div>
       </div>
@@ -1227,7 +1230,7 @@ footer .brand { font-size:15px; color:var(--ink); }
         <li><span class="pn">4</span><h3>Apply</h3><p>If it’s a fit, you submit your official application.</p></li>
         <li><span class="pn">5</span><h3>Get selected</h3><p>Only 10 startups are selected for the program.</p></li>
       </ol>
-      <p class="proc-note">Only 10 startups are carefully selected to ensure quality and a strong fit with the program.</p>
+      <p class="proc-note proc-note--ink">Only 10 startups are carefully selected to ensure quality and a strong fit with the program.</p>
     </div>
   </section>
 
@@ -1246,7 +1249,7 @@ footer .brand { font-size:15px; color:var(--ink); }
           <li><span class="mk">Module</span><span class="mn">5</span><span class="mt">Experiment smartly and efficiently</span></li>
           <li class="last"><span class="mk">Module</span><span class="mn">6</span><span class="mt">Scale with customer success</span></li>
       </ol>
-      <p class="lead meth-after">Over six months, you’ll gain the tools and frameworks you need, analyze your Product-Market Fit, work on your case, and benefit from insights from successful entrepreneurs and valuable feedback from peers. You’ll continuously experiment, learn, and adapt in a high-trust setting – with only one common goal: to nail your PMF and accelerate your growth.</p>
+      <p class="lead meth-after">Over six months, you’ll gain the tools and frameworks you need, analyze your Product-Market Fit, work on your case, and benefit from insights from successful entrepreneurs and valuable feedback from peers. You’ll continuously experiment, learn, and adapt in a high-trust setting – with only one common goal: <strong>to nail your PMF and accelerate your growth.</strong></p>
       <p class="meth-cta"><a class="btn btn--secondary" href="#testimonials">Read the testimonials <span class="arr" aria-hidden="true">→</span></a></p>
     </div>
   </section>
@@ -1254,7 +1257,10 @@ footer .brand { font-size:15px; color:var(--ink); }
   <section class="section band" id="book">
     <div class="wrap">
       <div class="book">
-        <img loading="lazy" decoding="async" class="book-cover" src="images/book-product-market-fit-michael-sauter.webp" width="635" height="902" alt="Book cover: Product-Market Fit – How to Build a Business That Scales, by Michael Sauter">
+        <div class="book-side">
+          <img loading="lazy" decoding="async" class="book-cover" src="images/book-product-market-fit-michael-sauter.webp" width="635" height="902" alt="Book cover: Product-Market Fit – How to Build a Business That Scales, by Michael Sauter">
+          <a class="btn btn--primary" href="https://share-eu1.hsforms.com/1mr8lliBuQYeUVpN2lhS3Tw2du7hm" target="_blank" rel="noopener">Download the free e-book <span class="arr" aria-hidden="true">→</span></a>
+        </div>
         <div class="book-copy">
           <p class="eyebrow">The book</p>
           <h2 class="h-sec">Product-Market Fit – How to Build a Business That Scales</h2>
@@ -1269,7 +1275,6 @@ footer .brand { font-size:15px; color:var(--ink); }
             <blockquote>The book has what it takes to become the standard work in the startup world. It addresses the fundamental question of every startup: <i>How can I grow successfully and become big?</i> And it doesn’t just address it, it answers it credibly. <strong class="tk">The core message – extend the product and customer development phase at low cost until PMF is truly found, and only then scale – is incredibly powerful and practical.</strong> That’s why it shapes my thinking from now on.</blockquote>
             <figcaption><b>Thierry Kneissler</b>Co-Founder of TWINT, board member of several startups</figcaption>
           </figure>
-          <a class="btn btn--primary" href="https://share-eu1.hsforms.com/1mr8lliBuQYeUVpN2lhS3Tw2du7hm" target="_blank" rel="noopener">Download the free e-book <span class="arr" aria-hidden="true">→</span></a>
         </div>
       </div>
     </div>
