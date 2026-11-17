@@ -1150,6 +1150,7 @@ footer .brand { font-size:15px; color:var(--ink); }
         </div>
         <div class="iv-main">
           <p class="eyebrow">Interview</p>
+          <h3>How the program transformed Crossiety</h3>
           <dl class="qas"><div class="qa"><dt>What impact did the systematic work on Product-Market Fit have?</dt><dd><b>Joel:</b> It <strong class="tk">fundamentally changed how we set our priorities</strong>. Today we make decisions based on what really matters to our users – not simply on what feels most urgent at the moment.</dd></div><div class="qa"><dt>What changed in sales?</dt><dd><b>Joel:</b> We now have a <strong class="tk">clearly defined Ideal Customer Profile</strong>. That means we talk to the right customers in a targeted way instead of approaching as many different prospects as possible. It makes our sales more focused and more efficient.</dd></div><div class="qa"><dt>What impact did this have on your product development?</dt><dd><b>Joel:</b> We used to get a lot of technical feedback, but often it was individual opinions or very specific requests. Today we understand much better <strong class="tk">what the majority of our users really need</strong>. That helps us prioritize our backlog and align our sprints consistently with customer value.</dd></div><div class="qa"><dt>Has collaboration within the team changed as well?</dt><dd><b>Joel:</b> Yes, significantly. The whole team has much more clarity today. Everyone understands better what matters to our users, so we work in a more focused way and pursue the same priorities. Our meetings have a different quality, too: we no longer just discuss ideas and opinions, <strong class="tk">we show data and customer signals</strong>. That builds trust and leads to better decisions.</dd></div><div class="qa"><dt>What did the process do for you personally as a founder?</dt><dd><b>Joel:</b> It gave me much more confidence. <strong class="tk">I feel I finally have a compass.</strong> I know better where we are going – and above all, why we are taking this path.</dd></div></dl>
         </div>
       </div>
@@ -1559,15 +1560,17 @@ footer .brand { font-size:15px; color:var(--ink); }
   var tcards = Array.prototype.slice.call(tgrid.querySelectorAll(".tcard"));
   for (var ti = tcards.length - 1; ti > 0; ti--) { var tj = Math.floor(Math.random() * (ti + 1)); var tt = tcards[ti]; tcards[ti] = tcards[tj]; tcards[tj] = tt; }
   tcards.forEach(function (t) { tgrid.appendChild(t); });
-  var TLIMIT = 6, tExpanded = false, tFilter = "all";
+  var tMq = window.matchMedia("(max-width: 699px)"), tExpanded = false, tFilter = "all";
+  function tLimit() { return tMq.matches ? 3 : 6; }
   var tMore = document.createElement("div"); tMore.className = "tmore";
   tMore.innerHTML = '<button type="button" class="btn btn--secondary" id="t-more"></button>';
   tgrid.parentNode.insertBefore(tMore, tgrid.nextSibling);
   function renderT() {
     var match = tcards.filter(function (t) { return tFilter === "all" || t.getAttribute("data-cat") === tFilter; });
     tcards.forEach(function (t) { t.hidden = true; });
-    match.forEach(function (t, k) { t.hidden = !tExpanded && k >= TLIMIT; });
-    tMore.hidden = tExpanded || match.length <= TLIMIT;
+    var lim = tLimit();
+    match.forEach(function (t, k) { t.hidden = !tExpanded && k >= lim; });
+    tMore.hidden = tExpanded || match.length <= lim;
     $("t-more").innerHTML = "Show all testimonials (" + match.length + ') <span class="arr" aria-hidden="true">↓</span>';
   }
   $("t-more").addEventListener("click", function () { tExpanded = true; renderT(); });
@@ -1577,6 +1580,7 @@ footer .brand { font-size:15px; color:var(--ink); }
     renderT();
   }); });
   renderT();
+  if (tMq.addEventListener) tMq.addEventListener("change", renderT);
 
   // Mobile menu
   var mb = document.getElementById("menu-btn"), nav = document.getElementById("site-nav");
