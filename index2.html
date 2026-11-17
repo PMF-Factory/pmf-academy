@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Growth Academy</title>
+<meta name="description" content="A 12-week program by PMF Factory and NZZ Connect that takes startups to Product-Market Fit systematically.">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600&family=JetBrains+Mono:wght@500&family=Schibsted+Grotesk:wght@600;700&display=swap">
+<style>
+/* Layout: 12-col Swiss grid, square edges, one red; plus-grid motif on a 24px pitch. Tokens from the Swiss PMF design system. */
+:root {
+  --paper:#ffffff; --surface:#f3f4f5; --line:#d5d9dd; --line-strong:#7a828b;
+  --ink:#14171a; --ink-muted:#565e66; --red:#d42a1d; --on-red:#ffffff; --red-soft:#fdeceb;
+  --positive:#0b7553; --focus:#1f5fd1; --swiss-red:#da291c; --swiss-white:#ffffff; --pmff:#d900ff;
+  --font-display:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;
+  --font-body:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+  --font-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s6:24px; --s8:32px; --s12:48px; --s16:64px; --s24:96px;
+  --max:1200px;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper:#111316; --surface:#1a1d21; --line:#353a40; --line-strong:#7d858e;
+  --ink:#f2f3f4; --ink-muted:#a5acb4; --red:#ff6457; --on-red:#14171a; --red-soft:#3a1714;
+  --positive:#4cc79a; --focus:#7aa7ff; --pmff:#e566ff; color-scheme:dark; } }
+:root[data-theme="dark"] {
+  --paper:#111316; --surface:#1a1d21; --line:#353a40; --line-strong:#7d858e;
+  --ink:#f2f3f4; --ink-muted:#a5acb4; --red:#ff6457; --on-red:#14171a; --red-soft:#3a1714;
+  --positive:#4cc79a; --focus:#7aa7ff; --pmff:#e566ff; color-scheme:dark; }
+
+*,*::before,*::after { box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:80px; }
+body { margin:0; background:var(--paper); color:var(--ink); font:400 16px/26px var(--font-body); -webkit-font-smoothing:antialiased; }
+h1,h2,h3 { font-family:var(--font-display); margin:0; text-wrap:balance; }
+p { margin:0; }
+a { color:inherit; }
+:focus-visible { outline:2px solid var(--focus); outline-offset:2px; }
+.wrap { max-width:calc(var(--max) + 2 * var(--s8)); margin:0 auto; padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px)); }
+@media (min-width:760px) { .wrap { padding-left:max(32px, env(safe-area-inset-left, 0px)); padding-right:max(32px, env(safe-area-inset-right, 0px)); } }
+.section { padding-block:var(--s16); border-top:1px solid var(--line); }
+@media (min-width:760px) { .section { padding-block:var(--s24); } }
+.band { background:var(--surface); }
+.eyebrow { font:600 12px/16px var(--font-body); letter-spacing:.12em; text-transform:uppercase; color:var(--red); }
+.h-sec { font-size:clamp(32px, 5vw, 48px); line-height:1.08; letter-spacing:-.02em; font-weight:700; }
+.lead { font-size:19px; line-height:30px; color:var(--ink-muted); max-width:60ch; }
+.sec-head { display:grid; gap:var(--s3); margin-bottom:var(--s12); max-width:760px; }
+.caption { font-size:13px; line-height:18px; color:var(--ink-muted); }
+.num { font-family:var(--font-mono); font-weight:500; font-variant-numeric:tabular-nums; }
+
+/* Buttons */
+.btn { display:inline-flex; align-items:center; gap:var(--s2); font:600 15px/20px var(--font-body); padding:var(--s3) var(--s6); border-radius:2px; border:1px solid transparent; text-decoration:none; cursor:pointer; transition:background-color .15s linear, border-color .15s linear; white-space:nowrap; }
+.btn--primary { background:var(--red); color:var(--on-red); }
+.btn--primary:hover { background:color-mix(in srgb, var(--red) 85%, var(--ink)); }
+.btn--secondary { background:transparent; color:var(--ink); border-color:var(--line-strong); }
+.btn--secondary:hover { border-color:var(--ink); }
+.btn .arr { font-family:var(--font-mono); }
+
+/* Header */
+body::before { content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top, 0px); z-index:10; background:var(--paper); }
+.site-head { position:sticky; top:env(safe-area-inset-top, 0px); z-index:9; background:color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); }
+.site-head .wrap { display:flex; align-items:center; gap:var(--s6); height:64px; }
+.brand { display:flex; align-items:center; gap:var(--s3); text-decoration:none; font:700 18px/1 var(--font-display); letter-spacing:-.01em; }
+.cross { width:26px; height:26px; flex:none; display:block; }
+.cross .f { fill:var(--swiss-red); } .cross .c { fill:var(--swiss-white); }
+.nav { display:none; gap:var(--s6); margin-left:auto; }
+.nav a { text-decoration:none; font-size:15px; color:var(--ink-muted); }
+.nav a:hover { color:var(--ink); text-decoration:underline; text-underline-offset:6px; }
+.site-head .btn { margin-left:auto; padding:var(--s2) var(--s4); }
+@media (min-width:900px) { .nav { display:flex; } .site-head .btn { margin-left:0; } }
+
+/* Hero */
+.hero { position:relative; padding-block:var(--s12) var(--s16); overflow:hidden; }
+.hero::before { content:""; position:absolute; inset:0; background:var(--line); opacity:.9;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpath d='M11 6h2v12h-2zM6 11h12v2H6z'/%3E%3C/svg%3E") 0 0/24px 24px repeat,
+               linear-gradient(90deg, transparent 35%, #000 85%);
+  -webkit-mask-composite:source-in; mask-composite:intersect; pointer-events:none; }
+.hero .wrap { position:relative; display:grid; gap:var(--s12); }
+@media (min-width:960px) { .hero { padding-block:var(--s24); } }
+.hero-copy { max-width:860px; }
+.hero-copy { display:grid; gap:var(--s6); min-width:0; }
+.badges { display:flex; flex-wrap:wrap; gap:var(--s2); }
+.badge { font:600 12px/16px var(--font-body); letter-spacing:.04em; padding:var(--s1) var(--s3); border-radius:999px; border:1px solid var(--line-strong); }
+.badge--red { background:var(--red); border-color:var(--red); color:var(--on-red); }
+.hero h1 { font-size:clamp(44px, 7.4vw, 84px); line-height:.98; letter-spacing:-.035em; font-weight:700; }
+.hero h1 em { font-style:normal; color:var(--red); }
+.ctas { display:flex; flex-wrap:wrap; gap:var(--s3); }
+.powered { display:flex; flex-wrap:wrap; align-items:center; gap:var(--s4) var(--s8); padding-top:var(--s6); border-top:1px solid var(--line); margin-top:var(--s2); }
+.powered .caption { text-transform:uppercase; letter-spacing:.12em; font-weight:600; font-size:11px; }
+.logo-pmff { height:40px; width:auto; display:block; color:var(--ink); }
+.pmff-cube { fill:currentColor; }
+.logo-sictic { display:inline-flex; align-items:baseline; gap:var(--s2); text-decoration:none; }
+.logo-sictic b { font:700 24px/1 var(--font-display); letter-spacing:.06em; }
+.logo-sictic span { font-size:12px; line-height:1; color:var(--ink-muted); }
+
+/* Stats & quote */
+.why { display:grid; gap:var(--s12); }
+@media (min-width:900px) { .why { grid-template-columns:repeat(3, 1fr); gap:var(--s8); } }
+.stat { display:grid; gap:var(--s2); align-content:start; padding-top:var(--s4); border-top:2px solid var(--ink); }
+.stat .fig { font:700 clamp(56px, 7vw, 80px)/1 var(--font-display); letter-spacing:-.04em; color:var(--red); }
+.stat .fig.ink { color:var(--ink); }
+.quote { margin:0; display:grid; gap:var(--s4); align-content:start; padding-top:var(--s4); border-top:2px solid var(--ink); }
+.quote blockquote { margin:0; font:600 26px/34px var(--font-display); letter-spacing:-.01em; text-wrap:balance; }
+.quote blockquote::before { content:"“"; color:var(--red); } .quote blockquote::after { content:"”"; color:var(--red); }
+.quote figcaption { font-size:14px; line-height:20px; color:var(--ink-muted); } .quote figcaption b { display:block; color:var(--ink); }
+.dont { margin-top:var(--s12); display:grid; gap:var(--s4); padding:var(--s8) var(--s6); background:var(--red-soft); }
+@media (min-width:760px) { .dont { grid-template-columns:auto 1fr; align-items:center; gap:var(--s8); padding:var(--s8) var(--s12); } }
+.dont strong { font:700 clamp(40px, 6vw, 64px)/1 var(--font-display); letter-spacing:-.03em; color:var(--red); }
+.dont p { font-size:18px; line-height:28px; max-width:56ch; }
+
+/* Fit */
+.fit { display:grid; gap:var(--s12); }
+@media (min-width:900px) { .fit { grid-template-columns:7fr 5fr; gap:var(--s16); } }
+.facts { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); border-top:1px solid var(--line); border-left:1px solid var(--line); }
+.fact { padding:var(--s6); border-right:1px solid var(--line); border-bottom:1px solid var(--line); display:grid; gap:var(--s1); align-content:start; }
+.fact .k { font:600 12px/16px var(--font-body); letter-spacing:.08em; text-transform:uppercase; color:var(--ink-muted); }
+.fact .v { font:600 22px/28px var(--font-display); letter-spacing:-.01em; }
+.crit { display:grid; gap:var(--s4); align-content:start; }
+.crit h3 { font-size:22px; line-height:28px; }
+.ticks { list-style:none; margin:0; padding:0; border-top:1px solid var(--line); }
+.ticks li { display:grid; grid-template-columns:24px 1fr; gap:var(--s3); padding-block:var(--s3); border-bottom:1px solid var(--line); }
+.ticks li::before { content:"+"; font:700 20px/26px var(--font-display); color:var(--red); }
+
+/* Program */
+.kpis { display:grid; grid-template-columns:repeat(2, 1fr); gap:var(--s4); }
+@media (min-width:900px) { .kpis { grid-template-columns:repeat(4, 1fr); gap:var(--s6); } }
+.kpi { background:var(--paper); border-top:3px solid var(--ink); padding:var(--s6); display:grid; gap:var(--s3); align-content:start; min-width:0; }
+.kpi .n { font:700 clamp(64px, 9vw, 112px)/.85 var(--font-display); letter-spacing:-.05em; color:var(--red); font-variant-numeric:tabular-nums; }
+.kpi .u { font:600 12px/16px var(--font-body); letter-spacing:.12em; text-transform:uppercase; color:var(--ink-muted); }
+.kpi p { font-size:16px; line-height:24px; }
+.kpi--accent { background:var(--ink); border-top-color:var(--red); color:var(--paper); }
+.kpi--accent .u { color:color-mix(in srgb, var(--paper) 70%, var(--ink)); }
+
+.journey { margin-top:var(--s16); display:grid; gap:var(--s6); }
+.journey h3 { font-size:22px; line-height:28px; }
+.steps { list-style:none; margin:0; padding:0; position:relative; display:grid; gap:var(--s4); }
+.steps::before { content:""; position:absolute; left:15px; top:16px; bottom:16px; width:2px; background:var(--line-strong); }
+.step { position:relative; display:grid; grid-template-columns:32px 1fr; gap:var(--s4); align-items:center; }
+.step .dot { width:32px; height:32px; display:grid; place-items:center; background:var(--paper); border:2px solid var(--ink); font:500 11px/1 var(--font-mono); position:relative; z-index:1; }
+.step .t { font-weight:600; font-size:15px; line-height:20px; }
+.step .t small { display:block; font-weight:400; font-size:13px; line-height:18px; color:var(--ink-muted); }
+.step--edge .dot { background:var(--ink); color:var(--paper); border-color:var(--ink); }
+.step--end .dot { background:var(--red); border-color:var(--red); color:var(--on-red); }
+@media (min-width:900px) {
+  .steps { grid-template-columns:repeat(9, 1fr); gap:0; }
+  .steps::before { left:16px; right:calc(100% / 9 - 16px); top:15px; bottom:auto; width:auto; height:2px; }
+  .step { grid-template-columns:1fr; justify-items:start; align-items:start; gap:var(--s3); padding-right:var(--s2); }
+}
+.extras { margin-top:var(--s12); display:grid; gap:var(--s4); border-top:1px solid var(--line); padding-top:var(--s8); }
+@media (min-width:900px) { .extras { grid-template-columns:repeat(3, 1fr); gap:var(--s8); } }
+.extra { display:grid; grid-template-columns:28px 1fr; gap:var(--s3); font-size:17px; line-height:26px; }
+.extra::before { content:"+"; font:700 26px/26px var(--font-display); color:var(--red); }
+
+/* PMF Check */
+.qgrid { display:grid; gap:var(--s4); }
+@media (min-width:700px) { .qgrid { grid-template-columns:repeat(2, 1fr); } }
+@media (min-width:1080px) { .qgrid { grid-template-columns:repeat(3, 1fr); gap:var(--s6); } }
+.q { border:0; margin:0; padding:var(--s6); min-width:0; background:var(--surface); border-top:3px solid var(--line); display:grid; gap:var(--s4); align-content:start; transition:border-color .15s linear, background-color .15s linear; }
+.q.is-done { border-top-color:var(--ink); background:var(--paper); box-shadow:inset 0 0 0 1px var(--line); }
+.q legend { float:left; width:100%; padding:0; display:grid; gap:var(--s2); }
+.q legend .i { font:700 40px/1 var(--font-display); letter-spacing:-.03em; color:var(--line-strong); transition:color .15s linear; }
+.q.is-done legend .i { color:var(--red); }
+.q legend .s { font:600 17px/24px var(--font-body); min-height:72px; }
+.opts { clear:both; display:grid; grid-template-columns:1fr 1fr; gap:var(--s2); }
+.opts label { position:relative; display:block; }
+.opts input { position:absolute; inset:0; opacity:0; margin:0; cursor:pointer; }
+.opts span { display:flex; align-items:center; gap:var(--s2); height:100%; font:600 13px/18px var(--font-body); padding:var(--s2) var(--s3); border-radius:2px; border:1px solid var(--line-strong); background:var(--paper); transition:background-color .12s linear, border-color .12s linear; }
+.opts span::before { content:""; flex:none; width:10px; height:10px; border:1.5px solid var(--line-strong); border-radius:50%; }
+.opts label:hover span { border-color:var(--ink); }
+.opts input:checked + span { background:var(--ink); border-color:var(--ink); color:var(--paper); }
+.opts input:checked + span::before { background:var(--red); border-color:var(--red); }
+.opts input:focus-visible + span { outline:2px solid var(--focus); outline-offset:2px; }
+
+.score { margin-top:var(--s8); position:sticky; bottom:max(16px, env(safe-area-inset-bottom, 0px)); z-index:5; background:var(--ink); color:var(--paper); padding:var(--s6); display:grid; gap:var(--s4) var(--s8); align-items:center; }
+@media (min-width:900px) { .score { grid-template-columns:auto 1fr auto; padding:var(--s6) var(--s8); } }
+.score .big { font:700 64px/1 var(--font-display); letter-spacing:-.04em; font-variant-numeric:tabular-nums; white-space:nowrap; }
+.score .big small { font-size:20px; letter-spacing:0; color:color-mix(in srgb, var(--paper) 60%, var(--ink)); }
+.score .mid { display:grid; gap:var(--s3); min-width:0; }
+.score h3 { font-size:20px; line-height:26px; }
+.score .txt { font-size:14px; line-height:20px; color:color-mix(in srgb, var(--paper) 75%, var(--ink)); }
+.cells { display:grid; grid-template-columns:repeat(9, 1fr); gap:4px; max-width:420px; }
+.cells i { height:12px; background:color-mix(in srgb, var(--paper) 18%, var(--ink)); transition:background-color .15s linear; }
+.cells i[data-v="0"] { background:color-mix(in srgb, var(--paper) 45%, var(--ink)); }
+.cells i[data-v="1"] { background:color-mix(in srgb, var(--red) 40%, var(--ink)); }
+.cells i[data-v="2"] { background:color-mix(in srgb, var(--red) 70%, var(--ink)); }
+.cells i[data-v="3"] { background:var(--red); }
+.score .reset { justify-self:start; background:none; border:1px solid color-mix(in srgb, var(--paper) 45%, var(--ink)); color:var(--paper); padding:var(--s2) var(--s4); border-radius:2px; font:600 14px/20px var(--font-body); cursor:pointer; }
+.score .reset:hover { border-color:var(--paper); }
+.cells-legend { display:flex; flex-wrap:wrap; gap:var(--s1) var(--s4); font-size:12px; line-height:16px; color:color-mix(in srgb, var(--paper) 65%, var(--ink)); }
+
+/* Savings + price */
+.money { display:grid; gap:var(--s12); }
+@media (min-width:900px) { .money { grid-template-columns:1fr 1fr; gap:var(--s16); } }
+.calc { display:grid; gap:var(--s6); align-content:start; }
+.field { display:grid; gap:var(--s2); }
+.field label { font-weight:600; display:flex; justify-content:space-between; gap:var(--s4); }
+.field output, .field .val { font-family:var(--font-mono); font-weight:500; color:var(--red); }
+input[type="range"] { width:100%; accent-color:var(--red); }
+.money-in { display:flex; align-items:center; border:1px solid var(--line-strong); border-radius:2px; background:var(--paper); }
+.money-in span { padding-inline:var(--s3); color:var(--ink-muted); font-family:var(--font-mono); }
+.money-in input { flex:1; min-width:0; border:0; background:transparent; color:var(--ink); font:500 18px/24px var(--font-mono); padding:var(--s3) var(--s3) var(--s3) 0; }
+.money-in:focus-within { outline:2px solid var(--focus); outline-offset:2px; }
+.money-in input:focus { outline:none; }
+.result { padding:var(--s6); background:var(--paper); border-top:2px solid var(--ink); display:grid; gap:var(--s2); }
+.result .fig { font:700 clamp(40px, 6vw, 56px)/1 var(--font-display); letter-spacing:-.03em; color:var(--positive); font-variant-numeric:tabular-nums; }
+.price { width:100%; border-collapse:collapse; font-size:16px; }
+.price caption { text-align:left; font:600 22px/28px var(--font-display); padding-bottom:var(--s4); }
+.price td { padding-block:var(--s4); border-bottom:1px solid var(--line); vertical-align:baseline; }
+.price td:last-child { text-align:right; font:500 16px/22px var(--font-mono); white-space:nowrap; padding-left:var(--s4); }
+.price .sub { display:block; font-size:13px; line-height:18px; color:var(--ink-muted); }
+.price .disc td:last-child { color:var(--positive); }
+.price .total td { border-top:2px solid var(--ink); border-bottom:0; font-weight:600; padding-top:var(--s6); }
+.price .total td:last-child { font:700 36px/1 var(--font-display); letter-spacing:-.02em; }
+.price-wrap { display:grid; gap:var(--s6); align-content:start; }
+
+/* Partners */
+.partners { display:grid; gap:0; border-top:1px solid var(--line); }
+@media (min-width:900px) { .partners { grid-template-columns:1fr 1fr; } .partner + .partner { border-left:1px solid var(--line); } }
+.partner { display:grid; gap:var(--s4); padding:var(--s8) 0; align-content:start; border-bottom:1px solid var(--line); }
+@media (min-width:900px) { .partner { padding:var(--s12) var(--s12) var(--s12) 0; } .partner + .partner { padding-left:var(--s12); padding-right:0; } }
+.partner .logo-box { height:64px; display:flex; align-items:center; }
+.partner .logo-pmff { height:64px; }
+.partner .logo-sictic b { font-size:40px; }
+.partner a.more { font-weight:600; text-underline-offset:4px; justify-self:start; }
+
+/* Apply */
+.apply { background:var(--ink); color:var(--paper); }
+.apply .wrap { display:grid; gap:var(--s8); padding-block:var(--s16); }
+@media (min-width:900px) { .apply .wrap { grid-template-columns:1fr auto; align-items:end; padding-block:var(--s24); } }
+.apply h2 { font-size:clamp(36px, 6vw, 64px); line-height:1; letter-spacing:-.03em; }
+.apply p { color:color-mix(in srgb, var(--paper) 75%, var(--ink)); max-width:52ch; margin-top:var(--s4); font-size:18px; line-height:28px; }
+.apply .btn--primary { font-size:17px; padding:var(--s4) var(--s8); }
+.apply .eyebrow { color:var(--red); }
+
+footer { padding-block:var(--s8); }
+footer .wrap { display:flex; flex-wrap:wrap; gap:var(--s4) var(--s8); align-items:center; justify-content:space-between; font-size:14px; color:var(--ink-muted); }
+footer .brand { font-size:15px; color:var(--ink); }
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } * { transition:none !important; } }
+
+/* Growth Academy additions */
+.wordmark { font:700 20px/1 var(--font-display); letter-spacing:-.01em; }
+.gain { margin-top:var(--s16); display:grid; gap:var(--s6); }
+.gain h3 { font-size:22px; line-height:28px; }
+.gain .extras { margin-top:0; }
+.extra b { display:block; font-weight:600; }
+.extra span { display:block; color:var(--ink-muted); font-size:16px; line-height:24px; }
+
+.modules { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); gap:2px; background:var(--line); border:2px solid var(--line); }
+.modules li { background:var(--paper); padding:var(--s6) var(--s4); display:grid; gap:var(--s4); align-content:space-between; min-height:180px; position:relative; }
+.modules li { box-shadow:inset 0 4px 0 var(--ink); }
+.modules .mn { font:700 48px/1 var(--font-display); letter-spacing:-.04em; color:var(--red); }
+.modules .mt { font:600 17px/23px var(--font-body); text-wrap:balance; }
+.modules li.last { background:var(--ink); color:var(--paper); box-shadow:inset 0 4px 0 var(--red); }
+.formats { margin-top:var(--s6); display:flex; flex-wrap:wrap; gap:var(--s3) var(--s6); align-items:center; font-size:14px; }
+.fmt { display:inline-flex; align-items:center; gap:var(--s2); font-weight:600; }
+.sq { width:14px; height:4px; display:inline-block; }
+.sq.ink { background:var(--ink); } .sq.line { background:var(--line-strong); } .sq.red { background:var(--red); }
+
+.people { display:grid; gap:var(--s4); }
+@media (min-width:700px) { .people { grid-template-columns:repeat(2, 1fr); } }
+@media (min-width:1080px) { .people { grid-template-columns:repeat(3, 1fr); gap:var(--s6); } .people--2 { grid-template-columns:repeat(2, 1fr); } }
+.person { background:var(--paper); padding:var(--s6); display:grid; grid-template-columns:56px 1fr; gap:var(--s4); align-items:start; border-top:3px solid var(--ink); }
+.person .mono { width:56px; height:56px; display:grid; place-items:center; background:var(--red-soft); color:var(--red); font:700 18px/1 var(--font-display); letter-spacing:.02em; }
+.person h3 { font-size:19px; line-height:24px; }
+.person .role { font-size:14px; line-height:20px; color:var(--ink-muted); margin-top:var(--s1); }
+.person p:not(.role):not(.talk) { margin-top:var(--s3); font-size:15px; line-height:24px; }
+.person .talk { margin-top:var(--s3); display:inline-block; font:600 13px/18px var(--font-body); padding:var(--s1) var(--s3); border:1px solid var(--line-strong); border-radius:999px; }
+.person .talk::before { content:"Talk · "; color:var(--ink-muted); font-weight:400; }
+
+.voices { display:grid; gap:var(--s4); }
+@media (min-width:700px) { .voices { grid-template-columns:repeat(2, 1fr); } }
+@media (min-width:1080px) { .voices { grid-template-columns:repeat(3, 1fr); gap:var(--s6); } }
+.voice { margin:0; padding:var(--s6); border:1px solid var(--line); display:grid; gap:var(--s6); align-content:space-between; }
+.voice p { font:600 20px/28px var(--font-display); letter-spacing:-.01em; text-wrap:balance; }
+.voice figcaption { font-size:14px; line-height:20px; color:var(--ink-muted); padding-top:var(--s3); border-top:2px solid var(--ink); }
+.voice figcaption b { display:block; color:var(--ink); }
+.voice--cta { background:var(--red-soft); border-color:var(--red-soft); }
+.voice--cta .btn { justify-self:start; }
+.quote .say { font:600 24px/32px var(--font-display); letter-spacing:-.01em; text-wrap:balance; }
+
+.howto { list-style:none; margin:0 0 var(--s4); padding:0; counter-reset:h; border-top:1px solid var(--line); }
+.howto li { counter-increment:h; display:grid; grid-template-columns:40px 1fr; gap:var(--s3); padding-block:var(--s4); border-bottom:1px solid var(--line); }
+.howto li::before { content:counter(h); font:700 28px/1 var(--font-display); color:var(--red); grid-row:span 2; }
+.howto b { font-weight:600; } .howto span { color:var(--ink-muted); font-size:15px; line-height:22px; }
+
+.ebook { display:grid; gap:var(--s12); align-items:center; }
+@media (min-width:860px) { .ebook { grid-template-columns:320px 1fr; gap:var(--s16); } }
+.cover { aspect-ratio:3/4; max-width:320px; width:100%; background:var(--ink); color:var(--paper); padding:var(--s8) var(--s6); display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden; box-shadow:12px 12px 0 var(--red); }
+.cover span { font:700 96px/.85 var(--font-display); letter-spacing:-.05em; }
+.cover small { font:600 12px/16px var(--font-body); letter-spacing:.12em; text-transform:uppercase; color:color-mix(in srgb, var(--paper) 70%, var(--ink)); }
+.ebook-copy { display:grid; gap:var(--s6); min-width:0; }
+
+.faq { border-top:1px solid var(--line); max-width:860px; }
+.faq details { border-bottom:1px solid var(--line); }
+.faq summary { cursor:pointer; list-style:none; display:flex; justify-content:space-between; gap:var(--s4); padding-block:var(--s6); font:600 20px/28px var(--font-display); }
+.faq summary::-webkit-details-marker { display:none; }
+.faq summary::after { content:"+"; font:700 28px/28px var(--font-display); color:var(--red); transition:transform .15s linear; }
+.faq details[open] summary::after { transform:rotate(45deg); }
+.faq details p { padding-bottom:var(--s6); max-width:65ch; color:var(--ink-muted); font-size:17px; line-height:28px; }
+.mail { color:var(--paper); font-weight:600; user-select:all; white-space:nowrap; }
+</style>
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Growth Academy, back to top">
+      <svg class="cross" viewBox="0 0 32 32" aria-hidden="true"><rect class="f" width="32" height="32"/><rect class="c" x="13" y="6" width="6" height="20"/><rect class="c" x="6" y="13" width="20" height="6"/></svg>
+      Growth Academy
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#program">Program</a>
+      <a href="#speakers">Speakers</a>
+      <a href="#apply-criteria">Who should apply</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn--primary" href="https://share-eu1.hsforms.com/1Nvt7XgV_QGWnRVFGGdnfNA2du7hm" target="_blank" rel="noopener">Get more information</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <div class="badges">
+          <span class="badge badge--red">Scholarship for 1 in 10 selected startups</span>
+          <span class="badge">12 weeks · Zürich &amp; online</span>
+        </div>
+        <h1>Growth Academy. <em>Grow 3× faster with strong Product-Market Fit.</em></h1>
+        <p class="lead">A 12-week program that takes startups to Product-Market Fit systematically, with a customer-centric and measurable approach. You leave with your own PMF engine.</p>
+        <div class="ctas">
+          <a class="btn btn--primary" href="https://share-eu1.hsforms.com/1Nvt7XgV_QGWnRVFGGdnfNA2du7hm" target="_blank" rel="noopener">Get more information <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn--secondary" href="#program">See the 7 modules</a>
+        </div>
+        <div class="powered">
+          <span class="caption">Organized by</span>
+          <a href="#organizers" aria-label="PMF Factory"><svg class="logo-pmff" role="img" aria-label="PMF Factory" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 702.20588 264.70588"><path d="M297.98225,123.61942V78.81961h24.67481a15.99365,15.99365,0,0,1,7.66943,1.856,14.76426,14.76426,0,0,1,5.53516,5.05567,12.93592,12.93592,0,0,1,2.06738,7.168,13.27034,13.27034,0,0,1-2.20068,7.48829,15.86381,15.86381,0,0,1-5.83545,5.27978,16.84259,16.84259,0,0,1-8.10254,1.95215H306.65169v16Zm8.66944-23.68018h14.20507a8.42782,8.42782,0,0,0,3.96778-.96,7.80549,7.80549,0,0,0,2.90088-2.52783,6.06472,6.06472,0,0,0,1.06738-3.48779,5.39552,5.39552,0,0,0-1.06738-3.29639,7.5031,7.5031,0,0,0-2.90088-2.30371,9.19192,9.19192,0,0,0-3.96778-.86426H306.65169Z"/><path d="M355.0013,123.61942V78.81961h8.20361l19.73828,25.728h-4.26758l19.80664-25.728h8.07031v44.79981h-8.60351V106.4036q0-5.50342.26758-10.144a85.38991,85.38991,0,0,1,1.0664-9.376l.9336,2.87988-17.33985,21.6958h-4.40039L361.33577,89.82743l.93554-2.94385q.73243,4.60767,1.03321,9.24805.29883,4.64063.29883,10.272v17.21582Z"/><path d="M426.75764,123.61942V78.81961h8.66992v44.79981Zm3.46778-17.98389V98.08329h29.74316v7.55224ZM430.826,86.4993V78.81961h32.01074V86.4993Z"/><path d="M297.98225,183.20389v-44.7998h8.66944v44.7998ZM301.45,165.21952v-7.55176h29.74365v7.55176Zm.60009-19.13575v-7.67968h32.01075v7.67968Z"/><path d="M341.93,183.20389l21.207-44.7998h8.87011l21.07325,44.7998h-9.20313l-13.2041-27.9043q-.46728-1.15135-1.06738-2.52734-.59913-1.37549-1.2002-2.78418-.60059-1.40772-1.13379-2.84863-.53466-1.43994-.93359-2.5918l2.06738-.06347q-.46728,1.34325-1,2.78417-.53466,1.44-1.13379,2.84766-.60058,1.40772-1.20019,2.71973-.60059,1.3125-1.13379,2.65625l-13.20459,27.71191Zm9.47021-9.85644,3.13428-7.23145h25.4082l2.001,7.23145Z"/><path d="M428.9593,183.84354a31.31478,31.31478,0,0,1-10.26953-1.63184,24.07625,24.07625,0,0,1-8.23633-4.73535,22.557,22.557,0,0,1-5.502-7.36035,21.75585,21.75585,0,0,1-2.001-9.376,20.32842,20.32842,0,0,1,2.06739-9.12011,23.17962,23.17962,0,0,1,5.63574-7.2959,25.714,25.714,0,0,1,8.30273-4.79981,31.073,31.073,0,0,1,18.03907-.67187,33.29055,33.29055,0,0,1,6.90234,2.6875,23.17614,23.17614,0,0,1,5.20215,3.64844l-5.20215,6.52734a27.45171,27.45171,0,0,0-4.36816-3.10352,21.42778,21.42778,0,0,0-5.002-2.04785,22.14352,22.14352,0,0,0-5.835-.73632,19.4857,19.4857,0,0,0-6.33594,1.02441,16.65758,16.65758,0,0,0-5.36816,3.00781,14.98619,14.98619,0,0,0-3.76758,4.73535,13.49438,13.49438,0,0,0-1.40039,6.208,13.84265,13.84265,0,0,0,1.43359,6.43262,14.17564,14.17564,0,0,0,3.93458,4.73535,18.07043,18.07043,0,0,0,5.73535,2.97656,22.5151,22.5151,0,0,0,6.83593,1.02344,19.74756,19.74756,0,0,0,6.03516-.86328,23.75322,23.75322,0,0,0,4.86816-2.14453,31.95945,31.95945,0,0,0,3.90137-2.6875l4.20117,6.65527a24.1847,24.1847,0,0,1-4.86816,3.2002,34.74545,34.74545,0,0,1-6.93555,2.65625A30.2518,30.2518,0,0,1,428.9593,183.84354Z"/><path d="M477.10969,183.20389V146.08377H460.83723v-7.67968H502.5179v7.67968H485.77864v37.12012Z"/><path d="M539.597,183.84354a31.1852,31.1852,0,0,1-10.66992-1.75977,26.817,26.817,0,0,1-8.50293-4.8955,21.85855,21.85855,0,0,1-5.60157-7.32813,22.1186,22.1186,0,0,1,0-18.24023,21.86813,21.86813,0,0,1,5.60157-7.32813,26.8541,26.8541,0,0,1,8.50293-4.89551,31.16212,31.16212,0,0,1,10.66992-1.76074,31.90378,31.90378,0,0,1,10.7373,1.72852,25.67829,25.67829,0,0,1,8.46973,4.89551,22.84231,22.84231,0,0,1,5.60156,7.36035,21.78443,21.78443,0,0,1,0,18.24023,22.81788,22.81788,0,0,1-5.60156,7.35938,25.68039,25.68039,0,0,1-8.46973,4.89648A31.90417,31.90417,0,0,1,539.597,183.84354Zm0-7.93555a21.44908,21.44908,0,0,0,7.23633-1.15234,17.8383,17.8383,0,0,0,5.668-3.23145,14.81524,14.81524,0,0,0,3.76855-4.832,13.94606,13.94606,0,0,0,0-11.90429,14.82548,14.82548,0,0,0-3.76855-4.832,17.87771,17.87771,0,0,0-5.668-3.23242,23.10423,23.10423,0,0,0-14.40528,0,17.67175,17.67175,0,0,0-5.70215,3.2002,14.29478,14.29478,0,0,0-3.70117,4.7998,14.49809,14.49809,0,0,0,0,12,14.17351,14.17351,0,0,0,3.70117,4.832,17.61731,17.61731,0,0,0,5.70215,3.2002A21.60259,21.60259,0,0,0,539.597,175.908Z"/><path d="M583.61165,183.20389v-44.7998h24.74121a17.18733,17.18733,0,0,1,8.00293,1.82422,14.63183,14.63183,0,0,1,5.63574,5.02343,13.39833,13.39833,0,0,1-.10059,14.56055,15.574,15.574,0,0,1-5.90136,5.21582,17.62809,17.62809,0,0,1-8.23633,1.91992H592.08137v16.25586Zm8.46972-23.48828h15.13868a8.59672,8.59672,0,0,0,4.001-.92773,7.24549,7.24549,0,0,0,2.834-2.52832,6.45672,6.45672,0,0,0,1.03418-3.584,5.753,5.753,0,0,0-1.10059-3.4873,7.65342,7.65342,0,0,0-3.03418-2.40039,10.2039,10.2039,0,0,0-4.335-.89551H592.08137Zm23.94141,23.48828-14.40527-20.22363,9.13671-1.60059,15.73829,21.88867Z"/><path d="M656.23567,183.20389V162.33963l1,4.28809-22.80762-28.22363H645.432l16.80566,21.63183-3.06738-.12793,16.07227-21.5039h10.13671L664.305,165.79569l.60058-3.96777v21.376Z"/><path d="M270.66115,130.0708l-29.18994-51.25H181.54115l-1.42,2.5-27.71,48.75-1.45,2.55,1.52,2.45,28.44,46.06,1.52,2.47h60.24l27.98-48.53,1.43-2.49Zm-113.81,2.36h0q13.075-23.025,26.15-46.05l26.32,46.05h0l-25.55,43.81Q170.31118,154.33578,156.85115,132.43078Zm82.94,46.17005h-51.6l25.38-43.53h51.32Zm-26.21-48.53-26.28-46.25h51.26l26.35,46.25Z" class="pmff-cube"/><path d="M137.94665,132.528l26.56-47.67,1.41-2.52-1.44-2.48-28.32-48.64h-59.61l-1.46,2.49005-58.26,98.84,58.27,98.48,1.44995,2.46h59.59l28.36-49.91,1.42-2.51-1.43005-2.49Zm20.77,46.05h-51.55l-24.88-43.53h51.34Zm-25.12-48.53h-51.36l25.29-45.19h51.26Zm-.31-93.83,25.41,43.64h-51.19l-25.2-43.64Zm-55.38,189.75-55.27-93.42,55.31-93.87,25.24,43.7-26.68,47.67-1.41,2.51,1.43,2.49,26.32,46.05Zm55.32,2.52h-51l24.96-44.91h51.56Z"/></svg></a>
+          <span class="wordmark">NZZ Connect</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band" id="about">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">About the Growth Academy</p>
+        <h2 class="h-sec">Product-Market Fit is what makes growth fast and efficient</h2>
+        <p class="lead">Startups with PMF win customers more easily, grow faster and attract more investors. The Growth Academy helps you get there step by step, measured on your own numbers.</p>
+      </div>
+      <div class="kpis">
+        <div class="kpi"><span class="n">3×</span><span class="u">Faster growth</span><p>for startups with strong Product-Market Fit</p></div>
+        <div class="kpi"><span class="n">12</span><span class="u">Weeks</span><p>from assessment to a scalable PMF engine</p></div>
+        <div class="kpi"><span class="n">7</span><span class="u">Modules</span><p>each with a top entrepreneur as guest speaker</p></div>
+        <div class="kpi kpi--accent"><span class="n">10</span><span class="u">Startups</span><p>selected per academy, B2B and B2C</p></div>
+      </div>
+      <div class="gain">
+        <h3>What you’ll gain</h3>
+        <div class="extras">
+          <div class="extra"><div><b>A structured methodology</b><span>Tools and insights to reach Product-Market Fit efficiently.</span></div></div>
+          <div class="extra"><div><b>Insights from top entrepreneurs</b><span>Founders and investors who have done it share how.</span></div></div>
+          <div class="extra"><div><b>Peer support</b><span>Learn with other founders while you work on your own case.</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="program">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Key program details</p>
+        <h2 class="h-sec">Seven modules, from assessment to scaling</h2>
+        <p class="lead">A step-by-step journey through Product-Market Fit with expert guidance. Modules alternate between in-person sessions in Zürich and online workshops, on Friday afternoons from 13:30 to 17:30.</p>
+      </div>
+      <ol class="modules">
+        <li><span class="mn">01</span><span class="mt">Assess your PMF</span></li>
+        <li><span class="mn">02</span><span class="mt">Extract the essence of your PMF</span></li>
+        <li><span class="mn">03</span><span class="mt">Make your PMF measurable</span></li>
+        <li><span class="mn">04</span><span class="mt">Build your PMF Engine</span></li>
+        <li><span class="mn">05</span><span class="mt">Experiment smartly and efficiently</span></li>
+        <li><span class="mn">06</span><span class="mt">Scale with customer success</span></li>
+        <li class="last"><span class="mn">07</span><span class="mt">Strategy presentation and awards ceremony</span></li>
+      </ol>
+      <div class="formats">
+        <span class="fmt"><i class="sq ink"></i>Zürich, in person, alternating with online workshops</span>
+        <span class="fmt"><i class="sq red"></i>Friday, 13:30–17:30</span>
+        <span class="caption">Dates for the next edition are shared on request.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band" id="speakers">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Guest speakers</p>
+        <h2 class="h-sec">Every module brings in a top entrepreneur</h2>
+      </div>
+      <div class="people">
+        <article class="person"><span class="mono" aria-hidden="true">TD</span><div><h3>Dr. Thomas Dübendorfer</h3><p class="role">Internet entrepreneur and angel investor, President of SICTIC</p><p class="talk">Investors &amp; PMF</p></div></article>
+        <article class="person"><span class="mono" aria-hidden="true">MG</span><div><h3>Melanie Gabriel</h3><p class="role">Co-Founder of Yokoy and Follow the Gradient, angel investor</p><p class="talk">Message-Market Fit</p></div></article>
+        <article class="person"><span class="mono" aria-hidden="true">RS</span><div><h3>Raphael Schaad</h3><p class="role">Founder of Cron (acquired by Notion)</p><p class="talk">Talking to 1’000 Customers</p></div></article>
+        <article class="person"><span class="mono" aria-hidden="true">HB</span><div><h3>Dr. Herbert Bay</h3><p class="role">Co-Founder and CEO at Earkick</p><p class="talk">Experiment efficiently and effectively</p></div></article>
+        <article class="person"><span class="mono" aria-hidden="true">LD</span><div><h3>Laurent Decrue</h3><p class="role">CEO &amp; CFO at Holycode, Co-Founder of Movu and DeinDeal</p><p class="talk">Measure, learn, adapt</p></div></article>
+        <article class="person"><span class="mono" aria-hidden="true">MH</span><div><h3>Manuel Hartmann</h3><p class="role">Co-Founder and CEO at SalesPlaybook</p><p class="talk">Making sales repeatable</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="voices">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">From past participants</p>
+        <h2 class="h-sec">What founders took away</h2>
+      </div>
+      <!-- Takeaways are summaries. Replace with the exact approved quotes before publishing. -->
+      <div class="voices">
+        <figure class="voice"><p>Early lessons on the PMF concept, and a team now aligned on one PMF process.</p><figcaption><b>André Bernard</b>Co-Founder, matriq</figcaption></figure>
+        <figure class="voice"><p>A structured method that helps ask, and answer, the right questions.</p><figcaption><b>Dominik Witz</b>Co-Founder, Konsento</figcaption></figure>
+        <figure class="voice"><p>Actionable strategies and the perspectives of fellow founders.</p><figcaption><b>Christian Kramer</b>CEO &amp; Co-Founder, FOOD2050</figcaption></figure>
+        <figure class="voice"><p>An internal, data-driven process to keep adding value for users.</p><figcaption><b>Joel Singh</b>CEO &amp; Co-Founder, Crossiety</figcaption></figure>
+        <figure class="voice"><p>A clear plan and the skills to measure, evaluate and implement PMF.</p><figcaption><b>Florence von Gunten</b>CEO &amp; Co-Founder, YLAH</figcaption></figure>
+        <div class="voice voice--cta"><p>Join the next cohort of founders building their PMF engine.</p><a class="btn btn--primary" href="https://share-eu1.hsforms.com/1Nvt7XgV_QGWnRVFGGdnfNA2du7hm" target="_blank" rel="noopener">Get more information <span class="arr" aria-hidden="true">→</span></a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band" id="apply-criteria">
+    <div class="wrap">
+      <div class="fit">
+        <div>
+          <div class="sec-head" style="margin-bottom:var(--s8)">
+            <p class="eyebrow">Who should apply</p>
+            <h2 class="h-sec">B2B and B2C startups ready to grow much further</h2>
+            <p class="lead">Built for startups with CHF 100,000 to CHF 5 million in revenue. Only 10 startups are selected per academy, through a short virtual interview.</p>
+          </div>
+          <div class="facts">
+            <div class="fact"><span class="k">Revenue</span><span class="v">At least CHF 100,000 a year</span></div>
+            <div class="fact"><span class="k">Ambition</span><span class="v">Committed to growing and learning</span></div>
+            <div class="fact"><span class="k">Team</span><span class="v">Two team members take part actively</span></div>
+          </div>
+        </div>
+        <div class="crit">
+          <h3>How to join</h3>
+          <ol class="howto">
+            <li><b>Request information</b><span>Fill in the short form.</span></li>
+            <li><b>Selection interview</b><span>Shortlisted startups are invited to a virtual interview.</span></li>
+            <li><b>Start the academy</b><span>10 startups join; one in ten can benefit from the scholarship.</span></li>
+          </ol>
+          <a class="btn btn--primary" href="https://share-eu1.hsforms.com/1Nvt7XgV_QGWnRVFGGdnfNA2du7hm" target="_blank" rel="noopener" style="justify-self:start">Get more information <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="experts">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">What experts say</p>
+        <h2 class="h-sec">Few founders approach PMF systematically</h2>
+      </div>
+      <!-- Expert statements are summaries. Replace with the exact approved quotes before publishing. -->
+      <div class="why" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+        <figure class="quote"><p class="say">Product-Market Fit is one of the most important pieces of startup success, and the program takes you through it step by step.</p><figcaption><b>Lukas Frösch</b>Director Entrepreneurship, Swiss Economic Forum</figcaption></figure>
+        <figure class="quote"><p class="say">Very few founders have a systematic approach. A structured one gets you to Product-Market Fit faster and more efficiently.</p><figcaption><b>Dr. Thomas Dübendorfer</b>Internet entrepreneur, angel investor, President of SICTIC</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band" id="organizers">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Meet the organizers</p>
+        <h2 class="h-sec">Run by PMF Factory and NZZ Connect</h2>
+      </div>
+      <div class="people people--2">
+        <article class="person"><span class="mono" aria-hidden="true">MS</span><div><h3>Michael Sauter</h3><p class="role">Co-Founder, PMF Factory</p><p>Has coached more than 100 startups, developed two startup programs and spent time in Silicon Valley. Focused on data-driven growth.</p></div></article>
+        <article class="person"><span class="mono" aria-hidden="true">MB</span><div><h3>Martina Biedermann</h3><p class="role">Co-Founder, PMF Factory</p><p>Background in corporate innovation, intrapreneurship and investor relations. Helps companies navigate complex environments and investor relationships.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="ebook">
+    <div class="wrap">
+      <div class="ebook">
+        <div class="cover" aria-hidden="true"><span>PMF</span><small>E-book · Sections I &amp; II</small></div>
+        <div class="ebook-copy">
+          <p class="eyebrow">Free e-book</p>
+          <h2 class="h-sec">Learn from Bexio, Xovis and Cron</h2>
+          <ul class="ticks">
+            <li>Understanding Product-Market Fit</li>
+            <li>How to focus on Product-Market Fit</li>
+            <li>How to iterate towards Product-Market Fit</li>
+          </ul>
+          <a class="btn btn--secondary" href="https://share-eu1.hsforms.com/1mr8lliBuQYeUVpN2lhS3Tw2du7hm" target="_blank" rel="noopener" style="justify-self:start">Download for free <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">FAQ</p>
+        <h2 class="h-sec">Questions, answered</h2>
+      </div>
+      <div class="faq">
+        <details open><summary>Who are the organizers?</summary><p>The Growth Academy is organized by PMF Factory and NZZ Connect.</p></details>
+        <details><summary>How do I join?</summary><p>Request information through the form. Shortlisted companies are invited to a virtual selection interview.</p></details>
+        <details><summary>Where does it take place?</summary><p>Modules alternate between in-person sessions in Zürich and online workshops, on Friday afternoons from 13:30 to 17:30.</p></details>
+        <details><summary>What are the selection criteria?</summary><p>At least CHF 100,000 in annual revenue, the ambition to grow and learn, and two team members who take part actively. Only 10 startups are accepted per academy.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="apply" id="apply">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Excited to join?</p>
+      <h2>Book an interview and find out if it’s a fit.</h2>
+      <p>Only 10 startups are selected. Other questions? Write to <span class="mail">academy@pmf-factory.com</span></p>
+    </div>
+    <a class="btn btn--primary" href="https://share-eu1.hsforms.com/1Nvt7XgV_QGWnRVFGGdnfNA2du7hm" target="_blank" rel="noopener">Get more information <span class="arr" aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="brand"><svg class="cross" viewBox="0 0 32 32" aria-hidden="true"><rect class="f" width="32" height="32"/><rect class="c" x="13" y="6" width="6" height="20"/><rect class="c" x="6" y="13" width="20" height="6"/></svg>Growth Academy</span>
+    <span>By PMF Factory and NZZ Connect</span>
+    <span>academy@pmf-factory.com</span>
+  </div>
+</footer>
+
+</body>
+</html>
