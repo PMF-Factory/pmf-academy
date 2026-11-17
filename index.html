@@ -194,7 +194,7 @@
      "name": "When and where does the program take place?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "The program runs from March to August 2027. In-person days take place in Zurich; the other sprints are online. There are about three weeks between sprints. 4 & 5 March Kick-off (2 days) Zurich 26 March Sprint 1 Online 16 April Sprint 2 Zurich 7 May Sprint 3 Online 28 May Sprint 4 Online 18 June Sprint 5 Zurich 2 July Sprint 6 Online 13 August Sprint 7 Online 20 August Investor Demo Day Zurich"
+      "text": "The program runs from March to August 2027. In-person days take place in Zurich; the other sprints are online. Sprint sessions take place on Friday afternoons, about three weeks apart: in Zurich from 13:30 to 17:00, online from 14:30 to 16:30. 4 & 5 March Kick-off (2 days) Zurich 26 March Sprint 1 Online 16 April Sprint 2 Zurich 7 May Sprint 3 Online 28 May Sprint 4 Online 18 June Sprint 5 Zurich 2 July Sprint 6 Online 13 August Sprint 7 Online 20 August Investor Demo Day Zurich"
      }
     },
     {
@@ -693,6 +693,7 @@ input[type="range"] { min-width:0; max-width:100%; margin-inline:0; }
 .kpi--accent { background:var(--ink); border-top-color:var(--red); color:var(--paper); }
 .kpi--accent .u { color:color-mix(in srgb, var(--paper) 70%, var(--ink)); }
 #program .kpi .n { color:var(--ink); }
+#program .kpi { box-shadow:inset 1px 0 0 var(--line), inset -1px 0 0 var(--line), inset 0 -1px 0 var(--line); }
 #program .kpi--hl .n { color:var(--red); }
 
 .journey { margin-top:var(--s16); display:grid; gap:var(--s6); }
@@ -847,6 +848,8 @@ input[type="range"] { width:100%; accent-color:var(--red); }
 .apply p { color:color-mix(in srgb, var(--paper) 75%, var(--ink)); max-width:52ch; margin-top:var(--s4); font-size:18px; line-height:28px; }
 .apply .btn--primary { font-size:17px; padding:var(--s4) var(--s8); }
 .apply .eyebrow { color:var(--red); }
+.apply .apply-mail a { color:var(--paper); font-weight:600; text-decoration:underline; text-underline-offset:3px; }
+.apply .apply-mail a:hover { color:var(--red); }
 
 footer { padding-block:var(--s8); }
 footer .wrap { display:flex; flex-wrap:wrap; gap:var(--s4) var(--s8); align-items:center; justify-content:space-between; font-size:14px; color:var(--ink-muted); }
@@ -868,6 +871,13 @@ footer .brand { font-size:15px; color:var(--ink); }
 .modules li:nth-child(even) { box-shadow:inset 0 4px 0 var(--line-strong); }
 .modules .mn { font:700 48px/1 var(--font-display); letter-spacing:-.04em; color:var(--red); }
 .modules .mt { font:600 17px/23px var(--font-body); text-wrap:balance; }
+.modules .mk { font:600 12px/16px var(--font-body); letter-spacing:.08em; text-transform:uppercase; color:var(--ink-muted); }
+.modules li.last .mk { color:color-mix(in srgb, var(--paper) 70%, var(--ink)); }
+.modules li { align-content:start; }
+.modules .mn { margin-top:calc(-1 * var(--s2)); }
+#methodology .meth-after { margin-top:var(--s8); max-width:65ch; }
+#methodology .meth-cta { margin-top:var(--s6); }
+.tl-cta { margin-top:var(--s6); }
 .modules li.last { background:var(--ink); color:var(--paper); box-shadow:inset 0 4px 0 var(--red); }
 .formats { margin-top:var(--s6); display:flex; flex-wrap:wrap; gap:var(--s3) var(--s6); align-items:center; font-size:14px; }
 .fmt { display:inline-flex; align-items:center; gap:var(--s2); font-weight:600; }
@@ -969,7 +979,7 @@ footer .brand { font-size:15px; color:var(--ink); }
         <div class="ctas">
           <a class="btn btn--primary" href="https://bookings.cloud.microsoft/bookwithme/user/ae9c27a1549e40eb98f52953e831be8f@pmf-factory.com/meetingtype/boJtNuPkREu4UWmMuFRjFA2?anonymous&amp;ismsaljsauthenabled&amp;ep=mCardFromTile" target="_blank" rel="noopener">Book a 20-min call <span class="arr" aria-hidden="true">→</span></a>
           <a class="btn btn--secondary" href="#check">Take the free PMF Check</a>
-          <a class="btn btn--secondary" href="#program">Explore the program</a>
+          <a class="btn btn--secondary" href="#testimonials">Check the testimonials</a>
         </div>
         <div class="powered">
           <span class="caption">Powered by</span>
@@ -1065,7 +1075,7 @@ footer .brand { font-size:15px; color:var(--ink); }
         <p class="eyebrow">The program</p>
         <h2 class="h-sec">6-Month PMF Impact Program</h2>
         <p class="lead">The <strong class="hl">entrepreneur-to-entrepreneur</strong> program is all about identifying repeatable patterns for startup success and growth. At its core, the program is about experimenting quickly and learning what worked for others.</p>
-        <p class="lead"><strong class="hl">During the first two kick-off days</strong>, you’ll get the essential tools and methods to iterate quickly and systematically. Seven growth sprints follow, combining hands-on experimentation, insights from successful entrepreneurs, and peer learning. Along the way, you continuously refine your PMF strategy.</p>
+        <p class="lead"><strong class="hl">During the first two kick-off days</strong>, you’ll get the essential tools and methods to iterate quickly and systematically. Seven growth sprints follow, combining hands-on experimentation, insights from successful entrepreneurs, and peer learning. Along the way, you continuously refine your PMF strategy and acquire new customers.</p>
         <p class="lead"><strong class="hl">After six months</strong>, you’ll have the opportunity to present your case and pitch to selected investors.</p>
       </div>
       <div class="kpis">
@@ -1087,13 +1097,14 @@ footer .brand { font-size:15px; color:var(--ink); }
               <li class="step"><span class="dot">S7</span><span class="t">Sprint 7<small>13 August 2027</small><small class="loc">Online</small></span></li>
               <li class="step step--end"><span class="dot">★</span><span class="t">Demo Day<small>20 August 2027</small><small class="loc">Zurich</small></span></li>
         </ol>
-        <p class="caption tl-legend"><span><i class="lg lg--red"></i>In person in Zurich</span><span><i class="lg"></i>Online</span><span>About 3 weeks between sprints</span></p>
+        <p class="caption tl-legend"><span><i class="lg lg--red"></i>In person in Zurich (13:30–17:00)</span><span><i class="lg"></i>Online (14:30–16:30)</span><span>About 3 weeks between sprints</span></p>
+        <p class="tl-cta"><a class="btn btn--secondary" href="#methodology">About the methodology <span class="arr" aria-hidden="true">→</span></a></p>
       </div>
-      <h3 class="sub-h gain-h">What you gain</h3>
+      <h3 class="sub-h gain-h">What you’ll work towards</h3>
       <div class="extras">
-        <p class="extra">Structured methodology and tools to reach PMF faster</p>
-        <p class="extra">Insights from top entrepreneurs</p>
-        <p class="extra">Peer learning and exchange with fellow entrepreneurs</p>
+        <p class="extra">Measurable PMF signals</p>
+        <p class="extra">Repeatable growth patterns</p>
+        <p class="extra">Clarity in your growth roadmap</p>
       </div>
     </div>
   </section>
@@ -1171,13 +1182,13 @@ footer .brand { font-size:15px; color:var(--ink); }
             <span class="fig" id="saving">CHF 150,000</span>
             <p id="roi" class="caption">That is 23× the program investment of CHF 6,500.</p>
           </div>
-          <p class="calc-note">We cannot guarantee that you will achieve PMF. What we can guarantee, however, is that if you do, you will do so <strong>faster and with a greater likelihood</strong>.</p>
+          <p class="calc-note">We help you accelerate your journey to PMF through <strong>structured experimentation, customer evidence, and continuous learning</strong>. There are no shortcuts or guarantees – but there are better ways to learn faster.</p>
         </div>
         <div class="price-wrap">
           <table class="price">
             <caption>Program investment</caption>
             <tbody>
-              <tr><td>Program fee<span class="sub">2 participants per company (2 × CHF 4,250)</span></td><td>CHF 8,500</td></tr>
+              <tr><td>Program fee<span class="sub">2 participants per company</span></td><td>2 × CHF 4,250</td></tr>
               <tr class="disc"><td>Partner discount<span class="sub">SICTIC, Standortförderung Kanton Zürich, PMF Factory</span></td><td>– CHF 1,000</td></tr>
               <tr class="disc"><td>Early-bird discount<span class="sub">until 15 January 2027</span></td><td>– CHF 1,000</td></tr>
               <tr class="total"><td>Total investment per company<span class="sub">2 participants</span></td><td>2 × CHF 3,250</td></tr>
@@ -1197,6 +1208,7 @@ footer .brand { font-size:15px; color:var(--ink); }
       <h2>Ready to nail your Product-Market Fit?</h2>
       <p>Two people per company, six months, one goal: repeatable, predictable growth. Apply before 15 January 2027 to save CHF 1,000.</p>
       <p>In a 20-minute call, we check together whether the program is a good fit.</p>
+      <p class="apply-mail">Prefer email? Write to us at <a href="mailto:academy@pmf-factory.com">academy@pmf-factory.com</a>.</p>
     </div>
     <a class="btn btn--primary" href="https://bookings.cloud.microsoft/bookwithme/user/ae9c27a1549e40eb98f52953e831be8f@pmf-factory.com/meetingtype/boJtNuPkREu4UWmMuFRjFA2?anonymous&amp;ismsaljsauthenabled&amp;ep=mCardFromTile" target="_blank" rel="noopener">Book a 20-min call <span class="arr" aria-hidden="true">→</span></a>
   </div>
@@ -1219,30 +1231,23 @@ footer .brand { font-size:15px; color:var(--ink); }
     </div>
   </section>
 
-  <section class="section" id="about">
+  <section class="section" id="methodology">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">About PMF</p>
-        <h2 class="h-sec">The foundation for startup success and sustainable growth</h2>
+        <p class="eyebrow">About the methodology</p>
+        <h2 class="h-sec">Six modules to nail your Product-Market Fit</h2>
         <p class="lead">Product-Market Fit is like a secret recipe for an extraordinary meal. Just like a great chef, you need to understand the ingredients, find the perfect combination, and fine-tune every detail to create something exceptional – something that truly resonates with your target audience and leaves them wanting more.</p>
-        <p class="lead">Startups with strong PMF win customers more easily, grow faster and attract more investors. They have momentum on their side.</p>
       </div>
-      <h3 class="sub-h">Signals of Product-Market Fit</h3>
-      <div class="kpis">
-        <div class="kpi kpi--sig"><span class="sig-mark" aria-hidden="true"><svg class="heart" viewBox="0 0 24 24" width="40" height="40"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.5 3 5 6.4 5c2.1 0 3.6 1.2 4.6 2.7h2C14 6.2 15.5 5 17.6 5 21 5 23.1 8.5 21.6 11.8 19.5 16.4 12 21 12 21z"/></svg></span><p class="sig">Sales become predictable</p></div>
-        <div class="kpi kpi--sig"><span class="sig-mark" aria-hidden="true"><svg class="heart" viewBox="0 0 24 24" width="40" height="40"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.5 3 5 6.4 5c2.1 0 3.6 1.2 4.6 2.7h2C14 6.2 15.5 5 17.6 5 21 5 23.1 8.5 21.6 11.8 19.5 16.4 12 21 12 21z"/></svg></span><p class="sig">Customer acquisition costs are dropping</p></div>
-        <div class="kpi kpi--sig"><span class="sig-mark" aria-hidden="true"><svg class="heart" viewBox="0 0 24 24" width="40" height="40"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.5 3 5 6.4 5c2.1 0 3.6 1.2 4.6 2.7h2C14 6.2 15.5 5 17.6 5 21 5 23.1 8.5 21.6 11.8 19.5 16.4 12 21 12 21z"/></svg></span><p class="sig">Customers are staying with you and want more</p></div>
-        <div class="kpi kpi--sig"><span class="sig-mark" aria-hidden="true"><svg class="heart" viewBox="0 0 24 24" width="40" height="40"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.5 3 5 6.4 5c2.1 0 3.6 1.2 4.6 2.7h2C14 6.2 15.5 5 17.6 5 21 5 23.1 8.5 21.6 11.8 19.5 16.4 12 21 12 21z"/></svg></span><p class="sig">Customers are actively recommending you</p></div>
-      </div>
-      <div class="gain">
-        <h3>What Product-Market Fit is NOT</h3>
-        <ul class="nots">
-          <li>Prospects keep delaying their buying decisions.</li>
-          <li>Sales just feels hard.</li>
-          <li>Every customer project is different, with multiple use cases.</li>
-          <li>Existing customers don’t ask for more.</li>
-        </ul>
-      </div>
+      <ol class="modules">
+          <li><span class="mk">Module</span><span class="mn">1</span><span class="mt">Assess your PMF</span></li>
+          <li><span class="mk">Module</span><span class="mn">2</span><span class="mt">Extract the essence of your PMF</span></li>
+          <li><span class="mk">Module</span><span class="mn">3</span><span class="mt">Make your PMF measurable</span></li>
+          <li><span class="mk">Module</span><span class="mn">4</span><span class="mt">Build your PMF Engine</span></li>
+          <li><span class="mk">Module</span><span class="mn">5</span><span class="mt">Experiment smartly and efficiently</span></li>
+          <li class="last"><span class="mk">Module</span><span class="mn">6</span><span class="mt">Scale with customer success</span></li>
+      </ol>
+      <p class="lead meth-after">Over six months, you’ll gain the tools and frameworks you need, analyze your Product-Market Fit, work on your case, and benefit from insights from successful entrepreneurs and valuable feedback from peers. You’ll continuously experiment, learn, and adapt in a high-trust setting – with only one common goal: to nail your PMF and accelerate your growth.</p>
+      <p class="meth-cta"><a class="btn btn--secondary" href="#testimonials">Read the testimonials <span class="arr" aria-hidden="true">→</span></a></p>
     </div>
   </section>
 
@@ -1280,7 +1285,7 @@ footer .brand { font-size:15px; color:var(--ink); }
         <div class="faq-group">
           <div class="faq">
             <details><summary>When and where does the program take place?</summary>
-              <div class="fa"><p>The program runs from March to August 2027. In-person days take place in Zurich; the other sprints are online. There are about three weeks between sprints.</p>
+              <div class="fa"><p>The program runs from March to August 2027. In-person days take place in Zurich; the other sprints are online. Sprint sessions take place on Friday afternoons, about three weeks apart: in Zurich from 13:30 to 17:00, online from 14:30 to 16:30.</p>
               <ul class="sched">
                 <li class="ip"><b>4 &amp; 5 March 2027</b><span>Kick-off (2 days)</span><em>Zurich</em></li>
                 <li><b>26 March 2027</b><span>Sprint 1</span><em>Online</em></li>
