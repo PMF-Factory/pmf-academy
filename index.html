@@ -36,7 +36,7 @@
    "name": "Swiss PMF Academy",
    "url": "https://www.pmf-academy.ch/",
    "logo": "https://www.pmf-academy.ch/favicon.svg",
-   "email": "michael@pmf-factory.com",
+   "email": "academy@pmf-factory.com",
    "description": "Six-month Product-Market Fit sprint program for established startups in Switzerland, powered by SICTIC and PMF Factory and supported by Innovation Zurich.",
    "address": {
     "@type": "PostalAddress",
@@ -90,7 +90,7 @@
    "@id": "https://www.pmf-academy.ch/#program",
    "name": "Swiss PMF Academy – 6-Month PMF Impact Program",
    "url": "https://www.pmf-academy.ch/#program",
-   "description": "A six-month sprint program for established B2B startups (2–7 years on the market, CHF 200k–2.1M revenue) to nail Product-Market Fit and make growth repeatable and predictable: 2 kick-off workshop days, 7 guided growth sprints with expert input, and an Investor Demo Day. Only 10 startups are selected.",
+   "description": "A six-month sprint program for established B2B startups (2–7 years on the market, CHF 200k–2.5M revenue) to nail Product-Market Fit and make growth repeatable and predictable: 2 kick-off workshop days, 7 guided growth sprints with expert input, and an Investor Demo Day. Only 10 startups are selected.",
    "provider": {
     "@id": "https://www.pmf-academy.ch/#org"
    },
@@ -202,7 +202,7 @@
      "name": "How is the program structured?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Two kick-off days give you the essential tools, methods and frameworks. In seven growth sprints, you experiment, acquire customers and learn from experts and peers. At the Demo Day, you showcase your progress and pitch to investors."
+      "text": "Two kick-off days give you the essential tools, methods and frameworks. In seven growth sprints, you experiment, acquire customers and learn from experts and peers. At the Demo Day, you present your case and pitch to selected investors."
      }
     },
     {
@@ -215,10 +215,10 @@
     },
     {
      "@type": "Question",
-     "name": "Who runs Swiss PMF Academy?",
+     "name": "Who runs the Swiss PMF Academy?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "The academy is powered by SICTIC and PMF Factory, and supported by Innovation Zurich."
+      "text": "The academy is powered by SICTIC and PMF Factory and supported by Innovation Zurich."
      }
     },
     {
@@ -226,7 +226,7 @@
      "name": "Is my startup a fit?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Typical participants are B2B (occasionally B2C), 2–7 years on the market, with CHF 200k–2.1M in revenue. You should not apply if your revenue is below CHF 50,000, you have less than six months of runway, or you are a one-(wo)man show."
+      "text": "Typical participants are B2B (occasionally B2C), 2–7 years on the market, with CHF 200k–2.5M in revenue. You should not apply if your revenue is below CHF 50,000, you have less than six months of runway, or you are a one-(wo)man show."
      }
     },
     {
@@ -250,7 +250,7 @@
      "name": "What does it cost?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "CHF 4,250 per participant, so CHF 8,500 per company. A partner discount (SICTIC, Standortförderung Kanton Zürich, PMF Factory) and an early-bird discount until January 15, 2027 of CHF 1,000 each bring the total to CHF 6,500."
+      "text": "CHF 4,250 per participant, so CHF 8,500 per company. A partner discount (SICTIC, Standortförderung Kanton Zürich, PMF Factory) and an early-bird discount (until 15 January 2027) of CHF 1,000 each bring the total to CHF 6,500."
      }
     },
     {
@@ -332,6 +332,7 @@ html.intro::after { content:""; position:fixed; inset:0; z-index:100; background
 .proc .btn { justify-self:start; margin-top:var(--s2); max-width:100%; }
 @media (min-width:1100px) { .proc li { padding:var(--s6) var(--s4); } .proc .btn { padding:10px 12px; font-size:14px; } }
 .proc-note { margin-top:var(--s8); font:600 22px/28px var(--font-display); color:var(--red); }
+.proc-note--ink { color:var(--ink); }
 @media (min-width:1100px) { .proc li:not(:last-child)::after { content:"→"; position:absolute; right:calc(-1 * var(--s6) / 2 - 8px); top:var(--s6); font:700 20px/1 var(--font-display); color:var(--line-strong); z-index:1; } }
 
 .site-head .btn { gap:0; }
@@ -517,7 +518,7 @@ input[type="range"] { min-width:0; max-width:100%; margin-inline:0; }
 .nps-wrap h3 { font-size:clamp(24px,3vw,32px); line-height:1.15; letter-spacing:-.01em; margin-bottom:var(--s4); }
 .supported { display:flex; flex-wrap:wrap; align-items:center; gap:var(--s4) var(--s8); padding-top:var(--s4); }
 .supported .caption { text-transform:uppercase; letter-spacing:.12em; font-weight:600; font-size:11px; }
-.logo-iz { height:64px; width:auto; display:block; filter:brightness(0); }
+.logo-iz { height:64px; width:auto; display:block; }
 .logo-hsg { height:36px; width:auto; display:block; }
 .logo-sic { height:28px; width:auto; display:block; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .logo-sic { filter:invert(1); } }
@@ -525,8 +526,8 @@ input[type="range"] { min-width:0; max-width:100%; margin-inline:0; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .logo-hsg { filter:invert(1); } }
 :root[data-theme="dark"] .logo-hsg { filter:invert(1); }
 .supported a, .powered a { display:block; transition:opacity .15s; } .supported a:hover, .powered a:hover { opacity:.7; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .logo-iz { filter:brightness(0) invert(1); } }
-:root[data-theme="dark"] .logo-iz { filter:brightness(0) invert(1); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .logo-iz { filter:invert(1); } }
+:root[data-theme="dark"] .logo-iz { filter:invert(1); }
 .book { display:grid; gap:var(--s12); align-items:start; }
 @media (min-width:900px) { .book { grid-template-columns:minmax(0,4fr) minmax(0,7fr); gap:var(--s16); } }
 .book-cover { width:100%; max-width:360px; height:auto; display:block; box-shadow:14px 14px 0 var(--red); }
@@ -879,9 +880,12 @@ footer .brand { font-size:15px; color:var(--ink); }
 .person { background:var(--paper); padding:var(--s6); display:grid; grid-template-columns:112px 1fr; gap:var(--s4); align-items:start; border-top:3px solid var(--ink); }
 .person .mono { width:56px; height:56px; display:grid; place-items:center; background:var(--red-soft); color:var(--red); font:700 18px/1 var(--font-display); letter-spacing:.02em; }
 .person h3 { font-size:19px; line-height:24px; }
+.person h3 .li { display:inline-flex; vertical-align:-3px; margin-left:6px; color:var(--ink-muted); }
+.person h3 .li:hover { color:#0a66c2; }
 .person .role { font-size:14px; line-height:20px; color:var(--ink-muted); margin-top:var(--s1); }
 .person p:not(.role):not(.talk) { margin-top:var(--s3); font-size:15px; line-height:24px; }
 .person .talk { margin-top:var(--s3); display:inline-block; font:600 13px/18px var(--font-body); padding:var(--s1) var(--s3); border:1px solid var(--line-strong); border-radius:999px; }
+.person .talk.talk--plain::before { content:none; }
 .person .talk::before { content:"Talk · "; color:var(--ink-muted); font-weight:400; }
 .person .av { width:112px; height:112px; border-radius:50%; object-fit:cover; display:block; background:var(--surface); box-shadow:0 0 0 1px var(--line); }
 @media (max-width:480px) { .person { grid-template-columns:88px 1fr; } .person .av, .person .mono { width:88px; height:88px; } }
@@ -939,7 +943,6 @@ footer .brand { font-size:15px; color:var(--ink); }
       <a href="#speakers">Speakers</a>
       <a href="#program">Program</a>
       <a href="#pricing">Pricing</a>
-      <a href="#investors">Investors</a>
       <a href="#faq">FAQ</a>
     </nav>
     <a class="btn btn--primary" href="https://bookings.cloud.microsoft/bookwithme/user/ae9c27a1549e40eb98f52953e831be8f@pmf-factory.com/meetingtype/boJtNuPkREu4UWmMuFRjFA2?anonymous&amp;ismsaljsauthenabled&amp;ep=mCardFromTile" target="_blank" rel="noopener">Book a call</a>
@@ -953,12 +956,12 @@ footer .brand { font-size:15px; color:var(--ink); }
     <div class="wrap">
       <div class="hero-copy">
         <div class="badges">
-          <span class="badge badge--red">Early-bird until January 15, 2027</span>
+          <span class="badge badge--red">Early-bird until 15 January 2027</span>
           <span class="badge">6-month sprint program</span>
         </div>
         <h1>Nail your PMF. <em>Accelerate your growth.</em></h1>
         <p class="hook">You have customers and revenue, but growth is harder than it should be?</p>
-        <p class="lead">Startups with a clear Product-Market Fit grow <strong class="hl">20× faster</strong>* than those that scale prematurely. The Academy equips <strong>entrepreneurs with paying customers and revenue</strong> (typically CHF 200k–2.1M, minimum CHF 50k) with the tools, methods, and frameworks to achieve Product-Market Fit faster and in structured iterations.</p>
+        <p class="lead">Startups with a clear Product-Market Fit grow <strong class="hl">20× faster</strong>* than those that scale prematurely. The Academy is an <strong>entrepreneur-to-entrepreneur program</strong> that equips you with the tools, methods, and frameworks to achieve Product-Market Fit faster through structured iterations. <strong>Learn what worked for others.</strong></p>
     <figure class="hero-art">
           <img fetchpriority="high" decoding="async" src="images/pmf-mountain-product-market-fit.webp" width="958" height="461" alt="A founder pushes a boulder up a mountain towards a red flag labelled Product-Market Fit. Before the summit: Don't die! After it: repeatable, predictable growth.">
         </figure>
@@ -966,7 +969,7 @@ footer .brand { font-size:15px; color:var(--ink); }
         <div class="ctas">
           <a class="btn btn--primary" href="https://bookings.cloud.microsoft/bookwithme/user/ae9c27a1549e40eb98f52953e831be8f@pmf-factory.com/meetingtype/boJtNuPkREu4UWmMuFRjFA2?anonymous&amp;ismsaljsauthenabled&amp;ep=mCardFromTile" target="_blank" rel="noopener">Book a 20-min call <span class="arr" aria-hidden="true">→</span></a>
           <a class="btn btn--secondary" href="#check">Take the free PMF Check</a>
-          <a class="btn btn--secondary" href="#program">Check the Program</a>
+          <a class="btn btn--secondary" href="#program">Explore the program</a>
         </div>
         <div class="powered">
           <span class="caption">Powered by</span>
@@ -975,7 +978,7 @@ footer .brand { font-size:15px; color:var(--ink); }
           </a>
           <a href="https://www.pmf-factory.com" target="_blank" rel="noopener" aria-label="PMF Factory"><svg class="logo-pmff" role="img" aria-label="PMF Factory" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 702.20588 264.70588"><path d="M297.98225,123.61942V78.81961h24.67481a15.99365,15.99365,0,0,1,7.66943,1.856,14.76426,14.76426,0,0,1,5.53516,5.05567,12.93592,12.93592,0,0,1,2.06738,7.168,13.27034,13.27034,0,0,1-2.20068,7.48829,15.86381,15.86381,0,0,1-5.83545,5.27978,16.84259,16.84259,0,0,1-8.10254,1.95215H306.65169v16Zm8.66944-23.68018h14.20507a8.42782,8.42782,0,0,0,3.96778-.96,7.80549,7.80549,0,0,0,2.90088-2.52783,6.06472,6.06472,0,0,0,1.06738-3.48779,5.39552,5.39552,0,0,0-1.06738-3.29639,7.5031,7.5031,0,0,0-2.90088-2.30371,9.19192,9.19192,0,0,0-3.96778-.86426H306.65169Z"/><path d="M355.0013,123.61942V78.81961h8.20361l19.73828,25.728h-4.26758l19.80664-25.728h8.07031v44.79981h-8.60351V106.4036q0-5.50342.26758-10.144a85.38991,85.38991,0,0,1,1.0664-9.376l.9336,2.87988-17.33985,21.6958h-4.40039L361.33577,89.82743l.93554-2.94385q.73243,4.60767,1.03321,9.24805.29883,4.64063.29883,10.272v17.21582Z"/><path d="M426.75764,123.61942V78.81961h8.66992v44.79981Zm3.46778-17.98389V98.08329h29.74316v7.55224ZM430.826,86.4993V78.81961h32.01074V86.4993Z"/><path d="M297.98225,183.20389v-44.7998h8.66944v44.7998ZM301.45,165.21952v-7.55176h29.74365v7.55176Zm.60009-19.13575v-7.67968h32.01075v7.67968Z"/><path d="M341.93,183.20389l21.207-44.7998h8.87011l21.07325,44.7998h-9.20313l-13.2041-27.9043q-.46728-1.15135-1.06738-2.52734-.59913-1.37549-1.2002-2.78418-.60059-1.40772-1.13379-2.84863-.53466-1.43994-.93359-2.5918l2.06738-.06347q-.46728,1.34325-1,2.78417-.53466,1.44-1.13379,2.84766-.60058,1.40772-1.20019,2.71973-.60059,1.3125-1.13379,2.65625l-13.20459,27.71191Zm9.47021-9.85644,3.13428-7.23145h25.4082l2.001,7.23145Z"/><path d="M428.9593,183.84354a31.31478,31.31478,0,0,1-10.26953-1.63184,24.07625,24.07625,0,0,1-8.23633-4.73535,22.557,22.557,0,0,1-5.502-7.36035,21.75585,21.75585,0,0,1-2.001-9.376,20.32842,20.32842,0,0,1,2.06739-9.12011,23.17962,23.17962,0,0,1,5.63574-7.2959,25.714,25.714,0,0,1,8.30273-4.79981,31.073,31.073,0,0,1,18.03907-.67187,33.29055,33.29055,0,0,1,6.90234,2.6875,23.17614,23.17614,0,0,1,5.20215,3.64844l-5.20215,6.52734a27.45171,27.45171,0,0,0-4.36816-3.10352,21.42778,21.42778,0,0,0-5.002-2.04785,22.14352,22.14352,0,0,0-5.835-.73632,19.4857,19.4857,0,0,0-6.33594,1.02441,16.65758,16.65758,0,0,0-5.36816,3.00781,14.98619,14.98619,0,0,0-3.76758,4.73535,13.49438,13.49438,0,0,0-1.40039,6.208,13.84265,13.84265,0,0,0,1.43359,6.43262,14.17564,14.17564,0,0,0,3.93458,4.73535,18.07043,18.07043,0,0,0,5.73535,2.97656,22.5151,22.5151,0,0,0,6.83593,1.02344,19.74756,19.74756,0,0,0,6.03516-.86328,23.75322,23.75322,0,0,0,4.86816-2.14453,31.95945,31.95945,0,0,0,3.90137-2.6875l4.20117,6.65527a24.1847,24.1847,0,0,1-4.86816,3.2002,34.74545,34.74545,0,0,1-6.93555,2.65625A30.2518,30.2518,0,0,1,428.9593,183.84354Z"/><path d="M477.10969,183.20389V146.08377H460.83723v-7.67968H502.5179v7.67968H485.77864v37.12012Z"/><path d="M539.597,183.84354a31.1852,31.1852,0,0,1-10.66992-1.75977,26.817,26.817,0,0,1-8.50293-4.8955,21.85855,21.85855,0,0,1-5.60157-7.32813,22.1186,22.1186,0,0,1,0-18.24023,21.86813,21.86813,0,0,1,5.60157-7.32813,26.8541,26.8541,0,0,1,8.50293-4.89551,31.16212,31.16212,0,0,1,10.66992-1.76074,31.90378,31.90378,0,0,1,10.7373,1.72852,25.67829,25.67829,0,0,1,8.46973,4.89551,22.84231,22.84231,0,0,1,5.60156,7.36035,21.78443,21.78443,0,0,1,0,18.24023,22.81788,22.81788,0,0,1-5.60156,7.35938,25.68039,25.68039,0,0,1-8.46973,4.89648A31.90417,31.90417,0,0,1,539.597,183.84354Zm0-7.93555a21.44908,21.44908,0,0,0,7.23633-1.15234,17.8383,17.8383,0,0,0,5.668-3.23145,14.81524,14.81524,0,0,0,3.76855-4.832,13.94606,13.94606,0,0,0,0-11.90429,14.82548,14.82548,0,0,0-3.76855-4.832,17.87771,17.87771,0,0,0-5.668-3.23242,23.10423,23.10423,0,0,0-14.40528,0,17.67175,17.67175,0,0,0-5.70215,3.2002,14.29478,14.29478,0,0,0-3.70117,4.7998,14.49809,14.49809,0,0,0,0,12,14.17351,14.17351,0,0,0,3.70117,4.832,17.61731,17.61731,0,0,0,5.70215,3.2002A21.60259,21.60259,0,0,0,539.597,175.908Z"/><path d="M583.61165,183.20389v-44.7998h24.74121a17.18733,17.18733,0,0,1,8.00293,1.82422,14.63183,14.63183,0,0,1,5.63574,5.02343,13.39833,13.39833,0,0,1-.10059,14.56055,15.574,15.574,0,0,1-5.90136,5.21582,17.62809,17.62809,0,0,1-8.23633,1.91992H592.08137v16.25586Zm8.46972-23.48828h15.13868a8.59672,8.59672,0,0,0,4.001-.92773,7.24549,7.24549,0,0,0,2.834-2.52832,6.45672,6.45672,0,0,0,1.03418-3.584,5.753,5.753,0,0,0-1.10059-3.4873,7.65342,7.65342,0,0,0-3.03418-2.40039,10.2039,10.2039,0,0,0-4.335-.89551H592.08137Zm23.94141,23.48828-14.40527-20.22363,9.13671-1.60059,15.73829,21.88867Z"/><path d="M656.23567,183.20389V162.33963l1,4.28809-22.80762-28.22363H645.432l16.80566,21.63183-3.06738-.12793,16.07227-21.5039h10.13671L664.305,165.79569l.60058-3.96777v21.376Z"/><path d="M270.66115,130.0708l-29.18994-51.25H181.54115l-1.42,2.5-27.71,48.75-1.45,2.55,1.52,2.45,28.44,46.06,1.52,2.47h60.24l27.98-48.53,1.43-2.49Zm-113.81,2.36h0q13.075-23.025,26.15-46.05l26.32,46.05h0l-25.55,43.81Q170.31118,154.33578,156.85115,132.43078Zm82.94,46.17005h-51.6l25.38-43.53h51.32Zm-26.21-48.53-26.28-46.25h51.26l26.35,46.25Z" class="pmff-cube"/><path d="M137.94665,132.528l26.56-47.67,1.41-2.52-1.44-2.48-28.32-48.64h-59.61l-1.46,2.49005-58.26,98.84,58.27,98.48,1.44995,2.46h59.59l28.36-49.91,1.42-2.51-1.43005-2.49Zm20.77,46.05h-51.55l-24.88-43.53h51.34Zm-25.12-48.53h-51.36l25.29-45.19h51.26Zm-.31-93.83,25.41,43.64h-51.19l-25.2-43.64Zm-55.38,189.75-55.27-93.42,55.31-93.87,25.24,43.7-26.68,47.67-1.41,2.51,1.43,2.49,26.32,46.05Zm55.32,2.52h-51l24.96-44.91h51.56Z"/></svg></a>
         </div>
-        <div class="supported"><span class="caption">Supported by</span><a href="https://www.zh.ch/en/volkswirtschaftsdirektion/amt-fuer-wirtschaft/standortfoerderung.html" target="_blank" rel="noopener" aria-label="Innovation Zurich"><img class="logo-iz" src="images/innovation-zurich-logo.webp" width="600" height="318" alt="Innovation Zurich"></a><a href="https://www.hsgstartaccelerator.org/" target="_blank" rel="noopener" aria-label="HSG START Accelerator"><img class="logo-hsg" src="images/hsg-start-accelerator-logo.webp" width="777" height="160" alt="HSG START Accelerator"></a></div>
+        <div class="supported"><span class="caption">Supported by</span><a href="https://www.zh.ch/en/volkswirtschaftsdirektion/amt-fuer-wirtschaft/standortfoerderung.html" target="_blank" rel="noopener" aria-label="Innovation Zurich"><img class="logo-iz" src="images/innovation-zurich-logo.webp" width="900" height="477" alt="Innovation Zurich"></a><a href="https://www.hsgstartaccelerator.org/" target="_blank" rel="noopener" aria-label="HSG START Accelerator"><img class="logo-hsg" src="images/hsg-start-accelerator-logo.webp" width="777" height="160" alt="HSG START Accelerator"></a></div>
       </div>
 
 
@@ -985,23 +988,23 @@ footer .brand { font-size:15px; color:var(--ink); }
   <section class="section band" id="who">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">Who should apply</p>
+        <p class="eyebrow">For whom</p>
         <h2 class="h-sec">Startups that seek acceleration</h2>
-        <p class="lead">You have customers and real usage data, but growth has plateaued or become hard to repeat, and now you want to accelerate. <strong class="hl">Only 10 startups are selected. Don’t miss it.</strong></p>
+        <p class="lead">You have customers and revenue (typically CHF 200k–2.5M), but growth has plateaued or become hard to repeat, and now you want to accelerate.</p>
       </div>
-      <p class="who-label">Typical participants are:</p>
+      <p class="who-label">Typical participants</p>
       <div class="profile">
         <div class="pf"><span class="pf-k">Model</span><span class="pf-v">B2B</span><span class="pf-s">occasionally B2C</span></div>
         <div class="pf"><span class="pf-k">On the market</span><span class="pf-v">2–7 years</span></div>
-        <div class="pf"><span class="pf-k">Revenue</span><span class="pf-v">CHF 200k–2.1M</span><span class="pf-s">minimum CHF 50k</span></div>
+        <div class="pf"><span class="pf-k">Revenue</span><span class="pf-v">CHF 200k–2.5M</span><span class="pf-s">minimum CHF 50k</span></div>
       </div>
       <div class="verdict">
         <div class="vcard vcard--yes">
           <h3><span class="vmark" aria-hidden="true">+</span>Additional selection criteria</h3>
           <ul>
-            <li>Ambitious and coachable leadership team</li>
-            <li>Committed participation of two key people</li>
-            <li>Sufficient funding to see the six months through</li>
+            <li>Ready to learn and iterate fast</li>
+            <li>Two key people committed to taking part</li>
+            <li>Sufficient funding for the next six months</li>
           </ul>
           <a class="btn btn--primary" href="https://bookings.cloud.microsoft/bookwithme/user/ae9c27a1549e40eb98f52953e831be8f@pmf-factory.com/meetingtype/boJtNuPkREu4UWmMuFRjFA2?anonymous&amp;ismsaljsauthenabled&amp;ep=mCardFromTile" target="_blank" rel="noopener">Book a 20-min call <span class="arr" aria-hidden="true">→</span></a>
         </div>
@@ -1015,6 +1018,7 @@ footer .brand { font-size:15px; color:var(--ink); }
           </ul>
         </div>
       </div>
+      <p class="proc-note proc-note--ink">Only 10 startups are carefully selected.</p>
     </div>
   </section>
 
@@ -1023,7 +1027,7 @@ footer .brand { font-size:15px; color:var(--ink); }
       <div class="sec-head">
         <p class="eyebrow">Self-assessment</p>
         <h2 class="h-sec">Check your PMF with 8 questions</h2>
-        <p class="lead">A quick self-assessment to gauge your Product-Market Fit and growth momentum. Answer anonymously.</p>
+        <p class="lead">A quick self-assessment to gauge your Product-Market Fit and growth momentum. Answers are anonymous.</p>
       </div>
       <form id="pmf-form" class="qgrid" novalidate></form>
       <aside class="score" aria-live="polite">
@@ -1041,16 +1045,16 @@ footer .brand { font-size:15px; color:var(--ink); }
   <section class="section band" id="speakers">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">Guest speakers</p>
-        <h2 class="h-sec">Sharing failures and successes</h2>
-        <p class="lead">In this high-trust setting, we mutually share real learnings and insights from failures and successes.</p>
+        <p class="eyebrow">Speakers</p>
+        <h2 class="h-sec">From Entrepreneur to Entrepreneur</h2>
+        <p class="lead"><strong>Learn what worked for others.</strong> Serial entrepreneurs, unicorn founders and successful investors share what they’ve learned from their failures and successes.</p>
       </div>
       <div class="people">
-        <article class="person"><img class="av" src="images/speaker-thomas-dubendorfer.webp" alt="Portrait of Dr. Thomas Dübendorfer" width="112" height="112" loading="lazy"><div><h3>Dr. Thomas Dübendorfer</h3><p class="role">Internet entrepreneur and angel investor, President of SICTIC</p><p class="talk">Investors &amp; PMF</p></div></article>
-        <article class="person"><img class="av" src="images/speaker-tobias-rein.webp" alt="Portrait of Tobias Rein" width="112" height="112" loading="lazy"><div><h3>Tobias Rein</h3><p class="role">Co-Founder &amp; Principal Engineer at GetYourGuide</p><p class="talk">PMF Journey</p></div></article>
-        <article class="person"><img class="av" src="images/speaker-thomas-gaba-gabathuler.webp" alt="Portrait of Thomas (Gaba) Gabathuler" width="112" height="112" loading="lazy"><div><h3>Thomas (Gaba) Gabathuler</h3><p class="role">CEO and Co-Founder of Get More Brain</p><p class="talk">Never stop learning</p></div></article>
-        <article class="person"><img class="av" src="images/speaker-stefan-zanetti.webp" alt="Portrait of Stefan Zanetti" width="112" height="112" loading="lazy"><div><h3>Stefan Zanetti</h3><p class="role">CGO &amp; Chairman at Allthings &amp; CEO at Pivotal</p><p class="talk">How to pivot</p></div></article>
-        <article class="person"><img class="av" src="images/speaker-michael-sauter.webp" alt="Portrait of Michael Sauter" width="112" height="112" loading="lazy"><div><h3>Michael Sauter</h3><p class="role">Founder of PMF Factory and author of the book <i>Product-Market Fit – How to Build a Business That Scales</i></p></div></article>
+        <article class="person"><img class="av" src="images/speaker-thomas-dubendorfer.webp" alt="Portrait of Dr. Thomas Dübendorfer" width="112" height="112" loading="lazy"><div><h3>Dr. Thomas Dübendorfer <a class="li" href="https://www.linkedin.com/in/duebendorfer/" target="_blank" rel="noopener" aria-label="Dr. Thomas Dübendorfer on LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></h3><p class="role">Internet entrepreneur and angel investor, President of SICTIC</p><p class="talk">Investors &amp; PMF</p></div></article>
+        <article class="person"><img class="av" src="images/speaker-tobias-rein.webp" alt="Portrait of Tobias Rein" width="112" height="112" loading="lazy"><div><h3>Tobias Rein <a class="li" href="https://www.linkedin.com/in/tobias-rein/" target="_blank" rel="noopener" aria-label="Tobias Rein on LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></h3><p class="role">Co-Founder &amp; Principal Engineer at GetYourGuide</p><p class="talk">PMF Journey</p></div></article>
+        <article class="person"><img class="av" src="images/speaker-thomas-gaba-gabathuler.webp" alt="Portrait of Thomas (Gaba) Gabathuler" width="112" height="112" loading="lazy"><div><h3>Thomas (Gaba) Gabathuler <a class="li" href="https://www.linkedin.com/in/thomas-gabathuler/" target="_blank" rel="noopener" aria-label="Thomas (Gaba) Gabathuler on LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></h3><p class="role">CEO and Co-Founder of Get More Brain</p><p class="talk">Never stop learning</p></div></article>
+        <article class="person"><img class="av" src="images/speaker-stefan-zanetti.webp" alt="Portrait of Stefan Zanetti" width="112" height="112" loading="lazy"><div><h3>Stefan Zanetti <a class="li" href="https://www.linkedin.com/in/stefan-zanetti/" target="_blank" rel="noopener" aria-label="Stefan Zanetti on LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></h3><p class="role">CGO &amp; Chairman at Allthings &amp; CEO at Pivotal</p><p class="talk">How to pivot</p></div></article>
+        <article class="person"><img class="av" src="images/speaker-michael-sauter.webp" alt="Portrait of Michael Sauter" width="112" height="112" loading="lazy"><div><h3>Michael Sauter <a class="li" href="https://www.linkedin.com/in/michael-sauter-81852332/" target="_blank" rel="noopener" aria-label="Michael Sauter on LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></h3><p class="role">CEO of PMF Factory and author of the book <i>Product-Market Fit</i></p><p class="talk talk--plain">Program Host</p></div></article>
       </div>
     </div>
   </section>
@@ -1060,18 +1064,18 @@ footer .brand { font-size:15px; color:var(--ink); }
       <div class="sec-head">
         <p class="eyebrow">The program</p>
         <h2 class="h-sec">6-Month PMF Impact Program</h2>
-        <p class="lead">The program is all about <strong class="hl">learning and experimenting fast</strong>. You will constantly acquire new customers and identify repeatable patterns for success and startup growth.</p>
-        <p class="lead"><strong class="hl">During the first two kick-off days</strong>, you’ll get the essential tools and methods to iterate fast and in a structured way. Seven growth sprints follow, combining hands-on experimentation, expert insights, and peer learning.</p>
-        <p class="lead"><strong class="hl">After six months</strong>, you’ll have the opportunity to showcase your progress and pitch to investors.</p>
+        <p class="lead">The <strong class="hl">entrepreneur-to-entrepreneur</strong> program is all about identifying repeatable patterns for startup success and growth. At its core, the program is about experimenting quickly and learning what worked for others.</p>
+        <p class="lead"><strong class="hl">During the first two kick-off days</strong>, you’ll get the essential tools and methods to iterate quickly and systematically. Seven growth sprints follow, combining hands-on experimentation, insights from successful entrepreneurs, and peer learning. Along the way, you continuously refine your PMF strategy.</p>
+        <p class="lead"><strong class="hl">After six months</strong>, you’ll have the opportunity to present your case and pitch to selected investors.</p>
       </div>
       <div class="kpis">
         <div class="kpi"><span class="n">2</span><span class="u">Days</span><p>of intensive, hands-on workshops</p></div>
-        <div class="kpi"><span class="n">7</span><span class="u">Sprints</span><p>guided, with expert input and actionable feedback</p></div>
+        <div class="kpi"><span class="n">7</span><span class="u">Sprints</span><p>guided, with input from successful entrepreneurs and actionable feedback</p></div>
         <div class="kpi"><span class="n">10</span><span class="u">Startups</span><p>carefully selected</p></div>
-        <div class="kpi kpi--hl"><span class="n">1</span><span class="u">Demo Day</span><p>to pitch your progress to investors</p></div>
+        <div class="kpi kpi--hl"><span class="n">1</span><span class="u">Demo Day</span><p>to pitch your case to selected investors</p></div>
       </div>
       <div class="journey">
-        <h3>Your six months</h3>
+        <h3>Cohort 2027 – 6 months</h3>
         <ol class="steps">
               <li class="step step--hl"><span class="dot">K</span><span class="t">Kick-off<small>4 &amp; 5 March 2027</small><small class="loc">Zurich</small></span></li>
               <li class="step"><span class="dot">S1</span><span class="t">Sprint 1<small>26 March 2027</small><small class="loc">Online</small></span></li>
@@ -1085,7 +1089,7 @@ footer .brand { font-size:15px; color:var(--ink); }
         </ol>
         <p class="caption tl-legend"><span><i class="lg lg--red"></i>In person in Zurich</span><span><i class="lg"></i>Online</span><span>About 3 weeks between sprints</span></p>
       </div>
-      <h3 class="sub-h gain-h">What you’re gaining</h3>
+      <h3 class="sub-h gain-h">What you gain</h3>
       <div class="extras">
         <p class="extra">Structured methodology and tools to reach PMF faster</p>
         <p class="extra">Insights from top entrepreneurs</p>
@@ -1099,7 +1103,7 @@ footer .brand { font-size:15px; color:var(--ink); }
       <div class="sec-head">
         <p class="eyebrow">Impressions</p>
         <h2 class="h-sec">Learning, sprinting and celebrating together</h2>
-        <p class="lead">Workshops, guest talks, peer groups and a founders dinner from previous editions in Zurich.</p>
+        <p class="lead">Workshops, guest talks, peer groups and a founders’ dinner from previous editions in Zurich.</p>
       </div>
       <div class="gallery"><figure class="ph big"><img src="images/academy-participants-cheering.webp" width="1100" height="825" alt="Participants cheering together after a session" loading="lazy"></figure><figure class="ph tall"><img src="images/academy-workshop-session.webp" width="1100" height="825" alt="Founders following a workshop session" loading="lazy"></figure><figure class="ph"><img src="images/academy-startup-pitch.webp" width="1100" height="825" alt="A participant presenting his startup" loading="lazy"></figure><figure class="ph "><img src="images/academy-peer-group.webp" width="1100" height="825" alt="Founders discussing in a small peer group" loading="lazy"></figure><figure class="ph "><img src="images/academy-guest-talk-sales.webp" width="1100" height="825" alt="Guest talk on making sales repeatable" loading="lazy"></figure><figure class="ph "><img src="images/academy-guest-speaker-session.webp" width="1100" height="825" alt="Guest speaker session: Don’t run out of money" loading="lazy"></figure><figure class="ph wide"><img src="images/academy-founders-dinner.webp" width="1100" height="825" alt="Founders dinner with the whole cohort" loading="lazy"></figure></div>
     </div>
@@ -1107,13 +1111,13 @@ footer .brand { font-size:15px; color:var(--ink); }
 
   <section class="section" id="nps">
     <div class="wrap">
-      <div class="nps-wrap"><p class="eyebrow" style="margin-bottom:var(--s3)">Validated Program</p><h3>Outstanding Net Promoter Score</h3></div>
+      <div class="nps-wrap"><p class="eyebrow" style="margin-bottom:var(--s3)">Validated methodology</p><h3>Outstanding Net Promoter Score</h3></div>
       <div class="nps-band nps-two">
         <div class="nps-item"><span class="fig">+80</span><p class="nps-t">Net Promoter Score from founders who completed the program.</p></div>
         <div class="nps-item"><span class="fig">9.45<small>/10</small></span><p class="nps-t">Average rating from founders who completed the program.</p></div>
-        <p class="caption nps-src">Participant survey of the second Growth Academy</p>
+        <p class="caption nps-src">Participant survey from the second Growth Academy</p>
       </div>
-      <a class="btn btn--primary nps-cta" href="#testimonials">Check the Testimonials <span class="arr" aria-hidden="true">→</span></a>
+      <a class="btn btn--primary nps-cta" href="#testimonials">Read the testimonials <span class="arr" aria-hidden="true">→</span></a>
     </div>
   </section>
 
@@ -1141,7 +1145,7 @@ footer .brand { font-size:15px; color:var(--ink); }
         <button type="button" class="chip" data-f="impact" aria-pressed="false">Impact</button>
         <button type="button" class="chip" data-f="quality" aria-pressed="false">Program quality</button>
       </div>
-      <div class="tgrid"><figure class="tcard" data-cat="relevance"><blockquote>Product-Market Fit is the single most important factor for any startup – and the whole company must be focused on it. <strong class="tk">On a scale from 1 to 10, I definitely give this program a 10.</strong></blockquote><figcaption><img src="images/testimonial-michael-trummer.jpg" alt="Portrait of Michael Trummer" width="48" height="48" loading="lazy"><span><b>Michael Trummer</b>Co-Founder, ahead</span></figcaption></figure><figure class="tcard" data-cat="relevance"><blockquote>Every startup should address the topic of Product-Market Fit at an early stage and implement a process before they have already done everything wrong. The program has definitely <strong class="tk">demystified the topic of Product-Market Fit</strong> for us and given us the necessary guidance on how to focus and make it measurable.</blockquote><figcaption><img src="images/testimonial-pascal-weber.jpg" alt="Portrait of Pascal Weber" width="48" height="48" loading="lazy"><span><b>Pascal Weber</b>Co-Founder, Manukai</span></figcaption></figure><figure class="tcard" data-cat="relevance"><blockquote>Every startup should introduce a PMF process as early as possible in order to optimize their chances of success. The program has <strong class="tk">helped us a lot with tools and frameworks</strong>.</blockquote><figcaption><img src="images/testimonial-diego-gladig.jpg" alt="Portrait of Diego Gladig" width="48" height="48" loading="lazy"><span><b>Diego Gladig</b>Co-Founder, Gossik</span></figcaption></figure><figure class="tcard" data-cat="relevance"><blockquote>In my opinion, <strong class="tk">Switzerland has a huge need for what you are doing</strong>. The more Swiss startups understand and implement the PMF process, the more successful they will be. I recommend the program to every startup with customers and revenues.</blockquote><figcaption><img src="images/testimonial-reto-grob.jpg" alt="Portrait of Reto Grob" width="48" height="48" loading="lazy"><span><b>Reto Grob</b>CEO &amp; Co-Founder, Augment It</span></figcaption></figure><figure class="tcard" data-cat="relevance"><blockquote>I’ve been through several programs before, but this one has been <strong class="tk">the most practical and relevant by far</strong>.</blockquote><figcaption><img src="images/testimonial-elias-remele.jpg" alt="Portrait of Elias Remele" width="48" height="48" loading="lazy"><span><b>Elias Remele</b>Former CSO &amp; Co-Founder, Augment It</span></figcaption></figure><figure class="tcard" data-cat="relevance"><blockquote>Before the program, Product-Market Fit was more of a buzzword to me. We were focused on hitting $1 million in ARR. But today, we understand that <strong class="tk">PMF goes far beyond just revenue</strong> – it’s the core of a successful venture. We now take a much more structured and evidence-based approach to measure it.</blockquote><figcaption><img src="images/testimonial-tobias-nageli.jpg" alt="Portrait of Tobias Nägeli" width="48" height="48" loading="lazy"><span><b>Tobias Nägeli</b>Co-Founder, Tinamu Labs</span></figcaption></figure><figure class="tcard" data-cat="impact"><blockquote>Before joining the program, we were greenhorns in terms of a methodical approach to Product-Market Fit. The Growth Academy has given us methodological security. Now we’ve got <strong class="tk">a solid method with a clear structure</strong> to test ideas from A to Z.</blockquote><figcaption><img src="images/testimonial-roger-langenegger.jpg" alt="Portrait of Roger Langenegger" width="48" height="48" loading="lazy"><span><b>Roger Langenegger</b>CEO, Solarify</span></figcaption></figure><figure class="tcard" data-cat="impact"><blockquote>The program has given me further confidence in what we are doing and where we are going. Product-Market Fit is now thoroughly embedded in my thought process and <strong class="tk">we know how to measure it</strong>.</blockquote><figcaption><img src="images/testimonial-ian-keathes.jpg" alt="Portrait of Ian Keathes" width="48" height="48" loading="lazy"><span><b>Ian Keathes</b>CEO, Altoo AG</span></figcaption></figure><figure class="tcard" data-cat="impact"><blockquote>This program has <strong class="tk">given me so much energy</strong>. It has shaped my thinking about developing a business, and we as a company have taken a big step forward.</blockquote><figcaption><img src="images/testimonial-chris-zurbrugg.jpg" alt="Portrait of Chris Zurbrügg" width="48" height="48" loading="lazy"><span><b>Chris Zurbrügg</b>Co-Founder &amp; CEO, aumico</span></figcaption></figure><figure class="tcard" data-cat="impact"><blockquote>The program helped us push scalable growth for Tinamu. <strong class="tk">We would not be where we are today without it.</strong> Especially the expert presentations and individual coaching was invaluable for us and we can highly recommend it to any entrepreneur building a successful business.</blockquote><figcaption><img src="images/testimonial-thomas-gotschmann.jpg" alt="Portrait of Thomas Götschmann" width="48" height="48" loading="lazy"><span><b>Thomas Götschmann</b>CEO, Tinamu Labs</span></figcaption></figure><figure class="tcard" data-cat="impact"><blockquote><strong class="tk">We are ready to scale</strong> – and the program gave me exactly the confirmation, clarity, and focus I needed to take this next step. It’s an outstanding, high-quality program. Missing out would have been a real disappointment.</blockquote><figcaption><img src="images/testimonial-doris-erne.jpg" alt="Portrait of Doris Erne" width="48" height="48" loading="lazy"><span><b>Doris Erne</b>CEO, Wheycation</span></figcaption></figure><figure class="tcard" data-cat="quality"><blockquote>I am very happy that you convinced me to participate in the program. <strong class="tk">You definitely overachieved.</strong> We now have a much better understanding of our PMF. I recommend the program to every startup.</blockquote><figcaption><img src="images/testimonial-pascal-grossniklaus.jpg" alt="Portrait of Pascal Grossniklaus" width="48" height="48" loading="lazy"><span><b>Pascal Grossniklaus</b>Co-Founder, ahead</span></figcaption></figure><figure class="tcard" data-cat="quality"><blockquote>I have only participated in a few programs in the last thirty years, but <strong class="tk">this program was really worth it</strong>. Never stop learning.</blockquote><figcaption><img src="images/testimonial-thomas-gaba-gabathuler.jpg" alt="Portrait of Thomas (Gaba) Gabathuler" width="48" height="48" loading="lazy"><span><b>Thomas (Gaba) Gabathuler</b>CEO &amp; Co-Founder, Get More Brain</span></figcaption></figure><figure class="tcard" data-cat="quality"><blockquote>I was a little skeptical at first. But then the value of the program exceeded my expectations. As a company, we have taken a big step forward. In hindsight, the value of the program is <strong class="tk">many times more than we paid for it</strong>.</blockquote><figcaption><img src="images/testimonial-mario-von-bergen.jpg" alt="Portrait of Mario von Bergen" width="48" height="48" loading="lazy"><span><b>Mario von Bergen</b>Co-Founder, Splint Invest</span></figcaption></figure><figure class="tcard" data-cat="quality"><blockquote>Initially, I was unsure of how I would benefit from attending the program, but after the Academy I have to say it was <strong class="tk">extremely valuable on many levels</strong>. We now discuss Product-Market Fit differently and with clarity. Refining our KPIs related to PMF in particular has helped us a lot.</blockquote><figcaption><img src="images/testimonial-philip-hediger.jpg" alt="Portrait of Philip Hediger" width="48" height="48" loading="lazy"><span><b>Philip Hediger</b>Chief Customer Officer, Altoo AG</span></figcaption></figure><figure class="tcard" data-cat="quality"><blockquote>Without this program, I would never have had this understanding of Product-Market Fit. We now know how to focus on it and how to measure PMF. <strong class="tk">I would love to participate in the program again.</strong></blockquote><figcaption><img src="images/testimonial-samuel-schmid.jpg" alt="Portrait of Samuel Schmid" width="48" height="48" loading="lazy"><span><b>Samuel Schmid</b>Co-Founder &amp; CTO, aumico</span></figcaption></figure></div>
+      <div class="tgrid"><figure class="tcard" data-cat="relevance"><blockquote>Product-Market Fit is the single most important factor for any startup – and the whole company must be focused on it. <strong class="tk">On a scale from 1 to 10, I definitely give this program a 10.</strong></blockquote><figcaption><img src="images/testimonial-michael-trummer.jpg" alt="Portrait of Michael Trummer" width="48" height="48" loading="lazy"><span><b>Michael Trummer</b>Co-Founder, ahead</span></figcaption></figure><figure class="tcard" data-cat="relevance"><blockquote>Every startup should address the topic of Product-Market Fit at an early stage and implement a process before they have already done everything wrong. The program has definitely <strong class="tk">demystified the topic of Product-Market Fit</strong> for us and given us the necessary guidance on how to focus and make it measurable.</blockquote><figcaption><img src="images/testimonial-pascal-weber.jpg" alt="Portrait of Pascal Weber" width="48" height="48" loading="lazy"><span><b>Pascal Weber</b>Co-Founder, Manukai</span></figcaption></figure><figure class="tcard" data-cat="relevance"><blockquote>Every startup should introduce a PMF process as early as possible in order to optimize their chances of success. The program has <strong class="tk">helped us a lot with tools and frameworks</strong>.</blockquote><figcaption><img src="images/testimonial-diego-gladig.jpg" alt="Portrait of Diego Gladig" width="48" height="48" loading="lazy"><span><b>Diego Gladig</b>Ex-Founder @ Gossik, Paymira</span></figcaption></figure><figure class="tcard" data-cat="relevance"><blockquote>In my opinion, <strong class="tk">Switzerland has a huge need for what you are doing</strong>. The more Swiss startups understand and implement the PMF process, the more successful they will be. I recommend the program to every startup with customers and revenues.</blockquote><figcaption><img src="images/testimonial-reto-grob.jpg" alt="Portrait of Reto Grob" width="48" height="48" loading="lazy"><span><b>Reto Grob</b>CEO &amp; Co-Founder, Augment It</span></figcaption></figure><figure class="tcard" data-cat="relevance"><blockquote>I’ve been through several programs before, but this one has been <strong class="tk">the most practical and relevant by far</strong>.</blockquote><figcaption><img src="images/testimonial-elias-remele.jpg" alt="Portrait of Elias Remele" width="48" height="48" loading="lazy"><span><b>Elias Remele</b>Former CSO &amp; Co-Founder, Augment It</span></figcaption></figure><figure class="tcard" data-cat="relevance"><blockquote>Before the program, Product-Market Fit was more of a buzzword to me. We were focused on hitting $1 million in ARR. But today, we understand that <strong class="tk">PMF goes far beyond just revenue</strong> – it’s the core of a successful venture. We now take a much more structured and evidence-based approach to measure it.</blockquote><figcaption><img src="images/testimonial-tobias-nageli.jpg" alt="Portrait of Tobias Nägeli" width="48" height="48" loading="lazy"><span><b>Tobias Nägeli</b>Co-Founder, Tinamu Labs</span></figcaption></figure><figure class="tcard" data-cat="impact"><blockquote>Before joining the program, we were greenhorns in terms of a methodical approach to Product-Market Fit. The Growth Academy has given us methodological security. Now we’ve got <strong class="tk">a solid method with a clear structure</strong> to test ideas from A to Z.</blockquote><figcaption><img src="images/testimonial-roger-langenegger.jpg" alt="Portrait of Roger Langenegger" width="48" height="48" loading="lazy"><span><b>Roger Langenegger</b>CEO, Solarify</span></figcaption></figure><figure class="tcard" data-cat="impact"><blockquote>The program has given me further confidence in what we are doing and where we are going. Product-Market Fit is now thoroughly embedded in my thought process and <strong class="tk">we know how to measure it</strong>.</blockquote><figcaption><img src="images/testimonial-ian-keathes.jpg" alt="Portrait of Ian Keathes" width="48" height="48" loading="lazy"><span><b>Ian Keathes</b>CEO, Altoo AG</span></figcaption></figure><figure class="tcard" data-cat="impact"><blockquote>This program has <strong class="tk">given me so much energy</strong>. It has shaped my thinking about developing a business, and we as a company have taken a big step forward.</blockquote><figcaption><img src="images/testimonial-chris-zurbrugg.jpg" alt="Portrait of Chris Zurbrügg" width="48" height="48" loading="lazy"><span><b>Chris Zurbrügg</b>Co-Founder &amp; CEO, aumico</span></figcaption></figure><figure class="tcard" data-cat="impact"><blockquote>The program helped us push scalable growth for Tinamu. <strong class="tk">We would not be where we are today without it.</strong> Especially the expert presentations and individual coaching was invaluable for us and we can highly recommend it to any entrepreneur building a successful business.</blockquote><figcaption><img src="images/testimonial-thomas-gotschmann.jpg" alt="Portrait of Thomas Götschmann" width="48" height="48" loading="lazy"><span><b>Thomas Götschmann</b>CEO, Tinamu Labs</span></figcaption></figure><figure class="tcard" data-cat="impact"><blockquote><strong class="tk">We are ready to scale</strong> – and the program gave me exactly the confirmation, clarity, and focus I needed to take this next step. It’s an outstanding, high-quality program. Missing out would have been a real disappointment.</blockquote><figcaption><img src="images/testimonial-doris-erne.jpg" alt="Portrait of Doris Erne" width="48" height="48" loading="lazy"><span><b>Doris Erne</b>CEO, Wheycation</span></figcaption></figure><figure class="tcard" data-cat="quality"><blockquote>I am very happy that you convinced me to participate in the program. <strong class="tk">You definitely overachieved.</strong> We now have a much better understanding of our PMF. I recommend the program to every startup.</blockquote><figcaption><img src="images/testimonial-pascal-grossniklaus.jpg" alt="Portrait of Pascal Grossniklaus" width="48" height="48" loading="lazy"><span><b>Pascal Grossniklaus</b>Co-Founder, ahead</span></figcaption></figure><figure class="tcard" data-cat="quality"><blockquote>I have only participated in a few programs in the last thirty years, but <strong class="tk">this program was really worth it</strong>. Never stop learning.</blockquote><figcaption><img src="images/testimonial-thomas-gaba-gabathuler.jpg" alt="Portrait of Thomas (Gaba) Gabathuler" width="48" height="48" loading="lazy"><span><b>Thomas (Gaba) Gabathuler</b>CEO &amp; Co-Founder, Get More Brain</span></figcaption></figure><figure class="tcard" data-cat="quality"><blockquote>I was a little skeptical at first. But then the value of the program exceeded my expectations. As a company, we have taken a big step forward. In hindsight, the value of the program is <strong class="tk">many times more than we paid for it</strong>.</blockquote><figcaption><img src="images/testimonial-mario-von-bergen.jpg" alt="Portrait of Mario von Bergen" width="48" height="48" loading="lazy"><span><b>Mario von Bergen</b>Co-Founder, Splint Invest</span></figcaption></figure><figure class="tcard" data-cat="quality"><blockquote>Initially, I was unsure of how I would benefit from attending the program, but after the Academy I have to say it was <strong class="tk">extremely valuable on many levels</strong>. We now discuss Product-Market Fit differently and with clarity. Refining our KPIs related to PMF in particular has helped us a lot.</blockquote><figcaption><img src="images/testimonial-philip-hediger.jpg" alt="Portrait of Philip Hediger" width="48" height="48" loading="lazy"><span><b>Philip Hediger</b>Chief Customer Officer, Altoo AG</span></figcaption></figure><figure class="tcard" data-cat="quality"><blockquote>Without this program, I would never have had this understanding of Product-Market Fit. We now know how to focus on it and how to measure PMF. <strong class="tk">I would love to participate in the program again.</strong></blockquote><figcaption><img src="images/testimonial-samuel-schmid.jpg" alt="Portrait of Samuel Schmid" width="48" height="48" loading="lazy"><span><b>Samuel Schmid</b>Co-Founder &amp; CTO, aumico</span></figcaption></figure></div>
     </div>
   </section>
 
@@ -1156,7 +1160,7 @@ footer .brand { font-size:15px; color:var(--ink); }
           <div class="field">
             <label for="burn">Your monthly burn rate</label>
             <div class="money-in"><span>CHF</span><input id="burn" inputmode="numeric" value="50,000" aria-describedby="burn-help"></div>
-            <p id="burn-help" class="caption">Salaries, rent and spend per month.</p>
+            <p id="burn-help" class="caption">Salaries, rent and other monthly costs.</p>
           </div>
           <div class="field">
             <label for="months">Months faster to PMF <output id="months-out" for="months" class="val">3</output></label>
@@ -1175,8 +1179,8 @@ footer .brand { font-size:15px; color:var(--ink); }
             <tbody>
               <tr><td>Program fee<span class="sub">2 participants per company (2 × CHF 4,250)</span></td><td>CHF 8,500</td></tr>
               <tr class="disc"><td>Partner discount<span class="sub">SICTIC, Standortförderung Kanton Zürich, PMF Factory</span></td><td>– CHF 1,000</td></tr>
-              <tr class="disc"><td>Early-bird discount<span class="sub">until January 15, 2027</span></td><td>– CHF 1,000</td></tr>
-              <tr class="total"><td>Total investment per company<span class="sub">2 participants</span></td><td>CHF 6,500</td></tr>
+              <tr class="disc"><td>Early-bird discount<span class="sub">until 15 January 2027</span></td><td>– CHF 1,000</td></tr>
+              <tr class="total"><td>Total investment per company<span class="sub">2 participants</span></td><td>2 × CHF 3,250</td></tr>
               <tr class="yours"><td>Your saving<span class="sub">From the calculator, based on your burn rate</span></td><td id="saving2">– CHF 150,000</td></tr>
             </tbody>
           </table>
@@ -1191,8 +1195,8 @@ footer .brand { font-size:15px; color:var(--ink); }
     <div>
       <p class="eyebrow">Book a 20-min call</p>
       <h2>Ready to nail your Product-Market Fit?</h2>
-      <p>Two people per company, six months, one goal: repeatable, predictable growth. Apply before January 15, 2027 to save CHF 1,000.</p>
-      <p>Let’s check the fit with the program within a 20-minute call.</p>
+      <p>Two people per company, six months, one goal: repeatable, predictable growth. Apply before 15 January 2027 to save CHF 1,000.</p>
+      <p>In a 20-minute call, we check together whether the program is a good fit.</p>
     </div>
     <a class="btn btn--primary" href="https://bookings.cloud.microsoft/bookwithme/user/ae9c27a1549e40eb98f52953e831be8f@pmf-factory.com/meetingtype/boJtNuPkREu4UWmMuFRjFA2?anonymous&amp;ismsaljsauthenabled&amp;ep=mCardFromTile" target="_blank" rel="noopener">Book a 20-min call <span class="arr" aria-hidden="true">→</span></a>
   </div>
@@ -1205,36 +1209,23 @@ footer .brand { font-size:15px; color:var(--ink); }
         <h2 class="h-sec">Five steps to the program</h2>
       </div>
       <ol class="proc">
-        <li><span class="pn">1</span><h3>Check your fit</h3><p>Check if you fit with the criteria for participating startups.</p><a class="btn btn--secondary" href="#who">See the criteria <span class="arr" aria-hidden="true">→</span></a></li>
+        <li><span class="pn">1</span><h3>Check your fit</h3><p>Check whether you meet the criteria for participating startups.</p><a class="btn btn--secondary" href="#who">See the criteria <span class="arr" aria-hidden="true">→</span></a></li>
         <li><span class="pn">2</span><h3>Book a 20-min call</h3><p>Pick a slot that suits you, online and free of charge.</p><a class="btn btn--primary" href="https://bookings.cloud.microsoft/bookwithme/user/ae9c27a1549e40eb98f52953e831be8f@pmf-factory.com/meetingtype/boJtNuPkREu4UWmMuFRjFA2?anonymous&amp;ismsaljsauthenabled&amp;ep=mCardFromTile" target="_blank" rel="noopener">Book a 20-min call <span class="arr" aria-hidden="true">→</span></a></li>
-        <li><span class="pn">3</span><h3>Let’s discuss the fit</h3><p>Let’s check out the fit with the program during the call.</p></li>
-        <li><span class="pn">4</span><h3>Apply</h3><p>If it fits, you submit your official application.</p></li>
-        <li><span class="pn">5</span><h3>Be exclusively selected</h3><p>Only 10 startups are selected for the program.</p></li>
+        <li><span class="pn">3</span><h3>Let’s discuss the fit</h3><p>During the call, we explore together whether the program is a good fit.</p></li>
+        <li><span class="pn">4</span><h3>Apply</h3><p>If it’s a fit, you submit your official application.</p></li>
+        <li><span class="pn">5</span><h3>Get selected</h3><p>Only 10 startups are selected for the program.</p></li>
       </ol>
-      <p class="proc-note">Only 10 startups are carefully selected, in order to ensure quality and fit with the program!</p>
+      <p class="proc-note">Only 10 startups are carefully selected to ensure quality and a strong fit with the program.</p>
     </div>
   </section>
 
-  <section class="section" id="investors">
-    <div class="wrap">
-      <div class="inv-teaser">
-        <div class="sec-head inv-head">
-          <p class="eyebrow">For investors</p>
-          <h2 class="h-sec">Do you want to propose a startup for the program?</h2>
-          <p class="lead">You know a portfolio company or a founding team that has customers and revenue, but growth is harder than it should be? Tell us about them and we will get in touch.</p>
-        </div>
-        <a class="btn btn--primary" href="investors.html">Propose a startup <span class="arr" aria-hidden="true">→</span></a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section band" id="about">
+  <section class="section" id="about">
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow">About PMF</p>
         <h2 class="h-sec">The foundation for startup success and sustainable growth</h2>
         <p class="lead">Product-Market Fit is like a secret recipe for an extraordinary meal. Just like a great chef, you need to understand the ingredients, find the perfect combination, and fine-tune every detail to create something exceptional – something that truly resonates with your target audience and leaves them wanting more.</p>
-        <p class="lead">Startups with strong PMF win customers more easily, grow faster and attract more investors. They have the momentum on their side to grow fast.</p>
+        <p class="lead">Startups with strong PMF win customers more easily, grow faster and attract more investors. They have momentum on their side.</p>
       </div>
       <h3 class="sub-h">Signals of Product-Market Fit</h3>
       <div class="kpis">
@@ -1255,7 +1246,7 @@ footer .brand { font-size:15px; color:var(--ink); }
     </div>
   </section>
 
-  <section class="section" id="book">
+  <section class="section band" id="book">
     <div class="wrap">
       <div class="book">
         <img loading="lazy" decoding="async" class="book-cover" src="images/book-product-market-fit-michael-sauter.webp" width="635" height="902" alt="Book cover: Product-Market Fit – How to Build a Business That Scales, by Michael Sauter">
@@ -1279,7 +1270,7 @@ footer .brand { font-size:15px; color:var(--ink); }
     </div>
   </section>
 
-  <section class="section band" id="faq">
+  <section class="section" id="faq">
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow">FAQ</p>
@@ -1301,17 +1292,17 @@ footer .brand { font-size:15px; color:var(--ink); }
                 <li><b>13 August 2027</b><span>Sprint 7</span><em>Online</em></li>
                 <li class="ip"><b>20 August 2027</b><span>Investor Demo Day</span><em>Zurich</em></li>
               </ul></div></details>
-            <details><summary>How is the program structured?</summary><div class="fa"><p>Two kick-off days give you the essential tools, methods and frameworks. In seven growth sprints, you experiment, acquire customers and learn from experts and peers. At the Demo Day, you showcase your progress and pitch to investors.</p></div></details>
+            <details><summary>How is the program structured?</summary><div class="fa"><p>Two kick-off days give you the essential tools, methods and frameworks. In seven growth sprints, you experiment, acquire customers and learn from experts and peers. At the Demo Day, you present your case and pitch to selected investors.</p></div></details>
             <details><summary>Who are the guest speakers?</summary><div class="fa"><p>Experienced founders and investors such as Thomas Dübendorfer (SICTIC), Tobias Rein (GetYourGuide), Thomas Gabathuler (Get More Brain) and Stefan Zanetti (Allthings, Pivotal) share their insights on Product-Market Fit.</p></div></details>
-            <details><summary>Who runs Swiss PMF Academy?</summary><div class="fa"><p>The academy is powered by SICTIC and PMF Factory, and supported by Innovation Zurich.</p></div></details>
-            <details><summary>Is my startup a fit?</summary><div class="fa"><p>Typical participants are B2B (occasionally B2C), 2–7 years on the market, with CHF 200k–2.1M in revenue. You should not apply if your revenue is below CHF 50,000, you have less than six months of runway, or you are a one-(wo)man show.</p></div></details>
+            <details><summary>Who runs the Swiss PMF Academy?</summary><div class="fa"><p>The academy is powered by SICTIC and PMF Factory and supported by Innovation Zurich.</p></div></details>
+            <details><summary>Is my startup a fit?</summary><div class="fa"><p>Typical participants are B2B (occasionally B2C), 2–7 years on the market, with CHF 200k–2.5M in revenue. You should not apply if your revenue is below CHF 50,000, you have less than six months of runway, or you are a one-(wo)man show.</p></div></details>
           </div>
         </div>
         <div class="faq-group">
           <div class="faq">
             <details><summary>How many startups are selected?</summary><div class="fa"><p>Only 10 carefully selected startups take part, so every team gets real attention from experts and peers.</p></div></details>
             <details><summary>Who should take part from my company?</summary><div class="fa"><p>Two key people from your leadership team, both committed to taking part throughout the six months.</p></div></details>
-            <details><summary>What does it cost?</summary><div class="fa"><p>CHF 4,250 per participant, so CHF 8,500 per company. A partner discount (SICTIC, Standortförderung Kanton Zürich, PMF Factory) and an early-bird discount until January 15, 2027 of CHF 1,000 each bring the total to <b>CHF 6,500</b>.</p></div></details>
+            <details><summary>What does it cost?</summary><div class="fa"><p>CHF 4,250 per participant, so CHF 8,500 per company. A partner discount (SICTIC, Standortförderung Kanton Zürich, PMF Factory) and an early-bird discount (until 15 January 2027) of CHF 1,000 each bring the total to <b>CHF 6,500</b>.</p></div></details>
             <details><summary>How do I apply?</summary><div class="fa"><p>Book a 20-minute call with Michael Sauter. Together we look at where you stand and whether the academy is the right next step.</p><a class="btn btn--primary" href="https://bookings.cloud.microsoft/bookwithme/user/ae9c27a1549e40eb98f52953e831be8f@pmf-factory.com/meetingtype/boJtNuPkREu4UWmMuFRjFA2?anonymous&amp;ismsaljsauthenabled&amp;ep=mCardFromTile" target="_blank" rel="noopener">Book a 20-min call <span class="arr" aria-hidden="true">→</span></a></div></details>
             <details><summary>Can I learn more before applying?</summary><div class="fa"><p>Yes. Take the PMF Check above, or <a href="https://share-eu1.hsforms.com/1mr8lliBuQYeUVpN2lhS3Tw2du7hm" target="_blank" rel="noopener">download the free e-book</a> with the success stories of Bexio, Xovis and Cron.</p></div></details>
           </div>
@@ -1333,6 +1324,7 @@ footer .brand { font-size:15px; color:var(--ink); }
   <div class="wrap">
     <span class="brand"><svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 530.6 64.0" role="img" aria-label="Swiss PMF Academy"><title>Swiss PMF Academy</title><rect x="0" y="0" width="64" height="64" rx="15.36" fill="#e2231a"/><rect x="26.00" y="12.00" width="12.00" height="40.00" rx="2.40" fill="#fff"/><rect x="12.00" y="26.00" width="40.00" height="12.00" rx="2.40" fill="#fff"/><path d="M98.36363636363636 45.381818181818176C107.26060606060607 45.381818181818176 112.69090909090909 41.090909090909086 112.69090909090909 34.13333333333333C112.69090909090909 28.7030303030303 109.27272727272728 25.527272727272724 101.56363636363636 23.9030303030303L98.0969696969697 23.15151515151515C93.66060606060606 22.18181818181818 91.86666666666667 20.94545454545454 91.86666666666667 18.71515151515151C91.86666666666667 16.07272727272727 94.46060606060607 14.230303030303027 98.14545454545454 14.230303030303027C102.02424242424243 14.230303030303027 104.56969696969696 16.339393939393936 104.83636363636364 19.757575757575754H111.81818181818181C111.6 12.484848484848484 106.43636363636364 8.096969696969694 98.12121212121212 8.096969696969694C89.9030303030303 8.096969696969694 84.4 12.509090909090908 84.4 19.078787878787875C84.4 24.24242424242424 87.86666666666666 27.56363636363636 95.01818181818182 29.11515151515151L98.82424242424243 29.939393939393938C103.4060606060606 30.93333333333333 105.2969696969697 32.29090909090909 105.2969696969697 34.61818181818182C105.2969696969697 37.43030303030303 102.55757575757576 39.24848484848484 98.4121212121212 39.24848484848484C93.78181818181818 39.24848484848484 90.9939393939394 36.92121212121212 90.89696969696969 32.94545454545454H83.6969696969697C83.6969696969697 40.8 89.10303030303031 45.381818181818176 98.36363636363636 45.381818181818176ZM120.81987878787879 44.8H128.16533333333334L131.17139393939394 34.61818181818182C131.80169696969696 32.460606060606054 132.38351515151516 30.18181818181818 132.96533333333335 27.9030303030303C133.5471515151515 30.18181818181818 134.1289696969697 32.460606060606054 134.7350303030303 34.61818181818182L137.7168484848485 44.8H145.11078787878787L152.98957575757575 19.199999999999996H145.40169696969696L143.07442424242424 28.14545454545454C142.3229090909091 31.175757575757572 141.6441212121212 34.4 140.94109090909092 37.57575757575757C140.18957575757577 34.4 139.4138181818182 31.15151515151515 138.61381818181817 28.14545454545454L136.18957575757577 19.199999999999996H129.7410909090909L127.29260606060606 28.14545454545454C126.49260606060606 31.175757575757572 125.71684848484848 34.42424242424242 124.94109090909092 37.599999999999994C124.23806060606061 34.42424242424242 123.53503030303031 31.175757575757572 122.75927272727273 28.14545454545454L120.40775757575759 19.199999999999996H112.94109090909092ZM154.064 44.8H161.21551515151515V19.199999999999996H154.064ZM157.62763636363636 15.975757575757573C159.9791515151515 15.975757575757573 161.70036363636362 14.351515151515148 161.70036363636362 12.169696969696965C161.70036363636362 9.987878787878785 159.9791515151515 8.36363636363636 157.62763636363636 8.36363636363636C155.27612121212118 8.36363636363636 153.55490909090906 9.987878787878785 153.55490909090906 12.169696969696965C153.55490909090906 14.351515151515148 155.27612121212118 15.975757575757573 157.62763636363636 15.975757575757573ZM175.16266666666667 45.43030303030303C181.85357575757575 45.43030303030303 186.5081212121212 42.08484848484848 186.5081212121212 36.96969696969697C186.5081212121212 33.21212121212121 184.13236363636364 30.981818181818177 178.96872727272728 29.96363636363636L174.12024242424243 29.018181818181816C172.15660606060607 28.606060606060602 171.01721212121214 27.757575757575754 171.01721212121214 26.448484848484846C171.01721212121214 24.92121212121212 172.496 23.73333333333333 174.94448484848485 23.73333333333333C177.46569696969698 23.73333333333333 179.21115151515153 25.260606060606058 179.25963636363636 27.321212121212117H185.87781818181818C185.73236363636363 21.987878787878785 181.36872727272728 18.666666666666664 174.75054545454546 18.666666666666664C168.0838787878788 18.666666666666664 163.88993939393941 21.866666666666664 163.88993939393941 26.71515151515151C163.88993939393941 30.690909090909088 166.53236363636364 33.21212121212121 171.5020606060606 34.18181818181818L175.9869090909091 35.05454545454545C178.07175757575757 35.46666666666666 179.30812121212122 36.266666666666666 179.30812121212122 37.624242424242425C179.30812121212122 39.199999999999996 177.6838787878788 40.31515151515151 175.04145454545454 40.31515151515151C172.25357575757576 40.31515151515151 170.6050909090909 38.98181818181818 170.33842424242425 36.75151515151515H163.30812121212122C163.74448484848486 42.25454545454545 168.52024242424244 45.43030303030303 175.16266666666667 45.43030303030303ZM199.24315151515148 45.43030303030303C205.93406060606057 45.43030303030303 210.58860606060603 42.08484848484848 210.58860606060603 36.96969696969697C210.58860606060603 33.21212121212121 208.21284848484845 30.981818181818177 203.0492121212121 29.96363636363636L198.20072727272725 29.018181818181816C196.23709090909088 28.606060606060602 195.09769696969695 27.757575757575754 195.09769696969695 26.448484848484846C195.09769696969695 24.92121212121212 196.57648484848482 23.73333333333333 199.02496969696966 23.73333333333333C201.5461818181818 23.73333333333333 203.29163636363634 25.260606060606058 203.34012121212118 27.321212121212117H209.958303030303C209.81284848484847 21.987878787878785 205.4492121212121 18.666666666666664 198.83103030303027 18.666666666666664C192.16436363636362 18.666666666666664 187.97042424242423 21.866666666666664 187.97042424242423 26.71515151515151C187.97042424242423 30.690909090909088 190.61284848484846 33.21212121212121 195.58254545454542 34.18181818181818L200.06739393939392 35.05454545454545C202.1522424242424 35.46666666666666 203.38860606060604 36.266666666666666 203.38860606060604 37.624242424242425C203.38860606060604 39.199999999999996 201.7643636363636 40.31515151515151 199.12193939393936 40.31515151515151C196.33406060606058 40.31515151515151 194.68557575757572 38.98181818181818 194.41890909090907 36.75151515151515H187.38860606060604C187.82496969696967 42.25454545454545 192.60072727272726 45.43030303030303 199.24315151515148 45.43030303030303ZM221.75563636363634 44.8H229.222303030303V32.38787878787878H235.9132121212121C244.03442424242422 32.38787878787878 249.222303030303 27.806060606060605 249.222303030303 20.53333333333333C249.222303030303 13.260606060606058 244.13139393939392 8.678787878787873 236.0101818181818 8.678787878787873H221.75563636363634ZM229.222303030303 26.13333333333333V14.93333333333333H235.52533333333332C239.47684848484846 14.93333333333333 241.9253333333333 17.090909090909086 241.9253333333333 20.53333333333333C241.9253333333333 23.975757575757573 239.47684848484846 26.13333333333333 235.52533333333332 26.13333333333333ZM251.36339393939392 44.8H258.68460606060603V27.636363636363633C258.68460606060603 25.236363636363635 258.5633939393939 21.187878787878784 258.46642424242424 17.357575757575756C259.70278787878783 21.406060606060603 260.9149090909091 25.406060606060603 261.6664242424242 27.636363636363633L267.8482424242424 44.8H273.9088484848485L280.0179393939394 27.636363636363633C280.79369696969695 25.333333333333332 282.054303030303 21.066666666666663 283.29066666666665 16.848484848484844C283.19369696969693 20.82424242424242 283.0482424242424 25.115151515151513 283.0482424242424 27.636363636363633V44.8H290.3452121212121V8.678787878787873H279.46036363636364L273.5694545454545 25.5030303030303C272.9149090909091 27.636363636363633 271.77551515151515 31.442424242424238 270.9027878787879 34.54545454545455C270.0300606060606 31.442424242424238 268.8906666666667 27.636363636363633 268.2118787878788 25.5030303030303L262.2482424242424 8.678787878787873H251.36339393939392ZM294.0135757575758 44.8H301.4802424242425V30.157575757575756H317.9166060606061V23.95151515151515H301.4802424242425V15.078787878787875H319.1287272727273V8.678787878787873H294.0135757575758Z" class="lg-ink"/><path d="M331.5059393939394 44.8H337.22715151515155L340.52412121212126 35.418181818181814H355.0938181818182L358.2938181818182 44.8H364.1362424242424L351.1180606060606 8.678787878787873H344.6210909090909ZM342.1483636363637 30.836363636363636 344.40290909090913 24.436363636363634C345.3968484848485 21.454545454545453 346.43927272727274 18.278787878787877 347.8938181818182 13.599999999999998C349.3241212121212 18.278787878787877 350.34230303030307 21.454545454545453 351.3362424242424 24.436363636363634L353.5180606060606 30.836363636363636ZM375.8831515151515 45.381818181818176C381.9922424242424 45.381818181818176 386.5013333333333 41.35757575757575 387.08315151515154 36.02424242424242H381.91951515151516C381.24072727272727 39.0060606060606 379.42254545454546 40.96969696969697 375.90739393939396 40.96969696969697C371.4710303030303 40.96969696969697 368.8528484848485 37.47878787878788 368.8528484848485 32.04848484848485C368.8528484848485 26.569696969696967 371.4952727272727 23.030303030303028 375.90739393939396 23.030303030303028C379.3740606060606 23.030303030303028 381.4589090909091 25.066666666666663 381.9922424242424 27.95151515151515H387.08315151515154C386.4528484848485 22.52121212121212 381.9922424242424 18.618181818181814 375.8831515151515 18.618181818181814C368.58618181818184 18.618181818181814 363.6649696969697 24.169696969696968 363.6649696969697 32.04848484848485C363.6649696969697 39.878787878787875 368.5619393939394 45.381818181818176 375.8831515151515 45.381818181818176ZM398.0300606060606 45.21212121212121C402.44218181818184 45.21212121212121 404.5270303030303 43.22424242424242 405.59369696969696 41.163636363636364H405.6906666666667V44.8H410.7330909090909V27.248484848484846C410.7330909090909 22.036363636363635 406.8785454545455 18.690909090909088 400.57551515151516 18.690909090909088C394.1755151515151 18.690909090909088 390.0300606060606 22.13333333333333 389.78763636363635 27.006060606060604H394.80581818181815C394.9997575757576 24.654545454545453 397.2300606060606 22.884848484848483 400.5027878787879 22.884848484848483C403.75127272727275 22.884848484848483 405.6664242424242 24.678787878787876 405.6664242424242 27.15151515151515V27.369696969696967C405.6664242424242 29.236363636363635 404.06642424242426 29.187878787878788 399.26642424242425 29.769696969696966C394.054303030303 30.375757575757575 389.1573333333333 31.636363636363633 389.1573333333333 37.47878787878788C389.1573333333333 42.593939393939394 392.93915151515154 45.21212121212121 398.0300606060606 45.21212121212121ZM399.07248484848486 41.090909090909086C396.09066666666666 41.090909090909086 394.24824242424245 39.78181818181818 394.24824242424245 37.57575757575757C394.24824242424245 34.98181818181818 396.76945454545455 33.987878787878785 399.5573333333333 33.57575757575757C402.27248484848485 33.18787878787879 404.98763636363634 32.775757575757574 405.6906666666667 32.21818181818182V35.22424242424242C405.6906666666667 38.375757575757575 403.58157575757576 41.090909090909086 399.07248484848486 41.090909090909086ZM424.8557575757576 45.309090909090905C428.2012121212121 45.309090909090905 431.0618181818182 43.878787878787875 432.7830303030303 40.89696969696969H432.83151515151513V44.8H437.849696969697V8.678787878787873H432.73454545454547V22.909090909090907H432.6860606060606C431.0375757575758 20.07272727272727 428.15272727272725 18.690909090909088 424.83151515151513 18.690909090909088C418.2133333333333 18.690909090909088 413.75272727272727 24.096969696969694 413.75272727272727 31.999999999999996C413.75272727272727 39.92727272727272 418.1890909090909 45.309090909090905 424.8557575757576 45.309090909090905ZM425.8981818181818 40.89696969696969C421.7769696969697 40.89696969696969 418.94060606060606 37.769696969696966 418.94060606060606 31.999999999999996C418.94060606060606 26.206060606060603 421.7769696969697 23.078787878787875 425.8981818181818 23.078787878787875C430.26181818181817 23.078787878787875 433.0739393939394 26.618181818181814 433.0739393939394 31.999999999999996C433.0739393939394 37.381818181818176 430.26181818181817 40.89696969696969 425.8981818181818 40.89696969696969ZM453.0632727272727 45.381818181818176C458.8572121212121 45.381818181818176 463.4147878787879 41.96363636363636 464.3602424242424 37.018181818181816H459.4390303030303C458.71175757575753 39.44242424242424 456.48145454545454 41.11515151515151 453.13599999999997 41.11515151515151C448.65115151515147 41.11515151515151 446.0814545454545 37.987878787878785 445.9117575757576 33.381818181818176H464.7481212121212V31.999999999999996C464.7481212121212 24.096969696969694 460.0450909090909 18.618181818181814 452.79660606060605 18.618181818181814C445.81478787878785 18.618181818181814 440.8693333333333 24.24242424242424 440.8693333333333 32.04848484848485C440.8693333333333 39.78181818181818 445.47539393939394 45.381818181818176 453.0632727272727 45.381818181818176ZM445.9602424242424 29.5030303030303C446.396606060606 25.430303030303026 448.99054545454544 22.884848484848483 452.8450909090909 22.884848484848483C456.7238787878788 22.884848484848483 459.3420606060606 25.430303030303026 459.7541818181818 29.5030303030303ZM467.6707878787879 44.8H472.78593939393943V29.357575757575752C472.78593939393943 25.309090909090905 475.4526060606061 23.175757575757572 478.43442424242426 23.175757575757572C481.3435151515152 23.175757575757572 483.4526060606061 25.115151515151513 483.4526060606061 28.048484848484847V44.8H488.4950303030303V28.799999999999997C488.4950303030303 25.527272727272724 490.60412121212124 23.175757575757572 494.0223030303031 23.175757575757572C496.78593939393943 23.175757575757572 499.161696969697 24.727272727272723 499.161696969697 28.387878787878787V44.8H504.30109090909093V27.95151515151515C504.30109090909093 21.79393939393939 500.5192727272728 18.690909090909088 495.7677575757576 18.690909090909088C491.9859393939394 18.690909090909088 489.0283636363637 20.654545454545453 487.6465454545455 23.418181818181814C486.57987878787884 20.678787878787876 483.7677575757576 18.690909090909088 480.27684848484853 18.690909090909088C477.10109090909094 18.690909090909088 474.21624242424247 20.339393939393936 472.6404848484849 23.49090909090909V19.199999999999996H467.6707878787879ZM507.75709090909095 54.93333333333333H511.0055757575758C514.4722424242425 54.93333333333333 516.9934545454546 52.99393939393939 518.4237575757576 49.28484848484848L530.0601212121212 19.199999999999996H524.6540606060606L519.6116363636364 33.236363636363635C518.9328484848485 35.15151515151515 518.278303030303 37.06666666666666 517.648 38.98181818181818C517.017696969697 37.06666666666666 516.387393939394 35.15151515151515 515.708606060606 33.236363636363635L510.59345454545456 19.199999999999996H505.11466666666666L515.0055757575758 44.630303030303025L513.8419393939394 47.66060606060606C513.0661818181818 49.74545454545454 512.1207272727273 50.61818181818182 510.5207272727273 50.61818181818182H507.75709090909095Z" class="lg-mut"/></svg></span>
     <span>Powered by SICTIC and PMF Factory</span>
+    <span>Contact: <a href="mailto:academy@pmf-factory.com">academy@pmf-factory.com</a></span>
     <span>© 2026 Swiss PMF Academy · <a href="privacy.html">Privacy policy</a> · <button type="button" class="cookie-link" id="cookie-settings">Cookie settings</button></span>
   </div>
 </footer>
@@ -1421,10 +1413,10 @@ footer .brand { font-size:15px; color:var(--ink); }
   var questions = [
     "Growth becomes repeatable and predictable.",
     "Customers act fast and show high urgency.",
-    "Customer acquisition costs dropped significantly.",
-    "Sales process is repeatable and scalable.",
+    "Customer acquisition costs have dropped significantly.",
+    "Your sales process is repeatable and scalable.",
     "Customers would have a significant problem without your product.",
-    "Existing customers buy more or again.",
+    "Existing customers buy more or buy again.",
     "Existing customers start recommending you.",
     "Organic growth becomes a major driver."
   ];
