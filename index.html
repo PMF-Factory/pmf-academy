@@ -120,7 +120,7 @@
     "@type": "CourseInstance",
     "courseMode": "Blended",
     "startDate": "2027-03-04",
-    "endDate": "2027-08-20",
+    "endDate": "2027-08-19",
     "location": {
      "@type": "Place",
      "name": "Zurich",
@@ -134,7 +134,7 @@
      "@type": "Schedule",
      "repeatFrequency": "P3W",
      "startDate": "2027-03-04",
-     "endDate": "2027-08-20"
+     "endDate": "2027-08-19"
     },
     "instructor": [
      {
@@ -146,6 +146,11 @@
       "@type": "Person",
       "name": "Tobias Rein",
       "description": "Co-founder & Principal Engineer at GetYourGuide"
+     },
+     {
+      "@type": "Person",
+      "name": "Vincent Bieri",
+      "description": "Co-Founder of Nexthink"
      },
      {
       "@type": "Person",
@@ -168,7 +173,7 @@
   {
    "@type": "Event",
    "name": "Swiss PMF Academy – Investor Demo Day",
-   "startDate": "2027-08-20",
+   "startDate": "2027-08-19",
    "eventStatus": "https://schema.org/EventScheduled",
    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
    "location": {
@@ -194,7 +199,7 @@
      "name": "When and where does the program take place?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "The program runs from March to August 2027. In-person days take place in Zurich; the other sprints are online. Sprint sessions take place on Friday afternoons, about three weeks apart: in Zurich from 13:30 to 17:00, online from 14:30 to 16:30. 4 & 5 March Kick-off (2 days) Zurich 26 March Sprint 1 Online 16 April Sprint 2 Zurich 7 May Sprint 3 Online 28 May Sprint 4 Online 18 June Sprint 5 Zurich 2 July Sprint 6 Online 13 August Sprint 7 Online 20 August Investor Demo Day Zurich"
+      "text": "The program runs from March to August 2027. In-person days take place in Zurich; the other sprints are online. Sprint sessions take place on Friday afternoons, about three weeks apart: in Zurich from 13:30 to 17:00, online from 14:30 to 16:30. 4 & 5 March Kick-off (2 days) Zurich 26 March Sprint 1 Online 16 April Sprint 2 Zurich 5 May Sprint 3 Online 28 May Sprint 4 Online 18 June Sprint 5 Zurich 2 July Sprint 6 Online 13 August Sprint 7 Online 19 August Investor Demo Day Zurich"
      }
     },
     {
@@ -210,7 +215,7 @@
      "name": "Who are the guest speakers?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Experienced founders and investors such as Thomas Dübendorfer (SICTIC), Tobias Rein (GetYourGuide), Thomas Gabathuler (Get More Brain) and Stefan Zanetti (Allthings, Pivotal) share their insights on Product-Market Fit."
+      "text": "Experienced founders and investors such as Thomas Dübendorfer (SICTIC), Tobias Rein (GetYourGuide), Thomas Gabathuler (Get More Brain), Stefan Zanetti (Allthings, Pivotal) and Vincent Bieri (Nexthink) share their insights on Product-Market Fit."
      }
     },
     {
@@ -258,7 +263,7 @@
      "name": "How do I apply?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Book a 20-minute call with Michael Sauter. Together we look at where you stand and whether the academy is the right next step."
+      "text": "Fill in the short information form on the website. We get back to you and arrange a 20-minute call with Michael Sauter to see whether the academy is the right next step."
      }
     },
     {
@@ -387,6 +392,8 @@ body { background-image:linear-gradient(90deg, color-mix(in srgb, var(--page) 88
 .btn--secondary { background:transparent; color:var(--ink); border-color:var(--line-strong); }
 .btn--secondary:hover { border-color:var(--ink); }
 .btn .arr { font-family:var(--font-mono); }
+.btn--ebook { background:var(--paper); color:var(--ink); border:1.5px solid var(--ink); }
+.btn--ebook:hover { background:var(--ink); color:var(--paper); }
 
 /* Header */
 body::before { content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top, 0px); z-index:10; background:var(--paper); }
@@ -443,6 +450,16 @@ footer .brand .logo { height:24px; }
 
 .sub-h { font-size:22px; line-height:28px; margin-bottom:var(--s6); }
 .hero-src { margin-top:calc(-1 * var(--s2)); }
+.hero-quotes { display:grid; gap:var(--s3); margin-block:var(--s6) var(--s4); max-width:1080px; }
+@media (min-width:800px) { .hero-quotes { grid-template-columns:repeat(3, 1fr); gap:var(--s3); } }
+.hq { margin:0; position:relative; background:var(--paper); border:1px solid var(--line); border-top:3px solid var(--ink); padding:var(--s3) var(--s4); display:grid; grid-template-rows:1fr auto; gap:var(--s2); box-shadow:0 6px 18px rgba(20,23,26,.06); transition:transform .2s ease, box-shadow .2s ease; }
+.hq:hover { transform:translateY(-3px); box-shadow:0 10px 24px rgba(20,23,26,.10); }
+.hq-mark { display:none; }
+.hq blockquote::before { content:"“"; color:var(--red); font-weight:700; margin-right:1px; }
+.hq blockquote { margin:0; font:600 16px/22px var(--font-display); letter-spacing:-.005em; color:var(--ink); text-wrap:pretty; }
+.hq figcaption { display:flex; align-items:center; gap:var(--s2); padding-top:var(--s2); border-top:1px solid var(--line); font-size:12px; line-height:15px; color:var(--ink-muted); }
+.hq figcaption img { width:28px; height:28px; border-radius:50%; object-fit:cover; flex:none; }
+.hq figcaption span { display:grid; } .hq figcaption b { color:var(--ink); font-weight:600; font-size:13px; }
 .hook { font:600 clamp(18px, 2vw, 22px)/1.35 var(--font-display); letter-spacing:-.01em; color:var(--ink); max-width:none; text-wrap:pretty; }
 
 .hero .lead .hl, #program .lead .hl { color:var(--ink); }
@@ -515,6 +532,15 @@ input[type="range"] { min-width:0; max-width:100%; margin-inline:0; }
 #nps .caption { color:color-mix(in srgb, var(--paper) 65%, var(--ink)); }
 #nps .nps-band { border-bottom:0; padding-bottom:0; }
 #nps .nps-cta { margin-top:var(--s8); }
+html body #nps { padding-block:var(--s12); }
+@media (min-width:760px) { html body #nps { padding-block:var(--s16); } }
+html body #nps .nps-band { padding-block:var(--s6) 0; }
+html body #nps .nps-two { gap:var(--s6); }
+@media (min-width:760px) { html body #nps .nps-two { gap:var(--s6) var(--s12); } }
+html body #nps .nps-cta { margin-top:var(--s6); }
+html body #nps .nps-cta--white { background:#ffffff; color:#14171a; border-color:#ffffff; }
+html body #nps .nps-cta--white:hover { background:color-mix(in srgb, #ffffff 85%, #14171a); }
+html body #nps .nps-wrap h3 { margin-bottom:var(--s3); }
 .nps-wrap h3 { font-size:clamp(24px,3vw,32px); line-height:1.15; letter-spacing:-.01em; margin-bottom:var(--s4); }
 .supported { display:flex; flex-wrap:wrap; align-items:center; gap:var(--s4) var(--s8); padding-top:var(--s4); }
 .supported .caption { text-transform:uppercase; letter-spacing:.12em; font-weight:600; font-size:11px; }
@@ -533,7 +559,7 @@ input[type="range"] { min-width:0; max-width:100%; margin-inline:0; }
 .book-cover { width:100%; max-width:360px; height:auto; display:block; box-shadow:14px 14px 0 var(--red); }
 .book-copy { display:grid; gap:var(--s4); min-width:0; }
 .book-copy .btn { justify-self:start; margin-top:var(--s2); }
-.book-side { display:grid; gap:var(--s8); justify-items:start; min-width:0; }
+.book-side { display:grid; gap:calc(var(--s12) + 8px); justify-items:start; min-width:0; }
 .book-by { color:var(--ink-muted); font-size:17px; } .book-by b { color:var(--ink); }
 .book-quote { margin:var(--s4) 0 0; padding:var(--s6); background:var(--paper); border-top:3px solid var(--ink); display:grid; gap:var(--s4); }
 .book-quote blockquote { margin:0; font-size:16px; line-height:26px; }
@@ -716,7 +742,7 @@ input[type="range"] { min-width:0; max-width:100%; margin-inline:0; }
 .extras { margin-top:var(--s12); display:grid; gap:var(--s4); border-top:1px solid var(--line); padding-top:var(--s8); }
 .gain-h { margin:var(--s12) 0 var(--s4); }
 .gain-h + .extras { margin-top:0; padding-top:var(--s6); }
-@media (min-width:900px) { .extras { grid-template-columns:repeat(3, 1fr); gap:var(--s8); } }
+@media (min-width:900px) { .extras { grid-template-columns:repeat(3, max-content); gap:var(--s8) var(--s16); } }
 .extra { display:grid; grid-template-columns:28px 1fr; gap:var(--s3); font-size:17px; line-height:26px; }
 .extra::before { content:"+"; font:700 26px/26px var(--font-display); color:var(--red); }
 
@@ -782,6 +808,7 @@ html body #pmf-form .opts { grid-template-columns:1fr; gap:var(--s3); }
 @media (min-width:600px) { html body #pmf-form .opts { grid-template-columns:1fr 1fr; } }
 html body #pmf-form .opts span { font:600 16px/22px var(--font-body); padding:var(--s4) var(--s4); min-height:60px; }
 html body #pmf-form .opts span::before { width:14px; height:14px; }
+html body #pmf-form .opts { max-width:560px; margin-inline:0; width:100%; }
 .qnav { display:flex; justify-content:space-between; align-items:center; gap:var(--s3); border-top:1px solid var(--line); padding-top:var(--s4); }
 .qnav button { background:none; border:1px solid var(--line-strong); color:var(--ink); padding:var(--s2) var(--s4); border-radius:2px; font:600 14px/20px var(--font-body); cursor:pointer; }
 .qnav button:hover:not(:disabled) { border-color:var(--ink); }
@@ -903,6 +930,9 @@ footer .brand { font-size:15px; color:var(--ink); }
 .person .av { width:112px; height:112px; border-radius:50%; object-fit:cover; display:block; background:var(--surface); box-shadow:0 0 0 1px var(--line); }
 @media (max-width:480px) { .person { grid-template-columns:88px 1fr; } .person .av, .person .mono { width:88px; height:88px; } }
 .person .mono { width:112px; height:112px; border-radius:50%; font-size:20px; }
+.person .av-wrap { position:relative; display:block; width:max-content; }
+.person .uni { position:absolute; right:-2px; bottom:-2px; width:40px; height:40px; display:grid; place-items:center; font-size:22px; line-height:1; background:var(--paper); border-radius:50%; box-shadow:0 0 0 1px var(--line), 0 2px 6px rgba(0,0,0,.12); }
+@media (max-width:480px) { .person .uni { width:32px; height:32px; font-size:18px; } }
 
 .voices { display:grid; gap:var(--s4); }
 @media (min-width:700px) { .voices { grid-template-columns:repeat(2, 1fr); } }
@@ -959,7 +989,7 @@ footer .brand { font-size:15px; color:var(--ink); }
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="btn btn--primary" href="https://bookings.cloud.microsoft/bookwithme/user/ae9c27a1549e40eb98f52953e831be8f@pmf-factory.com/meetingtype/boJtNuPkREu4UWmMuFRjFA2?anonymous&amp;ismsaljsauthenabled&amp;ep=mCardFromTile" target="_blank" rel="noopener">Book a call</a>
+    <a class="btn btn--primary" href="info.html">More Info</a>
     <button type="button" class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -975,15 +1005,15 @@ footer .brand { font-size:15px; color:var(--ink); }
         </div>
         <h1>Nail your PMF. <em>Accelerate your growth.</em></h1>
         <p class="hook">You have customers and revenue, but growth is harder than it should be?</p>
-        <p class="lead">Startups with a clear Product-Market Fit grow <strong class="hl">20× faster</strong>* than those that scale prematurely. The Academy is an <strong>entrepreneur-to-entrepreneur program</strong> that equips you with the tools, methods, and frameworks to achieve Product-Market Fit faster through structured iterations. <strong>Learn what worked for others.</strong></p>
+        <p class="lead">Do you seek more pull than push? Startups with a clear Product-Market Fit (PMF) grow <strong class="hl">20× faster</strong>* than those that scale prematurely. The <strong>entrepreneur-to-entrepreneur program</strong> equips you with a systematic method for nailing your PMF and assists you over six months. Learn from <strong>serial entrepreneurs and unicorn founders</strong> what worked for them.</p>
     <figure class="hero-art">
           <img fetchpriority="high" decoding="async" src="images/pmf-mountain-product-market-fit.webp" width="958" height="461" alt="A founder pushes a boulder up a mountain towards a red flag labelled Product-Market Fit. Before the summit: Don't die! After it: repeatable, predictable growth.">
         </figure>
         <p class="caption hero-src">* Startup Genome Report (Version 2) – Premature Scaling (UC Berkeley, Stanford, Startup Genome Project, 2011–2012)</p>
+        <div class="hero-quotes"><figure class="hq"><span class="hq-mark" aria-hidden="true">“</span><blockquote>This program has given me so much energy.</blockquote><figcaption><img src="images/testimonial-chris-zurbrugg.jpg" alt="" width="40" height="40" loading="lazy"><span><b>Chris Zurbrügg</b>Co-Founder & CEO, aumico</span></figcaption></figure><figure class="hq"><span class="hq-mark" aria-hidden="true">“</span><blockquote>The value of the program is many times more than we paid for it.</blockquote><figcaption><img src="images/testimonial-mario-von-bergen.jpg" alt="" width="40" height="40" loading="lazy"><span><b>Mario von Bergen</b>Co-Founder, Splint Invest</span></figcaption></figure><figure class="hq"><span class="hq-mark" aria-hidden="true">“</span><blockquote>On a scale from 1 to 10, I definitely give this program a 10.</blockquote><figcaption><img src="images/testimonial-michael-trummer.jpg" alt="" width="40" height="40" loading="lazy"><span><b>Michael Trummer</b>Co-Founder, ahead</span></figcaption></figure></div>
         <div class="ctas">
-          <a class="btn btn--primary" href="https://bookings.cloud.microsoft/bookwithme/user/ae9c27a1549e40eb98f52953e831be8f@pmf-factory.com/meetingtype/boJtNuPkREu4UWmMuFRjFA2?anonymous&amp;ismsaljsauthenabled&amp;ep=mCardFromTile" target="_blank" rel="noopener">Book a 20-min call <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn--primary" href="info.html">Get more information</a>
           <a class="btn btn--secondary" href="#check">Take the free PMF Check</a>
-          <a class="btn btn--secondary" href="#testimonials">Check the testimonials</a>
         </div>
         <div class="powered">
           <span class="caption">Powered by</span>
@@ -1009,7 +1039,7 @@ footer .brand { font-size:15px; color:var(--ink); }
       <p class="who-label">Typical participants</p>
       <div class="profile">
         <div class="pf"><span class="pf-k">Model</span><span class="pf-v">B2B</span><span class="pf-s">occasionally B2C</span></div>
-        <div class="pf"><span class="pf-k">On the market</span><span class="pf-v">2–7 years</span></div>
+        <div class="pf"><span class="pf-k">Company age</span><span class="pf-v">2–7 years</span></div>
         <div class="pf"><span class="pf-k">Revenue</span><span class="pf-v">CHF 200k–2.5M</span><span class="pf-s">minimum CHF 50k</span></div>
       </div>
       <div class="verdict">
@@ -1020,7 +1050,7 @@ footer .brand { font-size:15px; color:var(--ink); }
             <li>Two key people committed to taking part</li>
             <li>Sufficient funding for the next six months</li>
           </ul>
-          <a class="btn btn--primary" href="https://bookings.cloud.microsoft/bookwithme/user/ae9c27a1549e40eb98f52953e831be8f@pmf-factory.com/meetingtype/boJtNuPkREu4UWmMuFRjFA2?anonymous&amp;ismsaljsauthenabled&amp;ep=mCardFromTile" target="_blank" rel="noopener">Book a 20-min call <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn--primary" href="info.html">Get more information <span class="arr" aria-hidden="true">→</span></a>
         </div>
         <div class="vcard vcard--no">
           <h3><span class="vmark" aria-hidden="true">×</span>You should NOT apply if…</h3>
@@ -1060,66 +1090,16 @@ footer .brand { font-size:15px; color:var(--ink); }
       <div class="sec-head">
         <p class="eyebrow">Speakers</p>
         <h2 class="h-sec">From Entrepreneur to Entrepreneur</h2>
-        <p class="lead"><strong>Learn what worked for others.</strong> Serial entrepreneurs, unicorn founders and successful investors share what they’ve learned from their failures and successes.</p>
+        <p class="lead"><strong>Learn what worked for others.</strong> Serial entrepreneurs, unicorn founders and successful investors share their learnings about successes and failures.</p>
       </div>
       <div class="people">
         <article class="person"><img class="av" src="images/speaker-thomas-dubendorfer.webp" alt="Portrait of Dr. Thomas Dübendorfer" width="112" height="112" loading="lazy"><div><h3>Dr. Thomas Dübendorfer <a class="li" href="https://www.linkedin.com/in/duebendorfer/" target="_blank" rel="noopener" aria-label="Dr. Thomas Dübendorfer on LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></h3><p class="role">Internet entrepreneur and angel investor, President of SICTIC</p><p class="talk">Investors &amp; PMF</p></div></article>
-        <article class="person"><img class="av" src="images/speaker-tobias-rein.webp" alt="Portrait of Tobias Rein" width="112" height="112" loading="lazy"><div><h3>Tobias Rein <a class="li" href="https://www.linkedin.com/in/tobias-rein/" target="_blank" rel="noopener" aria-label="Tobias Rein on LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></h3><p class="role">Co-Founder &amp; Principal Engineer at GetYourGuide</p><p class="talk">PMF Journey</p></div></article>
+        <article class="person"><span class="av-wrap"><img class="av" src="images/speaker-tobias-rein.webp" alt="Portrait of Tobias Rein" width="112" height="112" loading="lazy"><span class="uni" role="img" aria-label="Unicorn founder" title="Unicorn founder">🦄</span></span><div><h3>Tobias Rein <a class="li" href="https://www.linkedin.com/in/tobias-rein/" target="_blank" rel="noopener" aria-label="Tobias Rein on LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></h3><p class="role">Co-Founder &amp; Principal Engineer at GetYourGuide</p><p class="talk">PMF Journey of GetYourGuide</p></div></article>
         <article class="person"><img class="av" src="images/speaker-thomas-gaba-gabathuler.webp" alt="Portrait of Thomas (Gaba) Gabathuler" width="112" height="112" loading="lazy"><div><h3>Thomas (Gaba) Gabathuler <a class="li" href="https://www.linkedin.com/in/thomas-gabathuler/" target="_blank" rel="noopener" aria-label="Thomas (Gaba) Gabathuler on LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></h3><p class="role">CEO and Co-Founder of Get More Brain</p><p class="talk">Never stop learning</p></div></article>
         <article class="person"><img class="av" src="images/speaker-stefan-zanetti.webp" alt="Portrait of Stefan Zanetti" width="112" height="112" loading="lazy"><div><h3>Stefan Zanetti <a class="li" href="https://www.linkedin.com/in/stefan-zanetti/" target="_blank" rel="noopener" aria-label="Stefan Zanetti on LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></h3><p class="role">CGO &amp; Chairman at Allthings &amp; CEO at Pivotal</p><p class="talk">How to pivot</p></div></article>
+        <article class="person"><span class="av-wrap"><img class="av" src="images/speaker-vincent-bieri.webp" alt="Portrait of Vincent Bieri" width="112" height="112" loading="lazy"><span class="uni" role="img" aria-label="Unicorn founder" title="Unicorn founder">🦄</span></span><div><h3>Vincent Bieri <a class="li" href="https://www.linkedin.com/in/vbieri/" target="_blank" rel="noopener" aria-label="Vincent Bieri on LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></h3><p class="role">Co-Founder of Nexthink, Swiss SaaS unicorn</p><p class="talk">PMF Journey of Nexthink</p></div></article>
         <article class="person"><img class="av" src="images/speaker-michael-sauter.webp" alt="Portrait of Michael Sauter" width="112" height="112" loading="lazy"><div><h3>Michael Sauter <a class="li" href="https://www.linkedin.com/in/michael-sauter-81852332/" target="_blank" rel="noopener" aria-label="Michael Sauter on LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></h3><p class="role">CEO of PMF Factory and author of the book <i>Product-Market Fit</i></p><p class="talk talk--plain">Program Host</p></div></article>
       </div>
-    </div>
-  </section>
-
-  <section class="section" id="program">
-    <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow">The program</p>
-        <h2 class="h-sec">6-Month PMF Impact Program</h2>
-        <p class="lead">The <strong class="hl">entrepreneur-to-entrepreneur</strong> program is all about identifying repeatable patterns for startup success and growth. At its core, the program is about experimenting quickly and learning what worked for others.</p>
-        <p class="lead"><strong class="hl">During the first two kick-off days</strong>, you’ll get the essential tools and methods to iterate quickly and systematically. Seven growth sprints follow, combining hands-on experimentation, insights from successful entrepreneurs, and peer learning. Along the way, you continuously refine your PMF strategy and acquire new customers.</p>
-        <p class="lead"><strong class="hl">After six months</strong>, you’ll have the opportunity to present your case and pitch to selected investors.</p>
-      </div>
-      <div class="kpis">
-        <div class="kpi"><span class="n">2</span><span class="u">Days</span><p>of intensive, hands-on workshops</p></div>
-        <div class="kpi"><span class="n">7</span><span class="u">Sprints</span><p>guided, with input from successful entrepreneurs and actionable feedback</p></div>
-        <div class="kpi"><span class="n">10</span><span class="u">Startups</span><p>carefully selected</p></div>
-        <div class="kpi kpi--hl"><span class="n">1</span><span class="u">Demo Day</span><p>to pitch your case to selected investors</p></div>
-      </div>
-      <div class="journey">
-        <h3>Cohort 2027 – 6 months</h3>
-        <ol class="steps">
-              <li class="step step--hl"><span class="dot">K</span><span class="t">Kick-off<small>4 &amp; 5 March 2027</small><small class="loc">Zurich</small></span></li>
-              <li class="step"><span class="dot">S1</span><span class="t">Sprint 1<small>26 March 2027</small><small class="loc">Online</small></span></li>
-              <li class="step step--hl"><span class="dot">S2</span><span class="t">Sprint 2<small>16 April 2027</small><small class="loc">Zurich</small></span></li>
-              <li class="step"><span class="dot">S3</span><span class="t">Sprint 3<small>7 May 2027</small><small class="loc">Online</small></span></li>
-              <li class="step"><span class="dot">S4</span><span class="t">Sprint 4<small>28 May 2027</small><small class="loc">Online</small></span></li>
-              <li class="step step--hl"><span class="dot">S5</span><span class="t">Sprint 5<small>18 June 2027</small><small class="loc">Zurich</small></span></li>
-              <li class="step"><span class="dot">S6</span><span class="t">Sprint 6<small>2 July 2027</small><small class="loc">Online</small></span></li>
-              <li class="step"><span class="dot">S7</span><span class="t">Sprint 7<small>13 August 2027</small><small class="loc">Online</small></span></li>
-              <li class="step step--end"><span class="dot">★</span><span class="t">Demo Day<small>20 August 2027</small><small class="loc">Zurich</small></span></li>
-        </ol>
-        <p class="caption tl-legend"><span><i class="lg lg--red"></i>In person in Zurich (13:30–17:00)</span><span><i class="lg"></i>Online (14:30–16:30)</span><span>About 3 weeks between sprints</span></p>
-      </div>
-      <h3 class="sub-h gain-h">What you’ll work towards</h3>
-      <div class="extras">
-        <p class="extra">Measurable PMF signals</p>
-        <p class="extra">Repeatable growth patterns</p>
-        <p class="extra">Clarity in your growth roadmap</p>
-      </div>
-      <p class="tl-cta tl-cta--before"><a class="btn btn--secondary" href="#methodology">About the methodology <span class="arr" aria-hidden="true">→</span></a></p>
-    </div>
-  </section>
-
-  <section class="section band" id="impressions">
-    <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow">Impressions</p>
-        <h2 class="h-sec">Learning, sprinting and celebrating together</h2>
-        <p class="lead">Workshops, guest talks, peer groups and a founders’ dinner from previous editions in Zurich.</p>
-      </div>
-      <div class="gallery"><figure class="ph big"><img src="images/academy-participants-cheering.webp" width="1100" height="825" alt="Participants cheering together after a session" loading="lazy"></figure><figure class="ph tall"><img src="images/academy-workshop-session.webp" width="1100" height="825" alt="Founders following a workshop session" loading="lazy"></figure><figure class="ph"><img src="images/academy-startup-pitch.webp" width="1100" height="825" alt="A participant presenting his startup" loading="lazy"></figure><figure class="ph "><img src="images/academy-peer-group.webp" width="1100" height="825" alt="Founders discussing in a small peer group" loading="lazy"></figure><figure class="ph "><img src="images/academy-guest-talk-sales.webp" width="1100" height="825" alt="Guest talk on making sales repeatable" loading="lazy"></figure><figure class="ph "><img src="images/academy-guest-speaker-session.webp" width="1100" height="825" alt="Guest speaker session: Don’t run out of money" loading="lazy"></figure><figure class="ph wide"><img src="images/academy-founders-dinner.webp" width="1100" height="825" alt="Founders dinner with the whole cohort" loading="lazy"></figure></div>
     </div>
   </section>
 
@@ -1131,7 +1111,58 @@ footer .brand { font-size:15px; color:var(--ink); }
         <div class="nps-item"><span class="fig">9.45<small>/10</small></span><p class="nps-t">Average rating from founders who completed the program.</p></div>
         <p class="caption nps-src">Participant survey from the second Growth Academy</p>
       </div>
-      <a class="btn btn--primary nps-cta" href="#testimonials">Read the testimonials <span class="arr" aria-hidden="true">→</span></a>
+      <a class="btn nps-cta nps-cta--white" href="#testimonials">Read the testimonials <span class="arr" aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <section class="section" id="program">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">The program</p>
+        <h2 class="h-sec">6-Month PMF Impact Program</h2>
+        <p class="lead"><strong class="hl">During the first two kick-off days</strong>, you’ll be equipped with the systematic method and the tools to iterate quickly and systematically.</p>
+        <p class="lead"><strong class="hl">During the six months</strong>, you’ll be assisted in seven growth sprints, combining hands-on experimentation, insights from successful entrepreneurs, and peer learning.</p>
+        <p class="lead"><strong class="hl">At the Demo Day</strong>, you’ll have the opportunity to present your case and pitch to SICTIC investors.</p>
+      </div>
+      <div class="kpis">
+        <div class="kpi"><span class="n">2</span><span class="u">Days</span><p>of intensive, hands-on workshops</p></div>
+        <div class="kpi"><span class="n">7</span><span class="u">Sprints</span><p>guided, with input from successful entrepreneurs and actionable feedback</p></div>
+        <div class="kpi"><span class="n">10</span><span class="u">Startups</span><p>carefully selected</p></div>
+        <div class="kpi kpi--hl"><span class="n">1</span><span class="u">Demo Day</span><p>to pitch your case to selected investors</p></div>
+      </div>
+      <div class="journey">
+        <h3>Cohort 2027 – 6 months of support</h3>
+        <ol class="steps">
+              <li class="step step--hl"><span class="dot">K</span><span class="t">Kick-off<small>4 &amp; 5 March 2027</small><small class="loc">Zurich</small></span></li>
+              <li class="step"><span class="dot">S1</span><span class="t">Sprint 1<small>26 March 2027</small><small class="loc">Online</small></span></li>
+              <li class="step step--hl"><span class="dot">S2</span><span class="t">Sprint 2<small>16 April 2027</small><small class="loc">Zurich</small></span></li>
+              <li class="step"><span class="dot">S3</span><span class="t">Sprint 3<small>5 May 2027</small><small class="loc">Online</small></span></li>
+              <li class="step"><span class="dot">S4</span><span class="t">Sprint 4<small>28 May 2027</small><small class="loc">Online</small></span></li>
+              <li class="step step--hl"><span class="dot">S5</span><span class="t">Sprint 5<small>18 June 2027</small><small class="loc">Zurich</small></span></li>
+              <li class="step"><span class="dot">S6</span><span class="t">Sprint 6<small>2 July 2027</small><small class="loc">Online</small></span></li>
+              <li class="step"><span class="dot">S7</span><span class="t">Sprint 7<small>13 August 2027</small><small class="loc">Online</small></span></li>
+              <li class="step step--end"><span class="dot">★</span><span class="t">Demo Day<small>19 August 2027</small><small class="loc">Zurich</small></span></li>
+        </ol>
+        <p class="caption tl-legend"><span><i class="lg lg--red"></i>In person in Zurich (13:30–17:00)</span><span><i class="lg"></i>Online (14:30–16:30)</span><span>About 3 weeks between sprints</span></p>
+      </div>
+      <h3 class="sub-h gain-h">What you’ll work towards</h3>
+      <div class="extras">
+        <p class="extra">Repeatable growth patterns</p>
+        <p class="extra">Measurable PMF signals</p>
+        <p class="extra">Clarity in your growth roadmap</p>
+      </div>
+      <p class="tl-cta tl-cta--before"><a class="btn btn--secondary" href="#methodology">About the methodology <span class="arr" aria-hidden="true">→</span></a></p>
+    </div>
+  </section>
+
+  <section class="section band" id="impressions">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Impressions</p>
+        <h2 class="h-sec">Learning, sprinting and celebrating together</h2>
+        <p class="lead">Workshops, guest talks, peer groups and a founders’ dinner from previous editions in Zurich. A core element is the exchange of learnings about failures and successes in a safe setting.</p>
+      </div>
+      <div class="gallery"><figure class="ph big"><img src="images/academy-participants-cheering.webp" width="1100" height="825" alt="Participants cheering together after a session" loading="lazy"></figure><figure class="ph tall"><img src="images/academy-workshop-session.webp" width="1100" height="825" alt="Founders following a workshop session" loading="lazy"></figure><figure class="ph"><img src="images/academy-startup-pitch.webp" width="1100" height="825" alt="A participant presenting his startup" loading="lazy"></figure><figure class="ph "><img src="images/academy-peer-group.webp" width="1100" height="825" alt="Founders discussing in a small peer group" loading="lazy"></figure><figure class="ph "><img src="images/academy-guest-talk-sales.webp" width="1100" height="825" alt="Guest talk on making sales repeatable" loading="lazy"></figure><figure class="ph "><img src="images/academy-guest-speaker-session.webp" width="1100" height="825" alt="Guest speaker session: Don’t run out of money" loading="lazy"></figure><figure class="ph wide"><img src="images/academy-founders-dinner.webp" width="1100" height="825" alt="Founders dinner with the whole cohort" loading="lazy"></figure></div>
     </div>
   </section>
 
@@ -1150,7 +1181,7 @@ footer .brand { font-size:15px; color:var(--ink); }
         </div>
         <div class="iv-main">
           <p class="eyebrow">Interview</p>
-          <h3>How the program transformed Crossiety</h3>
+          <h3>It was a game changer.</h3>
           <dl class="qas"><div class="qa"><dt>What impact did the systematic work on Product-Market Fit have?</dt><dd><b>Joel:</b> It <strong class="tk">fundamentally changed how we set our priorities</strong>. Today we make decisions based on what really matters to our users – not simply on what feels most urgent at the moment.</dd></div><div class="qa"><dt>What changed in sales?</dt><dd><b>Joel:</b> We now have a <strong class="tk">clearly defined Ideal Customer Profile</strong>. That means we talk to the right customers in a targeted way instead of approaching as many different prospects as possible. It makes our sales more focused and more efficient.</dd></div><div class="qa"><dt>What impact did this have on your product development?</dt><dd><b>Joel:</b> We used to get a lot of technical feedback, but often it was individual opinions or very specific requests. Today we understand much better <strong class="tk">what the majority of our users really need</strong>. That helps us prioritize our backlog and align our sprints consistently with customer value.</dd></div><div class="qa"><dt>Has collaboration within the team changed as well?</dt><dd><b>Joel:</b> Yes, significantly. The whole team has much more clarity today. Everyone understands better what matters to our users, so we work in a more focused way and pursue the same priorities. Our meetings have a different quality, too: we no longer just discuss ideas and opinions, <strong class="tk">we show data and customer signals</strong>. That builds trust and leads to better decisions.</dd></div><div class="qa"><dt>What did the process do for you personally as a founder?</dt><dd><b>Joel:</b> It gave me much more confidence. <strong class="tk">I feel I finally have a compass.</strong> I know better where we are going – and above all, why we are taking this path.</dd></div></dl>
         </div>
       </div>
@@ -1199,7 +1230,6 @@ footer .brand { font-size:15px; color:var(--ink); }
               <tr class="yours"><td>Your saving<span class="sub">From the calculator, based on your burn rate</span></td><td id="saving2">– CHF 150,000</td></tr>
             </tbody>
           </table>
-          <a class="btn btn--primary" href="https://bookings.cloud.microsoft/bookwithme/user/ae9c27a1549e40eb98f52953e831be8f@pmf-factory.com/meetingtype/boJtNuPkREu4UWmMuFRjFA2?anonymous&amp;ismsaljsauthenabled&amp;ep=mCardFromTile" target="_blank" rel="noopener" style="justify-self:start">Secure the early-bird price <span class="arr" aria-hidden="true">→</span></a>
         </div>
       </div>
     </div>
@@ -1208,13 +1238,13 @@ footer .brand { font-size:15px; color:var(--ink); }
   <section class="apply" id="apply">
   <div class="wrap">
     <div>
-      <p class="eyebrow">Book a 20-min call</p>
+      <p class="eyebrow">Get more information</p>
       <h2>Ready to nail your Product-Market Fit?</h2>
       <p>Two people per company, six months, one goal: repeatable, predictable growth. Apply before 15 January 2027 to save CHF 1,000.</p>
-      <p>In a 20-minute call, we check together whether the program is a good fit.</p>
+      <p>Leave us your details, and we’ll get back to you to check together whether the program is a good fit.</p>
       <p class="apply-mail">Prefer email? Write to us at <a href="mailto:academy@pmf-factory.com">academy@pmf-factory.com</a>.</p>
     </div>
-    <a class="btn btn--primary" href="https://bookings.cloud.microsoft/bookwithme/user/ae9c27a1549e40eb98f52953e831be8f@pmf-factory.com/meetingtype/boJtNuPkREu4UWmMuFRjFA2?anonymous&amp;ismsaljsauthenabled&amp;ep=mCardFromTile" target="_blank" rel="noopener">Book a 20-min call <span class="arr" aria-hidden="true">→</span></a>
+    <a class="btn btn--primary" href="info.html">Get more information <span class="arr" aria-hidden="true">→</span></a>
   </div>
 </section>
 
@@ -1226,9 +1256,9 @@ footer .brand { font-size:15px; color:var(--ink); }
       </div>
       <ol class="proc">
         <li><span class="pn">1</span><h3>Check your fit</h3><p>Check whether you meet the criteria for participating startups.</p><a class="btn btn--secondary" href="#who">See the criteria <span class="arr" aria-hidden="true">→</span></a></li>
-        <li><span class="pn">2</span><h3>Book a 20-min call</h3><p>Pick a slot that suits you, online and free of charge.</p><a class="btn btn--primary" href="https://bookings.cloud.microsoft/bookwithme/user/ae9c27a1549e40eb98f52953e831be8f@pmf-factory.com/meetingtype/boJtNuPkREu4UWmMuFRjFA2?anonymous&amp;ismsaljsauthenabled&amp;ep=mCardFromTile" target="_blank" rel="noopener">Book a 20-min call <span class="arr" aria-hidden="true">→</span></a></li>
+        <li><span class="pn">2</span><h3>Get more information</h3><p>Fill in the short form. We’ll get back to you.</p><a class="btn btn--primary" href="info.html">Get more information <span class="arr" aria-hidden="true">→</span></a></li>
         <li><span class="pn">3</span><h3>Let’s discuss the fit</h3><p>During the call, we explore together whether the program is a good fit.</p></li>
-        <li><span class="pn">4</span><h3>Apply</h3><p>If it’s a fit, you submit your official application.</p></li>
+        <li><span class="pn">4</span><h3>Give feedback</h3><p>If it’s a fit, you give us feedback.</p></li>
         <li><span class="pn">5</span><h3>Get selected</h3><p>Only 10 startups are selected for the program.</p></li>
       </ol>
       <p class="proc-note proc-note--ink">Only 10 startups are carefully selected to ensure quality and a strong fit with the program.</p>
@@ -1239,8 +1269,9 @@ footer .brand { font-size:15px; color:var(--ink); }
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow">About the methodology</p>
-        <h2 class="h-sec">Six modules to nail your Product-Market Fit</h2>
+        <h2 class="h-sec">Method, inputs, reflections, sprints, peer exchanges</h2>
         <p class="lead">Product-Market Fit is like a secret recipe for an extraordinary meal. Just like a great chef, you need to understand the ingredients, find the perfect combination, and fine-tune every detail to create something exceptional – something that truly resonates with your target audience and leaves them wanting more.</p>
+        <p class="lead">However, startups rarely find their ideal Product-Market Fit on the first try. It typically takes 3–5 cycles.</p>
       </div>
       <ol class="modules">
           <li><span class="mk">Module</span><span class="mn">1</span><span class="mt">Assess your PMF</span></li>
@@ -1260,7 +1291,7 @@ footer .brand { font-size:15px; color:var(--ink); }
       <div class="book">
         <div class="book-side">
           <img loading="lazy" decoding="async" class="book-cover" src="images/book-product-market-fit-michael-sauter.webp" width="635" height="902" alt="Book cover: Product-Market Fit – How to Build a Business That Scales, by Michael Sauter">
-          <a class="btn btn--primary" href="https://share-eu1.hsforms.com/1mr8lliBuQYeUVpN2lhS3Tw2du7hm" target="_blank" rel="noopener">Download the free e-book <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn--ebook" href="https://share-eu1.hsforms.com/1mr8lliBuQYeUVpN2lhS3Tw2du7hm" target="_blank" rel="noopener">Download the free e-book <span class="arr" aria-hidden="true">→</span></a>
         </div>
         <div class="book-copy">
           <p class="eyebrow">The book</p>
@@ -1296,15 +1327,15 @@ footer .brand { font-size:15px; color:var(--ink); }
                 <li class="ip"><b>4 &amp; 5 March 2027</b><span>Kick-off (2 days)</span><em>Zurich</em></li>
                 <li><b>26 March 2027</b><span>Sprint 1</span><em>Online</em></li>
                 <li class="ip"><b>16 April 2027</b><span>Sprint 2</span><em>Zurich</em></li>
-                <li><b>7 May 2027</b><span>Sprint 3</span><em>Online</em></li>
+                <li><b>5 May 2027</b><span>Sprint 3</span><em>Online</em></li>
                 <li><b>28 May 2027</b><span>Sprint 4</span><em>Online</em></li>
                 <li class="ip"><b>18 June 2027</b><span>Sprint 5</span><em>Zurich</em></li>
                 <li><b>2 July 2027</b><span>Sprint 6</span><em>Online</em></li>
                 <li><b>13 August 2027</b><span>Sprint 7</span><em>Online</em></li>
-                <li class="ip"><b>20 August 2027</b><span>Investor Demo Day</span><em>Zurich</em></li>
+                <li class="ip"><b>19 August 2027</b><span>Investor Demo Day</span><em>Zurich</em></li>
               </ul></div></details>
             <details><summary>How is the program structured?</summary><div class="fa"><p>Two kick-off days give you the essential tools, methods and frameworks. In seven growth sprints, you experiment, acquire customers and learn from experts and peers. At the Demo Day, you present your case and pitch to selected investors.</p></div></details>
-            <details><summary>Who are the guest speakers?</summary><div class="fa"><p>Experienced founders and investors such as Thomas Dübendorfer (SICTIC), Tobias Rein (GetYourGuide), Thomas Gabathuler (Get More Brain) and Stefan Zanetti (Allthings, Pivotal) share their insights on Product-Market Fit.</p></div></details>
+            <details><summary>Who are the guest speakers?</summary><div class="fa"><p>Experienced founders and investors such as Thomas Dübendorfer (SICTIC), Tobias Rein (GetYourGuide), Thomas Gabathuler (Get More Brain), Stefan Zanetti (Allthings, Pivotal) and Vincent Bieri (Nexthink) share their insights on Product-Market Fit.</p></div></details>
             <details><summary>Who runs the Swiss PMF Academy?</summary><div class="fa"><p>The academy is powered by SICTIC and PMF Factory and supported by Innovation Zurich.</p></div></details>
             <details><summary>Is my startup a fit?</summary><div class="fa"><p>Typical participants are B2B (occasionally B2C), 2–7 years on the market, with CHF 200k–2.5M in revenue. You should not apply if your revenue is below CHF 50,000, you have less than six months of runway, or you are a one-(wo)man show.</p></div></details>
           </div>
@@ -1314,7 +1345,7 @@ footer .brand { font-size:15px; color:var(--ink); }
             <details><summary>How many startups are selected?</summary><div class="fa"><p>Only 10 carefully selected startups take part, so every team gets real attention from experts and peers.</p></div></details>
             <details><summary>Who should take part from my company?</summary><div class="fa"><p>Two key people from your leadership team, both committed to taking part throughout the six months.</p></div></details>
             <details><summary>What does it cost?</summary><div class="fa"><p>CHF 4,250 per participant, so CHF 8,500 per company. A partner discount (SICTIC, Standortförderung Kanton Zürich, PMF Factory) and an early-bird discount (until 15 January 2027) of CHF 1,000 each bring the total to <b>CHF 6,500</b>.</p></div></details>
-            <details><summary>How do I apply?</summary><div class="fa"><p>Book a 20-minute call with Michael Sauter. Together we look at where you stand and whether the academy is the right next step.</p><a class="btn btn--primary" href="https://bookings.cloud.microsoft/bookwithme/user/ae9c27a1549e40eb98f52953e831be8f@pmf-factory.com/meetingtype/boJtNuPkREu4UWmMuFRjFA2?anonymous&amp;ismsaljsauthenabled&amp;ep=mCardFromTile" target="_blank" rel="noopener">Book a 20-min call <span class="arr" aria-hidden="true">→</span></a></div></details>
+            <details><summary>How do I apply?</summary><div class="fa"><p>Fill in the short information form. We’ll get back to you and arrange a 20-minute call with Michael Sauter to see whether the academy is the right next step.</p><a class="btn btn--primary" href="info.html">Get more information <span class="arr" aria-hidden="true">→</span></a></div></details>
             <details><summary>Can I learn more before applying?</summary><div class="fa"><p>Yes. Take the PMF Check above, or <a href="https://share-eu1.hsforms.com/1mr8lliBuQYeUVpN2lhS3Tw2du7hm" target="_blank" rel="noopener">download the free e-book</a> with the success stories of Bexio, Xovis and Cron.</p></div></details>
           </div>
         </div>
@@ -1415,7 +1446,7 @@ footer .brand { font-size:15px; color:var(--ink); }
   document.addEventListener("click", function (e) {
     var a = e.target.closest && e.target.closest("a"); if (!a) return;
     var h = a.getAttribute("href") || "";
-    if (h.indexOf("bookings.cloud.microsoft") > -1) track("book_call_click", { link_text: a.textContent.trim().slice(0, 50), section: (function (el) { return el ? (el.id || el.className || el.tagName.toLowerCase()) : ""; })(a.closest("section, header, footer")) });
+    if (h.indexOf("info.html") > -1) track("info_page_click", { link_text: a.textContent.trim().slice(0, 50), section: (function (el) { return el ? (el.id || el.className || el.tagName.toLowerCase()) : ""; })(a.closest("section, header, footer")) });
     else if (h.indexOf("hsforms.com") > -1) track("ebook_download_click");
     else if (h.indexOf("notion.site") > -1) track("investor_form_open");
   });
@@ -1453,9 +1484,8 @@ footer .brand { font-size:15px; color:var(--ink); }
   qNavEl.innerHTML = '<button type="button" id="q-prev">← Back</button><span class="qhint">Pick the answer that fits best</span><button type="button" id="q-next">Next →</button>';
   form.appendChild(qNavEl);
   var qDoneEl = document.createElement("div"); qDoneEl.className = "qdone"; qDoneEl.hidden = true;
-  qDoneEl.innerHTML = '<p class="eyebrow">All 8 questions answered</p><h3 id="q-done-h"></h3><p id="q-done-t"></p><div class="qdone-cta"><a class="btn btn--primary" id="q-done-book" href="#book">Book a 20-min call <span class="arr" aria-hidden="true">→</span></a><button type="button" class="btn btn--secondary" id="q-review">Review answers</button><button type="button" class="btn btn--secondary" id="q-restart">Start over</button></div>';
+  qDoneEl.innerHTML = '<p class="eyebrow">All 8 questions answered</p><h3 id="q-done-h"></h3><p id="q-done-t"></p><div class="qdone-cta"><a class="btn btn--primary" id="q-done-book" href="info.html">Get more information <span class="arr" aria-hidden="true">→</span></a><button type="button" class="btn btn--secondary" id="q-review">Review answers</button><button type="button" class="btn btn--secondary" id="q-restart">Start over</button></div>';
   form.appendChild(qDoneEl);
-  var bookA = document.querySelector('a[href*="bookings.cloud.microsoft"]'); if (bookA) { $("q-done-book").href = bookA.href; $("q-done-book").target = "_blank"; $("q-done-book").rel = "noopener"; }
   var qCur = 0, advTimer;
   function answered(i) { return !!sets[i].querySelector("input:checked"); }
   function allDone() { for (var i = 0; i < sets.length; i++) if (!answered(i)) return false; return true; }

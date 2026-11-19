@@ -6,7 +6,7 @@
 
 - Website: https://www.pmf-academy.ch/
 - Format: 2 kick-off workshop days, 7 guided growth sprints (about every 3 weeks), 1 Investor Demo Day
-- Duration: March to August 2027 (kick-off 4–5 March 2027, Demo Day 20 August 2027)
+- Duration: March to August 2027 (kick-off 4–5 March 2027, Demo Day 19 August 2027)
 - Location: in-person days in Zurich (kick-off, Sprint 2, Sprint 5, Demo Day); other sprints online
 - Participants: 10 carefully selected startups, two key people from each leadership team
 - Typical participant: B2B (occasionally B2C), 2–7 years on the market, CHF 200k–2.5M revenue
@@ -25,6 +25,7 @@ Signals of Product-Market Fit: sales become predictable, customer acquisition co
 - Tobias Rein – co-founder & Principal Engineer at GetYourGuide (talk: PMF Journey)
 - Thomas "Gaba" Gabathuler – CEO and co-founder of Get More Brain (talk: Never stop learning)
 - Stefan Zanetti – CGO & Chairman at Allthings, CEO at Pivotal (talk: How to pivot)
+- Vincent Bieri – Co-Founder of Nexthink, Swiss SaaS unicorn (talk: PMF Journey of Nexthink)
 - Michael Sauter – founder of PMF Factory, author of "Product-Market Fit – How to Build a Business That Scales"
 
 ## Pages
