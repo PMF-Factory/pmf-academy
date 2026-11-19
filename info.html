@@ -679,6 +679,11 @@ footer .brand { font-size:15px; color:var(--ink); }
 #info h1.h-sec { margin-top:var(--s3); }
 #info .info-crit-h { font-family:var(--font-display); }
 #info .info-form .caption { padding:var(--s3) var(--s6); margin:0; }
+/* Notion form can't be styled from outside: scale it down to make its text smaller */
+#info .info-form { overflow:hidden; }
+#info .info-form .if-wrap { height:calc(980px * .85); overflow:hidden; }
+#info .info-form iframe { width:calc(100% / .85); height:980px; transform:scale(.85); transform-origin:0 0; }
+@media (max-width:599px) { #info .info-form .if-wrap { height:calc(1100px * .85); } #info .info-form iframe { height:1100px; } }
 
 </style>
 </head>
@@ -716,7 +721,7 @@ footer .brand { font-size:15px; color:var(--ink); }
         <p class="inv-back"><a class="btn btn--secondary" href="index.html#program">Discover the program <span class="arr" aria-hidden="true">→</span></a></p>
       </div>
       <div class="info-form">
-        <iframe src="https://michaelsauter.notion.site/ebd/73de543023be4172962ecef9643c1cfc" title="Get more information about the Swiss PMF Academy"></iframe>
+        <div class="if-wrap"><iframe src="https://michaelsauter.notion.site/ebd/73de543023be4172962ecef9643c1cfc" title="Get more information about the Swiss PMF Academy"></iframe></div>
         <p class="caption">Form not loading? <a href="https://michaelsauter.notion.site/73de543023be4172962ecef9643c1cfc" target="_blank" rel="noopener">Open it in a new tab</a>.</p>
       </div>
     </div>
