@@ -664,26 +664,43 @@ footer .brand { font-size:15px; color:var(--ink); }
 .inv-page { border-top:0; padding-top:var(--s12); }
 .inv-back { margin-top:var(--s6); }
 
-#info .info-grid { display:grid; gap:var(--s12); align-items:start; }
-@media (min-width:900px) { #info .info-grid { grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:var(--s16); } }
-#info .info-crit { list-style:none; margin:var(--s8) 0 0; padding:0; display:grid; gap:0; border-top:3px solid var(--ink); }
-#info .info-crit li { display:grid; grid-template-columns:120px 1fr; gap:var(--s4); padding:var(--s4) 0; border-bottom:1px solid var(--line); font-size:17px; line-height:26px; }
-#info .info-crit b { font:700 13px/26px var(--font-body); letter-spacing:.08em; text-transform:uppercase; color:var(--red); }
-#info .info-crit-h { font-size:20px; line-height:28px; margin-top:var(--s8); }
-#info .info-mail { margin-top:var(--s6); color:var(--muted, inherit); }
-#info .info-mail a { font-weight:600; text-decoration:underline; text-underline-offset:3px; }
-#info .info-form { background:var(--paper); border:1px solid var(--line); border-top:3px solid var(--red); }
-#info .info-form iframe { display:block; width:100%; height:980px; border:0; background:var(--paper); }
-@media (max-width:599px) { #info .info-crit li { grid-template-columns:1fr; gap:0; } #info .info-form iframe { height:1100px; } }
-#info .info-lead { margin-top:var(--s4); }
-#info h1.h-sec { margin-top:var(--s3); }
-#info .info-crit-h { font-family:var(--font-display); }
-#info .info-form .caption { padding:var(--s3) var(--s6); margin:0; }
-/* Notion form can't be styled from outside: scale it down to make its text smaller */
-#info .info-form { overflow:hidden; }
-#info .info-form .if-wrap { height:calc(980px * .85); overflow:hidden; }
-#info .info-form iframe { width:calc(100% / .85); height:980px; transform:scale(.85); transform-origin:0 0; }
-@media (max-width:599px) { #info .info-form .if-wrap { height:calc(1100px * .85); } #info .info-form iframe { height:1100px; } }
+/* Info page */
+#info { padding-top:var(--s12); }
+#info .info-head { max-width:820px; }
+#info .info-head h1 { font-size:clamp(36px, 5vw, 56px); line-height:1.05; letter-spacing:-.025em; margin-top:var(--s3); }
+#info .info-head h1 span { color:var(--red); display:block; }
+#info .info-lead { margin-top:var(--s6); max-width:62ch; }
+#info .info-lead a { color:var(--ink); font-weight:600; text-decoration:underline; text-decoration-color:var(--red); text-underline-offset:4px; }
+#info .crit3 { list-style:none; margin:var(--s12) 0 0; padding:0; display:grid; gap:2px; background:var(--line); border:2px solid var(--line); }
+@media (min-width:760px) { #info .crit3 { grid-template-columns:repeat(3, 1fr); } }
+#info .crit3 li { background:var(--paper); padding:var(--s6); display:grid; gap:var(--s2); box-shadow:inset 0 4px 0 var(--ink); }
+#info .crit3 li:last-child { box-shadow:inset 0 4px 0 var(--red); }
+#info .crit3 b { font:600 12px/16px var(--font-body); letter-spacing:.1em; text-transform:uppercase; color:var(--red); }
+#info .crit3 span { font:600 18px/24px var(--font-display); }
+#info .crit-cap { margin-top:var(--s3); font-size:13px; color:var(--ink-muted); }
+#info .info-main { display:grid; gap:var(--s12); margin-top:var(--s16); align-items:start; }
+@media (min-width:960px) { #info .info-main { grid-template-columns:minmax(0,4fr) minmax(0,7fr); gap:var(--s16); } #info .info-steps { position:sticky; top:96px; } }
+#info .info-steps h2 { font-size:24px; line-height:30px; }
+#info .steps4 { list-style:none; margin:var(--s6) 0 0; padding:0; display:grid; gap:0; counter-reset:st; }
+#info .steps4 li { counter-increment:st; display:grid; grid-template-columns:40px 1fr; gap:var(--s4); padding:var(--s4) 0; border-top:1px solid var(--line); }
+#info .steps4 li:last-child { border-bottom:1px solid var(--line); }
+#info .steps4 li::before { content:counter(st); width:32px; height:32px; display:grid; place-items:center; border-radius:50%; background:var(--ink); color:var(--paper); font:700 15px/1 var(--font-display); }
+#info .steps4 li:last-child::before { background:var(--red); color:#fff; }
+#info .steps4 b { display:block; font:600 17px/24px var(--font-display); }
+#info .steps4 span { display:block; font-size:15px; line-height:22px; color:var(--ink-muted); margin-top:2px; }
+#info .info-mail { margin-top:var(--s6); font-size:15px; color:var(--ink-muted); }
+#info .info-mail a { color:var(--ink); font-weight:600; text-decoration:underline; text-underline-offset:3px; }
+/* Form card: our header, Notion form below (Notion's own title cropped, scaled to site size) */
+#info .fcard { background:#ffffff; color:#14171a; border:1px solid var(--line); border-top:3px solid var(--red); box-shadow:0 18px 48px rgba(20,23,26,.08); }
+#info .fcard-h { display:flex; justify-content:space-between; align-items:baseline; gap:var(--s4); padding:var(--s6) var(--s6) var(--s4); border-bottom:1px solid #e6e8ea; }
+#info .fcard-h h2 { font-size:22px; line-height:28px; color:#14171a; }
+#info .fcard-h p { font-size:13px; color:#565e66; white-space:nowrap; }
+#info .if-wrap { --sc:.82; --crop:150px; --ih:1060px; overflow:hidden; height:calc((var(--ih) - var(--crop)) * var(--sc)); margin:var(--s2) var(--s2) 0; }
+#info .if-wrap iframe { position:relative; margin-top:calc(-1 * var(--crop) * var(--sc)); display:block; width:calc(100% / var(--sc)); height:var(--ih); border:0; background:#fff; transform:scale(var(--sc)); transform-origin:0 0; }
+@media (max-width:599px) { #info .if-wrap { --sc:.9; --ih:1280px; --crop:90px; margin:0; } #info .fcard-h { padding:var(--s4); } #info .fcard-h p { display:none; } }
+#info .fcard-f { padding:var(--s3) var(--s6) var(--s4); border-top:1px solid #e6e8ea; font-size:13px; color:#565e66; }
+#info .fcard-f a { color:#14171a; }
+@media (max-width:959px) { #info .fcard { order:-1; } }
 
 </style>
 </head>
@@ -706,26 +723,38 @@ footer .brand { font-size:15px; color:var(--ink); }
 
 <main id="top">
 <section class="section inv-page" id="info">
-    <div class="wrap info-grid">
-      <div class="info-side">
-        <p class="eyebrow">Swiss PMF Academy · Cohort 2027</p>
-        <h1 class="h-sec">Interested in the PMF Academy? Get more information</h1>
-        <p class="lead info-lead">Complete this form in order to get more information about the next PMF Academy. You’ll also get a free copy of our book, <i>“Product-Market Fit – How to Build a Business That Scales”</i>.</p>
-        <h2 class="info-crit-h">Selection criteria</h2>
-        <ul class="info-crit">
-          <li><b>Revenue</b><span>Minimum CHF 50,000</span></li>
-          <li><b>Ambition</b><span>A strong desire to grow and learn continuously</span></li>
-          <li><b>Commitment</b><span>Two team members are required to attend</span></li>
-        </ul>
+  <div class="wrap">
+    <div class="info-head">
+      <p class="eyebrow">Swiss PMF Academy · Cohort 2027</p>
+      <h1>Interested in the PMF Academy? <span>Get more information</span></h1>
+      <p class="lead info-lead">Complete this <a href="https://michaelsauter.notion.site/73de543023be4172962ecef9643c1cfc" target="_blank" rel="noopener">form</a> in order to get more information about the next PMF Academy. You’ll also get a free copy of our book, <i>“Product-Market Fit – How to Build a Business That Scales”</i>.</p>
+    </div>
+    <ul class="crit3" aria-label="Selection criteria">
+      <li><b>Revenue</b><span>Minimum CHF 50,000</span></li>
+      <li><b>Ambition</b><span>A strong desire to grow and learn continuously</span></li>
+      <li><b>Commitment</b><span>Two team members are required to attend</span></li>
+    </ul>
+    <p class="crit-cap">Selection criteria for the 10 startups per cohort.</p>
+    <div class="info-main">
+      <aside class="info-steps">
+        <h2>What happens next</h2>
+        <ol class="steps4">
+          <li><div><b>Fill in the form</b><span>Tell us about your startup and what you expect.</span></div></li>
+          <li><div><b>We get back to you</b><span>With more information about the next PMF Academy.</span></div></li>
+          <li><div><b>Let’s have a call</b><span>Together we see whether the program is a good fit.</span></div></li>
+          <li><div><b>Your free book</b><span><i>Product-Market Fit – How to Build a Business That Scales</i></span></div></li>
+        </ol>
         <p class="info-mail">Prefer email? Write to us at <a href="mailto:academy@pmf-factory.com">academy@pmf-factory.com</a>.</p>
         <p class="inv-back"><a class="btn btn--secondary" href="index.html#program">Discover the program <span class="arr" aria-hidden="true">→</span></a></p>
-      </div>
-      <div class="info-form">
+      </aside>
+      <div class="fcard">
+        <div class="fcard-h"><h2>Your details</h2><p>Takes about 2 minutes</p></div>
         <div class="if-wrap"><iframe src="https://michaelsauter.notion.site/ebd/73de543023be4172962ecef9643c1cfc" title="Get more information about the Swiss PMF Academy"></iframe></div>
-        <p class="caption">Form not loading? <a href="https://michaelsauter.notion.site/73de543023be4172962ecef9643c1cfc" target="_blank" rel="noopener">Open it in a new tab</a>.</p>
+        <p class="fcard-f">Form not loading? <a href="https://michaelsauter.notion.site/73de543023be4172962ecef9643c1cfc" target="_blank" rel="noopener">Open it in a new tab</a>.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 </main>
 
 <div class="cookie" id="cookie" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
