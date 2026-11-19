@@ -670,6 +670,34 @@ html body #nps .nps-wrap h3 { margin-bottom:var(--s3); }
 .hero-art { max-width:760px; margin-block:var(--s2); }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .hero-art img { filter:invert(1) hue-rotate(180deg); } }
 :root[data-theme="dark"] .hero-art img { filter:invert(1) hue-rotate(180deg); }
+/* Hero mountain: PMF signals on hover */
+.pmf-hover { position:relative; cursor:crosshair; -webkit-tap-highlight-color:transparent; }
+.pmf-hover .sig { position:absolute; top:3%; width:min(44%, 310px); background:color-mix(in srgb, var(--paper) 95%, transparent); backdrop-filter:blur(4px); border-top:3px solid var(--ink); box-shadow:0 10px 28px rgba(20,23,26,.14), 0 0 0 1px var(--line); padding:var(--s3) var(--s4) var(--s4); opacity:0; transform:translateY(10px); transition:opacity .25s ease, transform .3s ease; pointer-events:none; }
+.pmf-hover .sig--no { left:0; }
+.pmf-hover .sig--yes { right:0; border-top-color:var(--red); }
+.pmf-hover .sig-h { display:flex; align-items:center; gap:var(--s2); font:600 12px/16px var(--font-body); letter-spacing:.08em; text-transform:uppercase; color:var(--ink-muted); margin-bottom:var(--s2); }
+.pmf-hover .sig-ic { display:grid; place-items:center; width:20px; height:20px; border-radius:50%; font-size:12px; letter-spacing:0; color:#fff; background:var(--ink); flex:none; }
+.pmf-hover .sig--yes .sig-ic { background:var(--red); }
+.pmf-hover .sig ul { list-style:none; margin:0; padding:0; display:grid; gap:6px; }
+.pmf-hover .sig li { position:relative; padding-left:16px; font:600 15px/20px var(--font-display); color:var(--ink); opacity:0; transform:translateX(-8px); transition:opacity .25s ease, transform .25s ease; }
+.pmf-hover .sig--yes li { transform:translateX(8px); }
+.pmf-hover .sig li::before { content:""; position:absolute; left:0; top:8px; width:6px; height:6px; background:var(--ink); }
+.pmf-hover .sig--yes li::before { background:var(--red); }
+.pmf-hover[data-side="no"] .sig--no, .pmf-hover[data-side="yes"] .sig--yes { opacity:1; transform:none; }
+.pmf-hover[data-side="no"] .sig--no li, .pmf-hover[data-side="yes"] .sig--yes li { opacity:1; transform:none; }
+.pmf-hover .sig li:nth-child(2) { transition-delay:.06s; } .pmf-hover .sig li:nth-child(3) { transition-delay:.12s; } .pmf-hover .sig li:nth-child(4) { transition-delay:.18s; } .pmf-hover .sig li:nth-child(5) { transition-delay:.24s; }
+.pmf-hover img { transition:opacity .3s ease; }
+.pmf-hover[data-side] img { opacity:.55; }
+.pmf-hover:not([data-side]) img { opacity:1; }
+.pmf-hover .sig-hint { margin-top:var(--s2); font-size:13px; line-height:18px; color:var(--ink-muted); }
+.pmf-hover .sig-hint::before { content:"↔ "; color:var(--red); font-weight:700; }
+.pmf-hover .h-touch { display:none; }
+@media (hover:none) { .pmf-hover .h-hover { display:none; } .pmf-hover .h-touch { display:inline; } }
+@media (max-width:699px) {
+  .pmf-hover .sig { position:static; width:auto; display:none; margin-top:var(--s3); background:var(--paper); }
+  .pmf-hover[data-side="no"] .sig--no, .pmf-hover[data-side="yes"] .sig--yes { display:block; }
+}
+@media (prefers-reduced-motion: reduce) { .pmf-hover .sig, .pmf-hover .sig li, .pmf-hover img { transition:none; } }
 
 .hero-copy { display:grid; gap:var(--s6); min-width:0; }
 .badges { display:flex; flex-wrap:wrap; gap:var(--s2); }
@@ -911,10 +939,15 @@ footer .brand { font-size:15px; color:var(--ink); }
 .modules li { align-content:start; }
 .modules .mn { margin-top:calc(-1 * var(--s2)); }
 #methodology .meth-after { margin-top:var(--s8); max-width:65ch; }
-#methodology .meth-cta { margin-top:var(--s3); }
+#methodology .meth-cta { margin-top:var(--s8); }
 .tl-cta { margin-top:var(--s6); }
 .tl-cta--before { margin-top:var(--s8); margin-bottom:0; }
 .modules li.last { background:var(--ink); color:var(--paper); box-shadow:inset 0 4px 0 var(--red); }
+@media (min-width:760px) { .modules--4 { grid-template-columns:repeat(4, 1fr); } }
+.modules--4 li { min-height:150px; }
+.modules--4 .mt { font:700 20px/26px var(--font-display); }
+.modules--4 .md { font-size:15px; line-height:22px; color:var(--ink-muted); margin-top:calc(-1 * var(--s2)); }
+.modules--4 li.last .md { color:color-mix(in srgb, var(--paper) 75%, var(--ink)); }
 .formats { margin-top:var(--s6); display:flex; flex-wrap:wrap; gap:var(--s3) var(--s6); align-items:center; font-size:14px; }
 .fmt { display:inline-flex; align-items:center; gap:var(--s2); font-weight:600; }
 .sq { width:14px; height:4px; display:inline-block; }
@@ -1011,9 +1044,30 @@ footer .brand { font-size:15px; color:var(--ink); }
         </div>
         <h1>Nail your PMF. <em>Accelerate your growth.</em></h1>
         <p class="hook">You have customers and revenue, but growth is harder than it should be?</p>
-        <p class="lead">Do you seek more pull than push? Startups with a clear Product-Market Fit (PMF) grow <strong class="hl">20× faster</strong>* than those that scale prematurely. The <strong>entrepreneur-to-entrepreneur program</strong> equips you with a systematic method for nailing your PMF and assists you over six months. Learn from <strong>serial entrepreneurs and unicorn founders</strong> what worked for them.</p>
-    <figure class="hero-art">
+        <p class="lead">Do you seek more pull than push? Startups with a clear Product-Market Fit (PMF) grow <strong class="hl">20× faster</strong>* than those that scale prematurely. The <strong>entrepreneur-to-entrepreneur program</strong> equips you with a systematic method for strengthening your own PMF and assists you over six months. Along the way, learn from <strong>serial entrepreneurs and unicorn founders</strong> what worked for them.</p>
+    <figure class="hero-art pmf-hover" id="pmf-hover">
           <img fetchpriority="high" decoding="async" src="images/pmf-mountain-product-market-fit.webp" width="958" height="461" alt="A founder pushes a boulder up a mountain towards a red flag labelled Product-Market Fit. Before the summit: Don't die! After it: repeatable, predictable growth.">
+          <div class="sig sig--no">
+            <p class="sig-h"><span class="sig-ic" aria-hidden="true">✕</span>Don’t die!</p>
+            <ul>
+              <li>Every sale is a hard push</li>
+              <li>Long, unpredictable sales cycles</li>
+              <li>Customers churn or don’t come back</li>
+              <li>Growth depends on founder hustle</li>
+              <li>Unclear why customers really buy</li>
+            </ul>
+          </div>
+          <div class="sig sig--yes">
+            <p class="sig-h"><span class="sig-ic" aria-hidden="true">✓</span>Repeatable, predictable growth</p>
+            <ul>
+              <li>Customers pull: inbound and referrals</li>
+              <li>Repeatable, scalable sales process</li>
+              <li>Customers buy more and come back</li>
+              <li>Acquisition costs keep falling</li>
+              <li>Growth becomes predictable</li>
+            </ul>
+          </div>
+          <figcaption class="sig-hint" aria-hidden="true"><span class="h-hover">Move your cursor over the mountain: uphill or downhill</span><span class="h-touch">Tap the left or right side of the mountain</span></figcaption>
         </figure>
         <p class="caption hero-src">* Startup Genome Report (Version 2) – Premature Scaling (UC Berkeley, Stanford, Startup Genome Project, 2011–2012)</p>
         <div class="hero-quotes"><figure class="hq"><span class="hq-mark" aria-hidden="true">“</span><blockquote>This program has given me so much energy.</blockquote><figcaption><img src="images/testimonial-chris-zurbrugg.jpg" alt="" width="40" height="40" loading="lazy"><span><b>Chris Zurbrügg</b>Co-Founder & CEO, aumico</span></figcaption></figure><figure class="hq"><span class="hq-mark" aria-hidden="true">“</span><blockquote>The value of the program is many times more than we paid for it.</blockquote><figcaption><img src="images/testimonial-mario-von-bergen.jpg" alt="" width="40" height="40" loading="lazy"><span><b>Mario von Bergen</b>Co-Founder, Splint Invest</span></figcaption></figure><figure class="hq"><span class="hq-mark" aria-hidden="true">“</span><blockquote>On a scale from 1 to 10, I definitely give this program a 10.</blockquote><figcaption><img src="images/testimonial-michael-trummer.jpg" alt="" width="40" height="40" loading="lazy"><span><b>Michael Trummer</b>Co-Founder, ahead</span></figcaption></figure></div>
@@ -1136,7 +1190,7 @@ footer .brand { font-size:15px; color:var(--ink); }
         <div class="kpi kpi--hl"><span class="n">1</span><span class="u">Demo Day</span><p>to pitch your case to selected investors</p></div>
       </div>
       <div class="journey">
-        <h3>Cohort 2027 – 6 months of support</h3>
+        <h3>Cohort 2027 – 6 months of acceleration</h3>
         <ol class="steps">
               <li class="step step--hl"><span class="dot">K</span><span class="t">Kick-off<small>4 &amp; 5 March 2027</small><small class="loc">Zurich</small></span></li>
               <li class="step"><span class="dot">S1</span><span class="t">Sprint 1<small>26 March 2027</small><small class="loc">Online</small></span></li>
@@ -1262,7 +1316,7 @@ footer .brand { font-size:15px; color:var(--ink); }
       <ol class="proc">
         <li><span class="pn">1</span><h3>Check your fit</h3><p>Check whether you meet the criteria for participating startups.</p><a class="btn btn--secondary" href="#who">See the criteria <span class="arr" aria-hidden="true">→</span></a></li>
         <li><span class="pn">2</span><h3>Get more information</h3><p>Fill in the short form. We’ll get back to you.</p><a class="btn btn--primary" href="info.html">Get more information <span class="arr" aria-hidden="true">→</span></a></li>
-        <li><span class="pn">3</span><h3>Let’s discuss the fit</h3><p>During the call, we explore together whether the program is a good fit.</p></li>
+        <li><span class="pn">3</span><h3>Let’s have a call</h3><p>During the call, we explore together whether the program is a good fit.</p></li>
         <li><span class="pn">4</span><h3>Give feedback</h3><p>If it’s a fit, you give us feedback.</p></li>
         <li><span class="pn">5</span><h3>Get selected</h3><p>Only 10 startups are selected for the program.</p></li>
       </ol>
@@ -1275,19 +1329,17 @@ footer .brand { font-size:15px; color:var(--ink); }
       <div class="sec-head">
         <p class="eyebrow">About the methodology</p>
         <h2 class="h-sec">Method, inputs, reflections, sprints, peer exchanges</h2>
-        <p class="lead">When you have strong Product-Market Fit, it feels so obvious. If you don’t, it can be hard to know what to do next. Startups rarely find their ideal Product-Market Fit on the first try. It typically takes 3–5 cycles. That’s where the Academy comes in.</p>
-        <p class="lead">You’ll gain the tools and frameworks you need to analyze your Product-Market Fit. Over six months, you’ll work on your own case, experiment, and learn what works for your startup. Along the way, you’ll gain insights from successful entrepreneurs and get valuable feedback from your peers.</p>
+        <p class="lead">Startups rarely find their ideal Product-Market Fit on the first try. It typically takes 3–5 cycles. <strong>When you have strong Product-Market Fit, it feels so obvious.</strong> If you don’t, it often feels like fog and it is unclear what to do next. That’s where the Academy comes in.</p>
+        <p class="lead">You’ll gain the tools and frameworks you need to analyze your PMF, experiment fast and reflect on your case. Over six months, you’ll be assisted while you experiment, win new customers and sharpen your case. You’ll gain insights from successful entrepreneurs that give you a new perspective on your case, and you’ll learn from discussions with your peers.</p>
         <p class="lead">We do all of this in a high-trust setting with one shared goal – <strong>to nail your PMF and accelerate your growth.</strong></p>
-        <p class="meth-cta"><a class="btn btn--secondary" href="#testimonials">Read the testimonials <span class="arr" aria-hidden="true">→</span></a></p>
       </div>
-      <ol class="modules">
-          <li><span class="mk">Module</span><span class="mn">1</span><span class="mt">Assess your PMF</span></li>
-          <li><span class="mk">Module</span><span class="mn">2</span><span class="mt">Extract the essence of your PMF</span></li>
-          <li><span class="mk">Module</span><span class="mn">3</span><span class="mt">Make your PMF measurable</span></li>
-          <li><span class="mk">Module</span><span class="mn">4</span><span class="mt">Build your PMF Engine</span></li>
-          <li><span class="mk">Module</span><span class="mn">5</span><span class="mt">Experiment smartly and efficiently</span></li>
-          <li class="last"><span class="mk">Module</span><span class="mn">6</span><span class="mt">Scale with customer success</span></li>
+      <ol class="modules modules--4">
+          <li><span class="mk">Element</span><span class="mn">1</span><span class="mt">Method</span><span class="md">A proven, systematic method and tools to analyze your PMF and focus on what really matters.</span></li>
+          <li><span class="mk">Element</span><span class="mn">2</span><span class="mt">Experiments</span><span class="md">Fast, structured experiments in seven growth sprints to test what works with real customers.</span></li>
+          <li><span class="mk">Element</span><span class="mn">3</span><span class="mt">Inputs</span><span class="md">Insights from serial entrepreneurs, unicorn founders and investors on what worked for them.</span></li>
+          <li class="last"><span class="mk">Element</span><span class="mn">4</span><span class="mt">Peer-to-Peer Learning</span><span class="md">Honest feedback and shared learnings from fellow founders in a high-trust setting.</span></li>
       </ol>
+      <p class="meth-cta"><a class="btn btn--secondary" href="#testimonials">Read the testimonials <span class="arr" aria-hidden="true">→</span></a></p>
     </div>
   </section>
 
@@ -1658,6 +1710,19 @@ footer .brand { font-size:15px; color:var(--ink); }
     this.value = v ? v.toLocaleString("en-US") : "";
   });
   calc(); update();
+})();
+</script>
+
+<script>
+(function () {
+  var f = document.getElementById("pmf-hover"); if (!f) return;
+  var img = f.querySelector("img");
+  function sideAt(x) { var r = img.getBoundingClientRect(); if (x < r.left || x > r.right) return null; return (x - r.left) < r.width * 0.5 ? "no" : "yes"; }
+  function set(side) { if (side) f.setAttribute("data-side", side); else f.removeAttribute("data-side"); }
+  var hoverable = window.matchMedia && window.matchMedia("(hover: hover)").matches;
+  img.addEventListener("mousemove", function (e) { if (hoverable) set(sideAt(e.clientX)); });
+  f.addEventListener("mouseleave", function () { if (hoverable) set(null); });
+  img.addEventListener("click", function (e) { if (hoverable) return; var s = sideAt(e.clientX); set(f.getAttribute("data-side") === s ? null : s); });
 })();
 </script>
 
