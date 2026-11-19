@@ -455,6 +455,9 @@ footer .brand .logo { height:24px; }
 .hq { margin:0; position:relative; background:var(--paper); border:1px solid var(--line); border-top:3px solid var(--ink); padding:var(--s3) var(--s4); display:grid; grid-template-rows:1fr auto; gap:var(--s2); box-shadow:0 6px 18px rgba(20,23,26,.06); transition:transform .2s ease, box-shadow .2s ease; }
 .hq:hover { transform:translateY(-3px); box-shadow:0 10px 24px rgba(20,23,26,.10); }
 .hq-mark { display:none; }
+html body .hq { border:0; box-shadow:none; background:transparent; padding-inline:0; }
+html body .hq:hover { transform:none; box-shadow:none; }
+html body .hq figcaption { border-top:0; }
 .hq blockquote::before { content:"“"; color:var(--red); font-weight:700; margin-right:1px; }
 .hq blockquote { margin:0; font:600 16px/22px var(--font-display); letter-spacing:-.005em; color:var(--ink); text-wrap:pretty; }
 .hq figcaption { display:flex; align-items:center; gap:var(--s2); padding-top:var(--s2); border-top:1px solid var(--line); font-size:12px; line-height:15px; color:var(--ink-muted); }
@@ -674,6 +677,9 @@ html body #nps .nps-wrap h3 { margin-bottom:var(--s3); }
 .badge--red { background:var(--red); border-color:var(--red); color:var(--on-red); }
 .hero h1 { font-size:clamp(44px, 7.4vw, 84px); line-height:.98; letter-spacing:-.035em; font-weight:700; }
 .hero h1 em { font-style:normal; color:var(--red); }
+html body .hero h1 { font-size:min(76px, calc((100vw - 40px) / 11.4)); }
+@media (min-width:760px) { html body .hero h1 { font-size:min(76px, calc((100vw - 72px) / 11.4)); } }
+html body .hero h1 em { white-space:nowrap; }
 .ctas { display:flex; flex-wrap:wrap; gap:var(--s3); }
 .powered { display:flex; flex-wrap:wrap; align-items:center; gap:var(--s4) var(--s8); padding-top:var(--s6); border-top:1px solid var(--line); margin-top:var(--s2); }
 .powered .caption { text-transform:uppercase; letter-spacing:.12em; font-weight:600; font-size:11px; }
@@ -905,7 +911,7 @@ footer .brand { font-size:15px; color:var(--ink); }
 .modules li { align-content:start; }
 .modules .mn { margin-top:calc(-1 * var(--s2)); }
 #methodology .meth-after { margin-top:var(--s8); max-width:65ch; }
-#methodology .meth-cta { margin-top:var(--s6); }
+#methodology .meth-cta { margin-top:var(--s3); }
 .tl-cta { margin-top:var(--s6); }
 .tl-cta--before { margin-top:var(--s8); margin-bottom:0; }
 .modules li.last { background:var(--ink); color:var(--paper); box-shadow:inset 0 4px 0 var(--red); }
@@ -1012,7 +1018,6 @@ footer .brand { font-size:15px; color:var(--ink); }
         <p class="caption hero-src">* Startup Genome Report (Version 2) – Premature Scaling (UC Berkeley, Stanford, Startup Genome Project, 2011–2012)</p>
         <div class="hero-quotes"><figure class="hq"><span class="hq-mark" aria-hidden="true">“</span><blockquote>This program has given me so much energy.</blockquote><figcaption><img src="images/testimonial-chris-zurbrugg.jpg" alt="" width="40" height="40" loading="lazy"><span><b>Chris Zurbrügg</b>Co-Founder & CEO, aumico</span></figcaption></figure><figure class="hq"><span class="hq-mark" aria-hidden="true">“</span><blockquote>The value of the program is many times more than we paid for it.</blockquote><figcaption><img src="images/testimonial-mario-von-bergen.jpg" alt="" width="40" height="40" loading="lazy"><span><b>Mario von Bergen</b>Co-Founder, Splint Invest</span></figcaption></figure><figure class="hq"><span class="hq-mark" aria-hidden="true">“</span><blockquote>On a scale from 1 to 10, I definitely give this program a 10.</blockquote><figcaption><img src="images/testimonial-michael-trummer.jpg" alt="" width="40" height="40" loading="lazy"><span><b>Michael Trummer</b>Co-Founder, ahead</span></figcaption></figure></div>
         <div class="ctas">
-          <a class="btn btn--primary" href="info.html">Get more information</a>
           <a class="btn btn--secondary" href="#check">Take the free PMF Check</a>
         </div>
         <div class="powered">
@@ -1270,8 +1275,10 @@ footer .brand { font-size:15px; color:var(--ink); }
       <div class="sec-head">
         <p class="eyebrow">About the methodology</p>
         <h2 class="h-sec">Method, inputs, reflections, sprints, peer exchanges</h2>
-        <p class="lead">Product-Market Fit is like a secret recipe for an extraordinary meal. Just like a great chef, you need to understand the ingredients, find the perfect combination, and fine-tune every detail to create something exceptional – something that truly resonates with your target audience and leaves them wanting more.</p>
-        <p class="lead">However, startups rarely find their ideal Product-Market Fit on the first try. It typically takes 3–5 cycles.</p>
+        <p class="lead">When you have strong Product-Market Fit, it feels so obvious. If you don’t, it can be hard to know what to do next. Startups rarely find their ideal Product-Market Fit on the first try. It typically takes 3–5 cycles. That’s where the Academy comes in.</p>
+        <p class="lead">You’ll gain the tools and frameworks you need to analyze your Product-Market Fit. Over six months, you’ll work on your own case, experiment, and learn what works for your startup. Along the way, you’ll gain insights from successful entrepreneurs and get valuable feedback from your peers.</p>
+        <p class="lead">We do all of this in a high-trust setting with one shared goal – <strong>to nail your PMF and accelerate your growth.</strong></p>
+        <p class="meth-cta"><a class="btn btn--secondary" href="#testimonials">Read the testimonials <span class="arr" aria-hidden="true">→</span></a></p>
       </div>
       <ol class="modules">
           <li><span class="mk">Module</span><span class="mn">1</span><span class="mt">Assess your PMF</span></li>
@@ -1281,8 +1288,6 @@ footer .brand { font-size:15px; color:var(--ink); }
           <li><span class="mk">Module</span><span class="mn">5</span><span class="mt">Experiment smartly and efficiently</span></li>
           <li class="last"><span class="mk">Module</span><span class="mn">6</span><span class="mt">Scale with customer success</span></li>
       </ol>
-      <p class="lead meth-after">Over six months, you’ll gain the tools and frameworks you need, analyze your Product-Market Fit, work on your case, and benefit from insights from successful entrepreneurs and valuable feedback from peers. You’ll continuously experiment, learn, and adapt in a high-trust setting – with only one common goal: <strong>to nail your PMF and accelerate your growth.</strong></p>
-      <p class="meth-cta"><a class="btn btn--secondary" href="#testimonials">Read the testimonials <span class="arr" aria-hidden="true">→</span></a></p>
     </div>
   </section>
 
